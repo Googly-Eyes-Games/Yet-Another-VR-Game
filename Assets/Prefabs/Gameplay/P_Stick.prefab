@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 7355505490515330709}
   - component: {fileID: 121160216096319666}
   - component: {fileID: 2139704291192159723}
+  - component: {fileID: 633537645820190721}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Stick
@@ -249,3 +250,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &633537645820190721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607747982335426583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779376151b780804691ae0964d8d9a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

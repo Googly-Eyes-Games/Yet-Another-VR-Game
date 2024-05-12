@@ -1395,6 +1395,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1093152878788469291, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: minimalStickSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093152878788469291, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: maxVelocityDirectionsOffset
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566465427794460367, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: minimalStickSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566465427794460367, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: maxVelocityDirectionsOffset
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329050621223634503, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: minimalStickSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329050621223634503, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: maxVelocityDirectionsOffset
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3861589910605730765, guid: b490e53efcddc6748803a373d421a7da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1434,6 +1458,14 @@ PrefabInstance:
     - target: {fileID: 3861589910605730765, guid: b490e53efcddc6748803a373d421a7da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831165505709533213, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: minimalStickSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831165505709533213, guid: b490e53efcddc6748803a373d421a7da, type: 3}
+      propertyPath: maxVelocityDirectionsOffset
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8942275991445520772, guid: b490e53efcddc6748803a373d421a7da, type: 3}
       propertyPath: m_Name

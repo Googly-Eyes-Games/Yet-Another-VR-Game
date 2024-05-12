@@ -4,20 +4,35 @@ using UnityEngine;
 public class DrumTrigger : MonoBehaviour
 {
     [SerializeField]
-    private float maxVelocityDirectionsOffset = 40f;
+    private float maxVelocityDirectionsOffset = 30f;
     
     [SerializeField]
-    private float minimalStickVelocity = 0f;
+    private float minimalStickSpeed = 5f;
     
     public event Action OnTrigger;
     private void OnTriggerEnter(Collider other)
     {
-        Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
+        if (!other.CompareTag("Stick"))
+            return;
         
+        StickComponent stick = other.GetComponent<StickComponent>();
+        if (!stick)
+            return;
         
-        if (other.gameObject.layer == LayerMask.GetMask("Stick"))
+        float upToOtherVelocityAngle = Vector3.Angle(stick.Velocity, -transform.up);
+        float stickSpeed = stick.Velocity.magnitude;
+                
+        Debug.Log($"Speed: {stickSpeed}, Angle: {upToOtherVelocityAngle}");
+
+        if (upToOtherVelocityAngle < maxVelocityDirectionsOffset
+            && stickSpeed > minimalStickSpeed)
         {
+            Debug.Log("boom");
             OnTrigger?.Invoke();
+        }
+        else
+        {
+            Debug.Log($"FALSE: Speed: {stickSpeed > minimalStickSpeed}, Angle: {upToOtherVelocityAngle < maxVelocityDirectionsOffset}");
         }
     }
 }
