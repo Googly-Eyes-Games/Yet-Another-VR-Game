@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8bd9b373b10f465e9c8a7c4a8f8d1f32
+guid: 01f6e5eb43df77749a8c310479d00438
 ModelImporter:
   serializedVersion: 20300
   internalIDToNameTable: []
@@ -12,11 +12,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: chromey
-    second: {fileID: 2100000, guid: 71bdd0673f3fe784680a47cd717aff9a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: mediumGrey
     second: {fileID: 2100000, guid: dc1d2c50d7463b847ba30ff50e1959b3, type: 2}
   - first:
@@ -25,7 +20,7 @@ ModelImporter:
       name: shinyBlack
     second: {fileID: 2100000, guid: c3ca319dc8c9a404ebb7c4f883217b44, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -115,8 +110,8 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
