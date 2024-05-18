@@ -137,13 +137,16 @@ MonoBehaviour:
       m_Calls: []
   m_Handle: {fileID: 8042734651732729076}
   m_Value: 1
-  m_LockToValue: 1
+  m_LockToBinary: 0
   m_MaxAngle: 50
   m_MinAngle: -50
   m_OnLeverActivate:
     m_PersistentCalls:
       m_Calls: []
   m_OnLeverDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLeverMove:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &3779605601657955298
