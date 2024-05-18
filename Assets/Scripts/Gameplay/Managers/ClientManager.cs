@@ -7,6 +7,9 @@ public class ClientManager : MonoBehaviour
     
     [field: SerializeField]
     public float clientReturnSpeed { get; private set; } = 3f;
+    
+    [field: SerializeField]
+    public float clientReturnMugSpeed { get; private set; } = 2f;
 
     [SerializeField]
     private GameObject clientPrefab;

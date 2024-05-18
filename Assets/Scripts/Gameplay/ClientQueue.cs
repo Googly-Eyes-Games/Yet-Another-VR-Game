@@ -41,12 +41,11 @@ public class ClientQueue : MonoBehaviour
         MugComponent returnedMug = client.collectedMug;
         returnedMug.gameObject.SetActive(true);
         returnedMug.fillPercentage = 0f;
-        returnedMug.transform.position = mugPosition;
-        
-        Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
         
         // TODO: Remove Hardcoded variables
-        mugRigidbody.velocity = client.returnSpeed * returnMugStartPoint.forward;
+        Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
+        mugRigidbody.position = mugPosition;
+        mugRigidbody.velocity = client.mugReturnSpeed * returnMugStartPoint.forward;
         mugRigidbody.angularVelocity = Vector3.up * 45f;
     }
 

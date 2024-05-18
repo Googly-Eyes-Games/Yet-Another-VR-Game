@@ -16,6 +16,7 @@ public class Client : MonoBehaviour
     
     public float walkSpeed { get; private set; }
     public float returnSpeed { get; private set; }
+    public float mugReturnSpeed { get; private set; }
     
     private float timeSpawned;
     private float timeBeerCollected;
@@ -32,6 +33,7 @@ public class Client : MonoBehaviour
         timeSpawned = Time.timeSinceLevelLoad;
         walkSpeed = manager.currentClientSpeed;
         returnSpeed = manager.clientReturnSpeed;
+        mugReturnSpeed = manager.clientReturnMugSpeed;
     }
 
     public void Awake()
@@ -87,7 +89,7 @@ public class Client : MonoBehaviour
     private void OnMugCollected(MugComponent mug)
     {
         // TODO: HARDCODED VALUE
-        if (mug.fillPercentage > 0.8f)
+        if (mug.fillPercentage > 0.6f)
         {
             collectedMug = mug;
             collectedMug.gameObject.SetActive(false);
