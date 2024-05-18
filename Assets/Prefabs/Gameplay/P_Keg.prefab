@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928659697100552351}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9560884, z: -0.29307833, w: 0}
-  m_LocalPosition: {x: 0, y: 0.0049, z: -0.0609}
+  m_LocalRotation: {x: -0, y: 0.8293392, z: -0.55874556, w: 0}
+  m_LocalPosition: {x: 0, y: 0.0048999786, z: -0.060899973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2597798018951794992}
-  m_LocalEulerAnglesHint: {x: 34.085, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 67.938, y: 180, z: 0}
 --- !u!1 &4967336559291097374
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tapSocket: {fileID: 5900823657041854207}
   tapRaycastLength: 0.17
-  tippingBaseSpeed: 0.05
+  tippingBaseSpeed: 0.5
 --- !u!1001 &4494129746578108133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
+      propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4006390452786763882}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -292,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetValue
+      value: SetTippingSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -300,7 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LeverTest, Assembly-CSharp
+      value: KegComponent, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5283898766228162098, guid: 36eff8b49ecdca745894efb1d2ce5f8f, type: 3}
       propertyPath: m_OnLeverMove.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName

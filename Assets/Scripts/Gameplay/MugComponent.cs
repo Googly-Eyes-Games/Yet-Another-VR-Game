@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class MugComponent : MonoBehaviour
 {
+    [field: SerializeField]
+    public GameObject prefab { get; private set; }
+    
     [SerializeField]
     private MeshRenderer beerMeshRenderer;
+    
     private Material beerMaterialInstance;
-
+    
     private float fillPercentageField = 0f;
     public float fillPercentage
     {

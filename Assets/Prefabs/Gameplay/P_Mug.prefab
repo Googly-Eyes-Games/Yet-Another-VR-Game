@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb27b32beac4e145a717c8765ee38fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <prefab>k__BackingField: {fileID: 8815601257028905141}
   beerMeshRenderer: {fileID: 8393400025820896101}
 --- !u!1001 &6010014585469089830
 PrefabInstance:

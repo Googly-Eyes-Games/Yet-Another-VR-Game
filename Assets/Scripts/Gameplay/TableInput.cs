@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -79,7 +78,7 @@ public class TableInput : MonoBehaviour
         
         CorrectAngularVelocity(mugRigidbody);
         CorrectVelocity(mugRigidbody, inputLineDir);
-        CorrectMugPositionAndRotation(mugRigidbody);
+        CorrectMugPositionAndRotation(mugRigidbody, mugComponent);
     }
 
     private void CorrectAngularVelocity(Rigidbody mugRigidbody)
@@ -95,7 +94,7 @@ public class TableInput : MonoBehaviour
         mugRigidbody.velocity = Vector3.Dot(inputLineDir, mugRigidbody.velocity) * inputLineDir * forwardSpeedMultiplier;
     }
 
-    private void CorrectMugPositionAndRotation(Rigidbody mugRigidbody)
+    private void CorrectMugPositionAndRotation(Rigidbody mugRigidbody, MugComponent mugComponent)
     {
         Vector3 mugPosition = mugRigidbody.position;
         Vector3 mugLocalStartPosition = inputStartPoint.InverseTransformPoint(mugPosition);
@@ -108,7 +107,8 @@ public class TableInput : MonoBehaviour
         Timer.Register(
             mugPositionCorrectionDuration,
             () => { },
-            timeSinceStart => TickMugPositionAndCorrection(timeSinceStart, mugRigidbody, mugLocalStartPosition));
+            timeSinceStart => TickMugPositionAndCorrection(timeSinceStart, mugRigidbody, mugLocalStartPosition),
+            autoDestroyOwner: mugComponent);
     }
 
     private void TickMugPositionAndCorrection(
