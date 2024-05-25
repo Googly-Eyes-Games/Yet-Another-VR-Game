@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c37ee8b2cf7cee04db88c6743dbaa90f, type: 2}
     - target: {fileID: 919132149155446097, guid: e2bf2638528847d449c6e0fe6ee58c73, type: 3}
       propertyPath: m_Name
-      value: SM_ShortWall
+      value: P_ShortWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e2bf2638528847d449c6e0fe6ee58c73, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

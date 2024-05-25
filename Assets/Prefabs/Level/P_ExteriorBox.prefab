@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 463b9363a39cbce4bb93de508bca68e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 76beee72fa2ae154fb83daff2ade8ed5, type: 3}
       propertyPath: m_Name
-      value: SM_ExteriorBox
+      value: P_ExteriorBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 76beee72fa2ae154fb83daff2ade8ed5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
