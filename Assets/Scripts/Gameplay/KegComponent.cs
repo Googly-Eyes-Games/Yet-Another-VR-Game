@@ -13,6 +13,12 @@ public class KegComponent : MonoBehaviour
     [Tooltip("MugsPerSecond")]
     private float tippingBaseSpeed = 0.2f;
 
+    [SerializeField]
+    private float neckRadius = 0.01f;
+
+    [SerializeField]
+    private ParticleSystem fluidParticleSystem;
+
     private float currentTippingSpeed = 0f;
 
     private void OnDrawGizmos()
@@ -22,6 +28,8 @@ public class KegComponent : MonoBehaviour
         
         Gizmos.color = Color.red;
         Gizmos.DrawRay(tapSocket.position, tapSocket.forward * tapRaycastLength);
+        
+        Gizmos.DrawWireSphere(tapSocket.position, neckRadius);
     }
 
     private void Update()
@@ -44,5 +52,13 @@ public class KegComponent : MonoBehaviour
     public void SetTippingSpeed(float newValue)
     {
         currentTippingSpeed = tippingBaseSpeed * newValue;
+
+        if (!(newValue > Single.Epsilon))
+            return;
+
+        ParticleSystem.MainModule mainModule = fluidParticleSystem.main;
+        mainModule.startSizeMultiplier = neckRadius * 25f * newValue;
+        
+        fluidParticleSystem.Play();
     }
 }
