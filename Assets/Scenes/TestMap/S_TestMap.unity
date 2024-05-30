@@ -1256,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1112763576265283777, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1112763576265283777, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3753,7 +3753,8 @@ MonoBehaviour:
   <currentClientSpeed>k__BackingField: 0.5
   <clientReturnSpeed>k__BackingField: 3
   <clientReturnMugSpeed>k__BackingField: 2
-  clientPrefab: {fileID: 8913295021259017323, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
+  leftClientPrefab: {fileID: 8913295021259017323, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
+  rightClientPrefab: {fileID: 2787567338246115013, guid: 7dea86ecda1248f4394ffc24f0aacad6, type: 3}
 --- !u!1001 &1309143585
 PrefabInstance:
   m_ObjectHideFlags: 0

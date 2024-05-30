@@ -19,6 +19,9 @@ public class ClientQueue : MonoBehaviour
     
     [field: SerializeField]
     public Transform returnMugEndPoint { get; private set; }
+    
+    [field: SerializeField]
+    public bool isRightQueue { get; private set; }
 
     public float length => Vector3.Distance(startPoint.position, endPoint.position);
 

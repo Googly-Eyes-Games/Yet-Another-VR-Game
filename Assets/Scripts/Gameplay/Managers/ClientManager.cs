@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ClientManager : MonoBehaviour
@@ -12,14 +13,22 @@ public class ClientManager : MonoBehaviour
     public float clientReturnMugSpeed { get; private set; } = 2f;
 
     [SerializeField]
-    private GameObject clientPrefab;
+    private GameObject leftClientPrefab;
+    
+    [SerializeField]
+    private GameObject rightClientPrefab;
     
     private ClientQueue[] clientQueues;
 
+    [Button(enabledMode: EButtonEnableMode.Playmode)]
     public void SpawnClient()
     {
         ClientQueue targetQueue = clientQueues.GetRandom();
-        targetQueue.SpawnClient(this, clientPrefab);
+        
+        if (targetQueue.isRightQueue)
+            targetQueue.SpawnClient(this, rightClientPrefab);
+        else
+            targetQueue.SpawnClient(this, leftClientPrefab);
     }
 
     private void Awake()
