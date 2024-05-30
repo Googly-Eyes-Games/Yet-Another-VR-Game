@@ -7,6 +7,6 @@ public class Spawner : MonoBehaviour
 
     public void Spawn()
     {
-        Instantiate(prefab, transform.position, transform.rotation, null);
+        Instantiate(prefab, transform.position, transform.rotation, transform);
     }
 }

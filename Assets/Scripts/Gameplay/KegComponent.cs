@@ -37,9 +37,10 @@ public class KegComponent : MonoBehaviour
         if (currentTippingSpeed < Single.Epsilon)
             return;
 
-        bool raycastHit = Physics.Raycast(
-            tapSocket.position,
-            tapSocket.forward * tapRaycastLength,
+        Ray tapRay = new Ray(tapSocket.position, tapSocket.forward * tapRaycastLength);
+        bool raycastHit = Physics.SphereCast(
+            tapRay,
+            neckRadius,
             out RaycastHit hit);
 
         if (!raycastHit || !hit.collider.CompareTag("Mug"))

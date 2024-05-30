@@ -27,6 +27,12 @@ public class MugComponent : MonoBehaviour
         UpdateBeerMaterial();
     }
 
+    public void DestroyMug()
+    {
+        // TODO: object pooling
+        Destroy(gameObject);
+    }
+
     private void UpdateBeerMaterial()
     {
        beerMaterialInstance.SetFloat(ShaderPropertyLookUp.fill, fillPercentage);
