@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1235,13 +1234,29 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030085799295155696, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleDeltaAction.m_Action.m_Id
+      value: bf347f52-6bd9-4ae6-8c7d-762d4b996bb7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030085799295155696, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleDeltaAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030085799295155696, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleToggleAction.m_Action.m_Id
+      value: 7e992024-74e6-4b88-8e91-a83c285306e8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030085799295155696, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleToggleAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1112763576265283777, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1112763576265283777, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1112763576265283777, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1298,6 +1313,34 @@ PrefabInstance:
     - target: {fileID: 4666482947748021294, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_Antialiasing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472876294464463377, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727709152696161444, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ModelSelectTransition
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727709152696161444, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ModelDeSelectTransition
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727709152696161444, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleDeltaAction.m_Action.m_Id
+      value: e00ce360-8e00-4db8-b2d3-508a41053879
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727709152696161444, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleDeltaAction.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727709152696161444, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleToggleAction.m_Action.m_Id
+      value: b8000afb-c455-434b-aea5-5814931ffd31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727709152696161444, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
+      propertyPath: m_ScaleToggleAction.m_UseReference
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8123364026555909822, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_Name
@@ -2013,16 +2056,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5157395080114985353, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985353, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5157395080114985353, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.70586765
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5157395080114985353, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.8113208
+      value: 0.9676024
       objectReference: {fileID: 0}
     - target: {fileID: 5157395080114985353, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
@@ -2097,15 +2144,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25761402
+      value: -0.438
       objectReference: {fileID: 0}
     - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.053
+      value: 1.072
       objectReference: {fileID: 0}
     - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9308206
+      value: -0.608
       objectReference: {fileID: 0}
     - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
       propertyPath: m_LocalRotation.w

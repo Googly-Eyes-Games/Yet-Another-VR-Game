@@ -191,7 +191,7 @@
       }
     },
     "com.unity.splines": {
-      "version": "2.6.0",
+      "version": "2.6.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -223,7 +223,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
+      "version": "3.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -307,7 +307,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.4.0",
+      "version": "4.4.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
