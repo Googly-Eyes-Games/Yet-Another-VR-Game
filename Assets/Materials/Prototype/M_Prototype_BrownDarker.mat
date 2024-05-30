@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_6155CAB: 0.4
+    - Vector1_6155CAB: 0
     m_Colors:
     - Color_1313CB5F: {r: 0.354, g: 0.21238834, b: 0.135582, a: 1}
     - Color_BE5A53D8: {r: 0.084, g: 0.032787096, b: 0.020496001, a: 0}
