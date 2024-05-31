@@ -1807,63 +1807,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 859124073653206103, guid: 0013227005deb0a42990011af165dc2a, type: 3}
   m_PrefabInstance: {fileID: 831228523}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &854082892
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.335
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.94500005
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.6079999
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.000000059604638
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 691187389614227388, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8815601257028905141, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: m_Name
-      value: P_Mug
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
 --- !u!1 &855892313
 GameObject:
   m_ObjectHideFlags: 0
@@ -5587,20 +5530,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7339134308556089495, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
+      propertyPath: mugPrefab
+      value: 
+      objectReference: {fileID: 8815601257028905141, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
     - target: {fileID: 7973057152949172978, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
       propertyPath: m_Name
       value: P_Sink
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7976097267963917722, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
+    - {fileID: 1228579728959624386, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 470183686885565329, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 9222256329801711431, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7987320666957469356, guid: 350dd86395d02564caf30ee5b075b1e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -5987,5 +5930,4 @@ SceneRoots:
   - {fileID: 1896778594}
   - {fileID: 855892314}
   - {fileID: 309035002}
-  - {fileID: 854082892}
   - {fileID: 1364488811}

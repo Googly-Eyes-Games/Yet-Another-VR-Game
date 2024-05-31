@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 2439647757041166320}
   - component: {fileID: 6859034410155381643}
   - component: {fileID: 7237403840033639945}
+  - component: {fileID: 3872050374596475355}
   m_Layer: 8
   m_Name: P_Mug
   m_TagString: Mug
@@ -315,7 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb27b32beac4e145a717c8765ee38fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <prefab>k__BackingField: {fileID: 8815601257028905141}
   beerMeshRenderer: {fileID: 8040367936050889912}
 --- !u!136 &6859034410155381643
 CapsuleCollider:
@@ -363,6 +363,29 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: -0.13, y: 0.11, z: 0}
+--- !u!136 &3872050374596475355
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815601257028905141}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Height: 0.34
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.12, z: 0}
 --- !u!1001 &333671185277507857
 PrefabInstance:
   m_ObjectHideFlags: 0

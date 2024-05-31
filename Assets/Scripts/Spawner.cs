@@ -1,12 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class MugSpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject prefab;
+    private GameObject mugPrefab;
 
-    public void Spawn()
+    public HashSet<MugComponent> SpawnedMugs { get; private set; } = new();
+
+    private int targetMugsAmount = 1;
+
+    public void SetTargetMugsAmount(int newValue)
     {
-        Instantiate(prefab, transform.position, transform.rotation, transform);
+        targetMugsAmount = newValue;
+        SpawnMugsToTargetAmount();
+    }
+
+    public void Awake()
+    {
+        SpawnMugsToTargetAmount();
+    }
+
+    public GameObject SpawnMug()
+    {
+        GameObject spawnedGameObject = Instantiate(mugPrefab, transform.position, transform.rotation, transform);
+
+        MugComponent mug = spawnedGameObject.GetComponent<MugComponent>();
+        SpawnedMugs.Add(mug);
+        mug.OnDestroy += HandleMugDestroyed;
+
+        return spawnedGameObject;
+    }
+
+    private void HandleMugDestroyed(MugComponent destroyedMug)
+    {
+        SpawnedMugs.Remove(destroyedMug);
+
+        SpawnMugsToTargetAmount();
+    }
+
+    private void SpawnMugsToTargetAmount()
+    {
+        int activeMugs = SpawnedMugs.Count;
+        for (int mugID = activeMugs; mugID < targetMugsAmount; mugID++)
+        {
+            SpawnMug();
+        }
     }
 }

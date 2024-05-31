@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using erulathra;
 using NaughtyAttributes;
 using UnityEngine;
@@ -8,11 +7,13 @@ using UnityTimer;
 public class ClientSubsystem : SceneSubsystem
 {
     private ClientQueue[] clientQueues;
+    private MugSpawner mugSpawner;
 
     private float AccumulatedAcceleration = 1f;
     public float CurrentClientSpeed => GameplaySettings.Global.ClientBaseSpeed * AccumulatedAcceleration;
 
-    private HashSet<Client> activeClients = new();
+    private readonly HashSet<Client> activeClients = new();
+    private readonly HashSet<MugComponent> activeMugs = new();
 
     private Timer autoSpawnTimer;
 
@@ -22,6 +23,7 @@ public class ClientSubsystem : SceneSubsystem
     public override void Initialize()
     {
         clientQueues = FindObjectsByType<ClientQueue>(FindObjectsSortMode.None);
+        mugSpawner = FindObjectOfType<MugSpawner>();
 
         GameplayTimeSubsystem gameplayTimeSubsystem = SceneSubsystemManager.GetSubsystem<GameplayTimeSubsystem>();
         gameplayTimeSubsystem.OnCountDownEnd += DoAutoSpawnLogic;
@@ -77,6 +79,7 @@ public class ClientSubsystem : SceneSubsystem
         if (spawnedClients % GameplaySettings.Global.ClientsToIncreaseDifficulty == 0)
         {
             maxAliveClients++;
+            mugSpawner.SetTargetMugsAmount(maxAliveClients);
         }
         
         if (spawnedClients % GameplaySettings.Global.ClientsToIncreaseSpeed == 0)

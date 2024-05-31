@@ -12,7 +12,10 @@ public class ClientHandTrigger : MonoBehaviour
             
         if (other.CompareTag("Mug"))
         {
-            OnMugCollected?.Invoke(other.GetComponent<MugComponent>());
+            Rigidbody mugRigidbody = other.GetComponent<Rigidbody>();
+            
+            if (Vector3.Dot(mugRigidbody.velocity, transform.forward) > 0f)
+                OnMugCollected?.Invoke(other.GetComponent<MugComponent>());
         }
     }
 }

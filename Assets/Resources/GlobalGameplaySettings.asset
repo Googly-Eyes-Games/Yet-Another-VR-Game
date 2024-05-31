@@ -16,7 +16,7 @@ MonoBehaviour:
   <StartHearts>k__BackingField: 3
   <MinimalMugFillAmount>k__BackingField: 0.5
   <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
-  <ClientBaseSpeed>k__BackingField: 0.5
+  <ClientBaseSpeed>k__BackingField: 0.25
   <ClientReturnSpeed>k__BackingField: 2
   <ClientReturnMugSpeed>k__BackingField: 1.5
   <ClientsToIncreaseSpeed>k__BackingField: 5

@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class MugComponent : MonoBehaviour
 {
+    public event Action<MugComponent> OnDestroy; 
+    
     [SerializeField]
     private MeshRenderer beerMeshRenderer;
     
@@ -33,6 +36,7 @@ public class MugComponent : MonoBehaviour
     {
         // TODO: object pooling
         Destroyed = true;
+        OnDestroy?.Invoke(this);
         Destroy(gameObject);
     }
 
