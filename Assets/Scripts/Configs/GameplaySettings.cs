@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class GameplaySettings : ScriptableObject
 {
+    
+    [field: Foldout("General")]
+    [field: SerializeField]
+    public int CountDownSeconds { get; private set; } = 3;
+    
     [field: Foldout("General")]
     [field: SerializeField]
     public int StartHearts { get; private set; } = 3;

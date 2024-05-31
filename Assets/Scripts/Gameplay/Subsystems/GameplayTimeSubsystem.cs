@@ -1,0 +1,35 @@
+using System;
+using erulathra;
+using UnityEngine;
+using UnityTimer;
+
+public class GameplayTimeSubsystem : SceneSubsystem
+{
+    public Action<int> OnCountDownTick;
+    public Action OnCountDonwEnd;
+    
+    private Timer countdownTimer;
+    
+    public override void Initialize()
+    {
+    }
+
+    public override void PreAwake()
+    {
+        float countDownSeconds = GameplaySettings.Global.CountDownSeconds;
+        countdownTimer = Timer.Register(countDownSeconds, CountDownEnd, CountDownTick, autoDestroyOwner: this);
+    }
+
+    private void CountDownEnd()
+    {
+        OnCountDonwEnd?.Invoke();
+    }
+
+    private void CountDownTick(float seconds)
+    {
+        float countDownSeconds = GameplaySettings.Global.CountDownSeconds;
+        int wholeSecondsRemain = Mathf.CeilToInt(countDownSeconds - seconds);
+        
+        OnCountDownTick?.Invoke(wholeSecondsRemain);
+    }
+}
