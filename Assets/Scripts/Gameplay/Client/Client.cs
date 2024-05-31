@@ -13,6 +13,7 @@ public enum ClientState
 public class Client : MonoBehaviour
 {
     public event Action<ClientState> OnClientStateChanged;
+    public event Action<Client> OnClientExitedBar;
     
     [SerializeField]
     private ClientHandTrigger clientHandTrigger;
@@ -33,6 +34,7 @@ public class Client : MonoBehaviour
     public void SetState(ClientState newState)
     {
         state = newState;
+        Debug.Log($"New State: {newState.ToString()}");
         OnClientStateChanged?.Invoke(state);
     }
     
@@ -105,18 +107,19 @@ public class Client : MonoBehaviour
 
     private void OnMugCollected(MugComponent mug)
     {
-        if (mug.FillPercentage < GameplaySettings.Global.MinimalMugFillAmount)
+        if (mug.gameObject.activeSelf &&
+            mug.FillPercentage < GameplaySettings.Global.MinimalMugFillAmount)
         {
-            CollectedMug.gameObject.SetActive(false);
             SetState(ClientState.Unsatisfied);
         }
         else
         {
             CollectedMug = mug;
-            CollectedMug.gameObject.SetActive(false);
             SetState(ClientState.DrinkingBeer);
         }
         
+        mug.gameObject.SetActive(false);
+        clientHandTrigger.enabled = false;
         ReturnToExit();
     }
 
@@ -132,6 +135,7 @@ public class Client : MonoBehaviour
         if (state == ClientState.DrinkingBeer)
         {
             SetState(ClientState.MugReturned);
+            Debug.Log("Return Mug");
             clientQueue.ReturnMug(this);
             CollectedMug = null;
         }
@@ -141,7 +145,9 @@ public class Client : MonoBehaviour
             HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
             heartsSubsystem.HandleUnsatisfiedClient();
         }
-        
+
+        OnClientExitedBar?.Invoke(this);
+
         Destroy(gameObject);
     }
 }

@@ -25,11 +25,13 @@ public class ClientQueue : MonoBehaviour
 
     public float length => Vector3.Distance(startPoint.position, endPoint.position);
 
-    public void SpawnClient(ClientSubsystem clientSubsystem, GameObject clientPrefab)
+    public Client SpawnClient(ClientSubsystem clientSubsystem, GameObject clientPrefab)
     {
         GameObject newClient = Instantiate(clientPrefab, startPoint.position, startPoint.rotation);
         Client client = newClient.GetComponent<Client>();
         client.Initialize(clientSubsystem, this);
+        
+        return client;
     }
 
     public void ReturnMug(Client client)

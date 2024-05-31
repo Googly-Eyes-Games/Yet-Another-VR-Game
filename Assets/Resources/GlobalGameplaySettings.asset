@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1719169b55b1e4cb42a024f819ed09, type: 3}
   m_Name: GlobalGameplaySettings
   m_EditorClassIdentifier: 
-  <StartLives>k__BackingField: 3
+  <CountDownSeconds>k__BackingField: 3
+  <StartHearts>k__BackingField: 3
+  <MinimalMugFillAmount>k__BackingField: 0.5
+  <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
   <ClientBaseSpeed>k__BackingField: 0.5
-  <ClientReturnSpeed>k__BackingField: 3
-  <ClientReturnMug>k__BackingField: 2
+  <ClientReturnSpeed>k__BackingField: 2
+  <ClientReturnMugSpeed>k__BackingField: 1.5
+  <ClientsToIncreaseSpeed>k__BackingField: 5
+  <ClientsAcceleration>k__BackingField: 1.1
+  <ClientsToIncreaseDifficulty>k__BackingField: 10
   <LeftClientPrefab>k__BackingField: {fileID: 8913295021259017323, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
   <RightClientPrefab>k__BackingField: {fileID: 2787567338246115013, guid: 7dea86ecda1248f4394ffc24f0aacad6, type: 3}
   <MenuScene>k__BackingField: S_MainMenu

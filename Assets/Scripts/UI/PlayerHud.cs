@@ -11,7 +11,7 @@ public class PlayerHud : MonoBehaviour
     {
         GameplayTimeSubsystem gameplayTimeSubsystem = SceneSubsystemManager.GetSubsystem<GameplayTimeSubsystem>();
         gameplayTimeSubsystem.OnCountDownTick += UpdateCountDown;
-        gameplayTimeSubsystem.OnCountDonwEnd += HandleCountDownEnd;
+        gameplayTimeSubsystem.OnCountDownEnd += HandleCountDownEnd;
     }
 
     private void UpdateCountDown(int wholeSecondsRemain)

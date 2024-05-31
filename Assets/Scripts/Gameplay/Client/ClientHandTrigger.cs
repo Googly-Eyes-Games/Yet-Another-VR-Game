@@ -7,6 +7,9 @@ public class ClientHandTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        if (!enabled)
+            return;
+            
         if (other.CompareTag("Mug"))
         {
             OnMugCollected?.Invoke(other.GetComponent<MugComponent>());

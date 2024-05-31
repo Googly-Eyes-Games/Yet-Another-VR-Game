@@ -15,6 +15,10 @@ public class GameplaySettings : ScriptableObject
     [field: Foldout("General")]
     [field: SerializeField]
     public float MinimalMugFillAmount { get; private set; } = 0.5f;
+
+    [field: Foldout("Clients")]
+    [field: SerializeField]
+    public Vector2 TimeRangeToSpawnNewClient { get; private set; } = new Vector2(2f, 5f);
     
     [field: Foldout("Clients")]
     [field: SerializeField]
@@ -26,7 +30,19 @@ public class GameplaySettings : ScriptableObject
 
     [field: Foldout("Clients")]
     [field: SerializeField]
-    public float ClientReturnMugSpeed { get; private set; } = 3f;
+    public float ClientReturnMugSpeed { get; private set; } = 1.5f;
+    
+    [field: Foldout("Clients")]
+    [field: SerializeField]
+    public int ClientsToIncreaseSpeed { get; private set; } = 5;
+    
+    [field: Foldout("Clients")]
+    [field: SerializeField]
+    public float ClientsAcceleration { get; private set; } = 1.1f;
+    
+    [field: Foldout("Clients")]
+    [field: SerializeField]
+    public int ClientsToIncreaseDifficulty { get; private set; } = 10;
 
     [field: Foldout("Prefab")]
     [field: SerializeField]

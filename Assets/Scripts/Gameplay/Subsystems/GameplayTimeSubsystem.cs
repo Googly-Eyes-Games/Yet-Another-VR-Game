@@ -6,7 +6,7 @@ using UnityTimer;
 public class GameplayTimeSubsystem : SceneSubsystem
 {
     public Action<int> OnCountDownTick;
-    public Action OnCountDonwEnd;
+    public Action OnCountDownEnd;
     
     private Timer countdownTimer;
     
@@ -22,7 +22,7 @@ public class GameplayTimeSubsystem : SceneSubsystem
 
     private void CountDownEnd()
     {
-        OnCountDonwEnd?.Invoke();
+        OnCountDownEnd?.Invoke();
     }
 
     private void CountDownTick(float seconds)

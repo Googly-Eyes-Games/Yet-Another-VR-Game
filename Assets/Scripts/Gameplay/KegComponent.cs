@@ -7,14 +7,17 @@ public class KegComponent : MonoBehaviour
     private Transform tapSocket;
     
     [SerializeField]
-    private float tapRaycastLength = 0.25f;
+    private float tapRaycastLength = 0.5f;
+    
+    [SerializeField]
+    private float sphereCastRadius = 0.03f;
     
     [SerializeField]
     [Tooltip("MugsPerSecond")]
     private float tippingBaseSpeed = 0.2f;
 
     [SerializeField]
-    private float neckRadius = 0.01f;
+    private float neckRadius = 0.02f;
 
     [SerializeField]
     private ParticleSystem fluidParticleSystem;
@@ -37,14 +40,20 @@ public class KegComponent : MonoBehaviour
         if (currentTippingSpeed < Single.Epsilon)
             return;
 
-        Ray tapRay = new Ray(tapSocket.position, tapSocket.forward * tapRaycastLength);
+        LayerMask mugLayerMask = LayerMask.GetMask("Mug");
         bool raycastHit = Physics.SphereCast(
-            tapRay,
-            neckRadius,
-            out RaycastHit hit);
-
+            tapSocket.position,
+            sphereCastRadius,
+            tapSocket.forward,
+            out RaycastHit hit,
+            tapRaycastLength,
+            mugLayerMask
+            );
+        
         if (!raycastHit || !hit.collider.CompareTag("Mug"))
             return;
+        
+        Debug.DrawLine(tapSocket.position, hit.point, Color.green);
 
         MugComponent mug = hit.transform.GetComponent<MugComponent>();
         mug.FillPercentage += currentTippingSpeed * Time.deltaTime;
