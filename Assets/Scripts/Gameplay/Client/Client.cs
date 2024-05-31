@@ -27,13 +27,13 @@ public class Client : MonoBehaviour
 
     private ClientState clientState = ClientState.WantsBeer;
 
-    public void Initialize(ClientManager manager, ClientQueue queue)
+    public void Initialize(ClientSubsystem subsystem, ClientQueue queue)
     {
         clientQueue = queue;
         timeSpawned = Time.timeSinceLevelLoad;
-        walkSpeed = manager.currentClientSpeed;
-        returnSpeed = manager.clientReturnSpeed;
-        mugReturnSpeed = manager.clientReturnMugSpeed;
+        walkSpeed = subsystem.CurrentClientSpeed;
+        returnSpeed = GameplaySettings.Global.ClientReturnSpeed;
+        mugReturnSpeed = GameplaySettings.Global.ClientReturnMugSpeed;
     }
 
     public void Awake()
@@ -89,7 +89,7 @@ public class Client : MonoBehaviour
     private void OnMugCollected(MugComponent mug)
     {
         // TODO: HARDCODED VALUE
-        if (mug.fillPercentage > 0.6f)
+        if (mug.FillPercentage > 0.6f)
         {
             collectedMug = mug;
             collectedMug.gameObject.SetActive(false);

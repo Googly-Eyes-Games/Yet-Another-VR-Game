@@ -47,7 +47,7 @@ public class KegComponent : MonoBehaviour
             return;
 
         MugComponent mug = hit.transform.GetComponent<MugComponent>();
-        mug.fillPercentage += currentTippingSpeed * Time.deltaTime;
+        mug.FillPercentage += currentTippingSpeed * Time.deltaTime;
     }
 
     public void SetTippingSpeed(float newValue)

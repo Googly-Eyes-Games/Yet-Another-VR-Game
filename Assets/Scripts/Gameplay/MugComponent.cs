@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class MugComponent : MonoBehaviour
 {
-    [field: SerializeField]
-    public GameObject prefab { get; private set; }
-    
     [SerializeField]
     private MeshRenderer beerMeshRenderer;
     
     private Material beerMaterialInstance;
     
     private float fillPercentageField = 0f;
-    public float fillPercentage
+    
+    public float FillPercentage
     {
         get => fillPercentageField;
         set
@@ -21,8 +19,12 @@ public class MugComponent : MonoBehaviour
         }
     }
 
+    public bool Destroyed { get; private set; }
+
     public void Awake()
     {
+        Destroyed = false;
+        
         beerMaterialInstance = beerMeshRenderer.material;
         UpdateBeerMaterial();
     }
@@ -30,12 +32,13 @@ public class MugComponent : MonoBehaviour
     public void DestroyMug()
     {
         // TODO: object pooling
+        Destroyed = true;
         Destroy(gameObject);
     }
 
     private void UpdateBeerMaterial()
     {
-       beerMaterialInstance.SetFloat(ShaderPropertyLookUp.fill, fillPercentage);
+       beerMaterialInstance.SetFloat(ShaderPropertyLookUp.fill, FillPercentage);
     }
     
     readonly struct ShaderPropertyLookUp

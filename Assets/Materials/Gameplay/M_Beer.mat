@@ -50,11 +50,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.5
+    - _Fill: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 0.91764706, g: 0.69142187, b: 0, a: 0}
     - _FoamColor: {r: 0.8113207, g: 0.8113207, b: 0.8113207, a: 0}
-    - _HeightRange: {r: -0.1, g: 0.19, b: 0, a: 0}
+    - _HeightRange: {r: -0.2, g: 0.19, b: 0, a: 0}
   m_BuildTextureStacks: []

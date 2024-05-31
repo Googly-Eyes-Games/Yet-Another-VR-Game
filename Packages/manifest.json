@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "com.akbiggs.unitytimer": "https://github.com/akbiggs/UnityTimer.git",
+    "com.chark.scriptable-events": "3.0.0",
     "com.dbrizov.naughtyattributes": "2.1.4",
+    "com.erulathra.scenesubystems": "https://github.com/Erulathra/UnitySceneSubystems.git",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.feature.vr": "1.0.0",
@@ -54,7 +56,8 @@
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
-        "com.dbrizov.naughtyattributes"
+        "com.dbrizov.naughtyattributes",
+        "com.chark.scriptable-events"
       ]
     }
   ]

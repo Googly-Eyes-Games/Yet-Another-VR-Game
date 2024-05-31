@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1719169b55b1e4cb42a024f819ed09, type: 3}
+  m_Name: GlobalGameplaySettings
+  m_EditorClassIdentifier: 
+  <StartLives>k__BackingField: 3
+  <ClientBaseSpeed>k__BackingField: 0.5
+  <ClientReturnSpeed>k__BackingField: 3
+  <ClientReturnMug>k__BackingField: 2
+  <LeftClientPrefab>k__BackingField: {fileID: 8913295021259017323, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
+  <RightClientPrefab>k__BackingField: {fileID: 2787567338246115013, guid: 7dea86ecda1248f4394ffc24f0aacad6, type: 3}
+  <MenuScene>k__BackingField: S_MainMenu
+  <GameOverScene>k__BackingField: S_GameOver
+  <LevelScene>k__BackingField: S_TestMap

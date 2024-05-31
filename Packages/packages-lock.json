@@ -14,12 +14,26 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.chark.scriptable-events": {
+      "version": "3.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.dbrizov.naughtyattributes": {
       "version": "2.1.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
+    },
+    "com.erulathra.scenesubystems": {
+      "version": "https://github.com/Erulathra/UnitySceneSubystems.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d2e48e4560202df1315314250b57b977db9ff9ac"
     },
     "com.unity.burst": {
       "version": "1.8.13",

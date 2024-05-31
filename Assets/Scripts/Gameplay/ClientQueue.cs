@@ -25,11 +25,11 @@ public class ClientQueue : MonoBehaviour
 
     public float length => Vector3.Distance(startPoint.position, endPoint.position);
 
-    public void SpawnClient(ClientManager clientManager, GameObject clientPrefab)
+    public void SpawnClient(ClientSubsystem clientSubsystem, GameObject clientPrefab)
     {
         GameObject newClient = Instantiate(clientPrefab, startPoint.position, startPoint.rotation);
         Client client = newClient.GetComponent<Client>();
-        client.Initialize(clientManager, this);
+        client.Initialize(clientSubsystem, this);
     }
 
     public void ReturnMug(Client client)
@@ -43,7 +43,7 @@ public class ClientQueue : MonoBehaviour
         // TODO: Probably we need to use object pooling
         MugComponent returnedMug = client.collectedMug;
         returnedMug.gameObject.SetActive(true);
-        returnedMug.fillPercentage = 0f;
+        returnedMug.FillPercentage = 0f;
         
         // TODO: Remove Hardcoded variables
         Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
