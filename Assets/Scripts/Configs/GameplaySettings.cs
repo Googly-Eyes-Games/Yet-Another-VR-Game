@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class GameplaySettings : ScriptableObject
 {
-    [field: Foldout("Lives")]
+    [field: Foldout("General")]
     [field: SerializeField]
-    public int StartLives { get; private set; } = 3;
+    public int StartHearts { get; private set; } = 3;
+    
+    [field: Foldout("General")]
+    [field: SerializeField]
+    public float MinimalMugFillAmount { get; private set; } = 0.5f;
     
     [field: Foldout("Clients")]
     [field: SerializeField]

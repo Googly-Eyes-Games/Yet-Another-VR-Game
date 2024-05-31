@@ -10,15 +10,15 @@ public class HealthCanvas : MonoBehaviour
 
     private void Awake()
     {
-        LivesSubsystem livesSubsystem = SceneSubsystemManager.GetSubsystem<LivesSubsystem>();
-        livesSubsystem.OnLivesNumberChanged += HandleLivesNumberChanged;
+        HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
+        heartsSubsystem.OnLivesNumberChanged += HandleLivesNumberChanged;
     }
 
     private void HandleLivesNumberChanged(int newNumberOfLives)
     {
         if (newNumberOfLives >= 0)
         {
-            healthText.text = $"Lives: {newNumberOfLives}";
+            healthText.text = $"Hearts: {newNumberOfLives}";
         }
         else
         {

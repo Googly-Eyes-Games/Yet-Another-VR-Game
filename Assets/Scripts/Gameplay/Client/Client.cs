@@ -1,39 +1,49 @@
 using System;
-using Unity.VisualScripting;
+using erulathra;
 using UnityEngine;
 
 public enum ClientState
 {
     WantsBeer,
+    Unsatisfied,
     DrinkingBeer,
     MugReturned
 }
 
 public class Client : MonoBehaviour
 {
+    public event Action<ClientState> OnClientStateChanged;
+    
     [SerializeField]
     private ClientHandTrigger clientHandTrigger;
     
-    public float walkSpeed { get; private set; }
-    public float returnSpeed { get; private set; }
-    public float mugReturnSpeed { get; private set; }
+    public float WalkSpeed { get; private set; }
+    public float ReturnSpeed { get; private set; }
+    public float MugReturnSpeed { get; private set; }
     
     private float timeSpawned;
-    private float timeBeerCollected;
+    private float timeReturningStarted;
     private Vector3 startReturnPosition;
 
     private ClientQueue clientQueue;
-    public MugComponent collectedMug { get; private set; }
+    public MugComponent CollectedMug { get; private set; }
 
-    private ClientState clientState = ClientState.WantsBeer;
+    
+    private ClientState state = ClientState.WantsBeer;
+    public void SetState(ClientState newState)
+    {
+        state = newState;
+        OnClientStateChanged?.Invoke(state);
+    }
+    
 
     public void Initialize(ClientSubsystem subsystem, ClientQueue queue)
     {
         clientQueue = queue;
         timeSpawned = Time.timeSinceLevelLoad;
-        walkSpeed = subsystem.CurrentClientSpeed;
-        returnSpeed = GameplaySettings.Global.ClientReturnSpeed;
-        mugReturnSpeed = GameplaySettings.Global.ClientReturnMugSpeed;
+        WalkSpeed = subsystem.CurrentClientSpeed;
+        ReturnSpeed = GameplaySettings.Global.ClientReturnSpeed;
+        MugReturnSpeed = GameplaySettings.Global.ClientReturnMugSpeed;
     }
 
     public void Awake()
@@ -43,36 +53,43 @@ public class Client : MonoBehaviour
 
     private void Update()
     {
-        if (clientState == ClientState.WantsBeer)
+        if (state == ClientState.WantsBeer)
         {
-            HandleGotToBarLogic();
+            HandleGoToBarLogic();
         }
-        else if (clientState == ClientState.DrinkingBeer)
+        else if (state is ClientState.DrinkingBeer
+                       or ClientState.Unsatisfied)
         {
             HandleReturnLogic();
         }
     }
 
-    private void HandleGotToBarLogic()
+    private void HandleGoToBarLogic()
     {
         float queueLength = clientQueue.length;
 
         float elapsedTime = Time.timeSinceLevelLoad - timeSpawned;
-        float queueFract = elapsedTime * walkSpeed / queueLength;
+        float queueFract = elapsedTime * WalkSpeed / queueLength;
 
         transform.position = Vector3.Lerp(
             clientQueue.startPoint.position,
             clientQueue.endPoint.position,
             queueFract
         );
+
+        if (queueFract >= 1f - Single.Epsilon)
+        {
+            SetState(ClientState.Unsatisfied);
+            ReturnToExit();
+        }
     }
 
     private void HandleReturnLogic()
     {
         float queueLength = Vector3.Distance(startReturnPosition, clientQueue.returnQueueEndPoint.position);
 
-        float elapsedTime = Time.timeSinceLevelLoad - timeBeerCollected;
-        float queueFract = elapsedTime * returnSpeed / queueLength;
+        float elapsedTime = Time.timeSinceLevelLoad - timeReturningStarted;
+        float queueFract = elapsedTime * ReturnSpeed / queueLength;
 
         transform.position = Vector3.Lerp(
             startReturnPosition,
@@ -82,29 +99,49 @@ public class Client : MonoBehaviour
 
         if (queueFract >= 1f - Single.Epsilon)
         {
-            ReturnMug();
+            ExitTavern();
         }
     }
 
     private void OnMugCollected(MugComponent mug)
     {
-        // TODO: HARDCODED VALUE
-        if (mug.FillPercentage > 0.6f)
+        if (mug.FillPercentage < GameplaySettings.Global.MinimalMugFillAmount)
         {
-            collectedMug = mug;
-            collectedMug.gameObject.SetActive(false);
-            clientState = ClientState.DrinkingBeer;
-            timeBeerCollected = Time.timeSinceLevelLoad;
-            startReturnPosition = clientQueue.NearestReturnQueuePoint(transform.position);
-            transform.rotation = clientQueue.returnQueueStartPoint.rotation;
+            CollectedMug.gameObject.SetActive(false);
+            SetState(ClientState.Unsatisfied);
         }
+        else
+        {
+            CollectedMug = mug;
+            CollectedMug.gameObject.SetActive(false);
+            SetState(ClientState.DrinkingBeer);
+        }
+        
+        ReturnToExit();
     }
 
-    private void ReturnMug()
+    private void ReturnToExit()
     {
-        clientState = ClientState.MugReturned;
-        clientQueue.ReturnMug(this);
-        collectedMug = null;
+        timeReturningStarted = Time.timeSinceLevelLoad;
+        startReturnPosition = clientQueue.NearestReturnQueuePoint(transform.position);
+        transform.rotation = clientQueue.returnQueueStartPoint.rotation;
+    }
+
+    private void ExitTavern()
+    {
+        if (state == ClientState.DrinkingBeer)
+        {
+            SetState(ClientState.MugReturned);
+            clientQueue.ReturnMug(this);
+            CollectedMug = null;
+        }
+
+        if (state == ClientState.Unsatisfied)
+        {
+            HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
+            heartsSubsystem.HandleUnsatisfiedClient();
+        }
+        
         Destroy(gameObject);
     }
 }

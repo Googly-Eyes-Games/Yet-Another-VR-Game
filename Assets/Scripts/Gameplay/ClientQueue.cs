@@ -41,14 +41,14 @@ public class ClientQueue : MonoBehaviour
             );
 
         // TODO: Probably we need to use object pooling
-        MugComponent returnedMug = client.collectedMug;
+        MugComponent returnedMug = client.CollectedMug;
         returnedMug.gameObject.SetActive(true);
         returnedMug.FillPercentage = 0f;
         
         // TODO: Remove Hardcoded variables
         Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
         mugRigidbody.position = mugPosition;
-        mugRigidbody.velocity = client.mugReturnSpeed * returnMugStartPoint.forward;
+        mugRigidbody.velocity = client.MugReturnSpeed * returnMugStartPoint.forward;
         mugRigidbody.angularVelocity = Vector3.up * 45f;
     }
 

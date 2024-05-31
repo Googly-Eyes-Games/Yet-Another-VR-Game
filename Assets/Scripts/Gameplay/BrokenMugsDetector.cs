@@ -1,4 +1,5 @@
 using System;
+using erulathra;
 using UnityEngine;
 
 public class BrokenMugsDetector : MonoBehaviour
@@ -16,6 +17,9 @@ public class BrokenMugsDetector : MonoBehaviour
         {
             mugComponent.DestroyMug();
             OnMugBroken?.Invoke();
+
+            HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
+            heartsSubsystem.HandleBrokenMug();
         }
     }
 }

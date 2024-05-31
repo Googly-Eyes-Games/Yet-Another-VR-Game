@@ -3,28 +3,34 @@ using erulathra;
 using NaughtyAttributes;
 using UnityEngine.SceneManagement;
 
-public class LivesSubsystem : SceneSubsystem
+public class HeartsSubsystem : SceneSubsystem
 {
     public event Action<int> OnLivesNumberChanged;
     
-    public int Lives { get; private set; }
+    public int Hearts { get; private set; }
     
-    private BrokenMugsDetector brokenMugsDetector;
     
     public override void Initialize()
     {
-        Lives = GameplaySettings.Global.StartLives;
-            
-        brokenMugsDetector = FindObjectOfType<BrokenMugsDetector>();
-        brokenMugsDetector.OnMugBroken += HandleBrokenMug;
+        Hearts = GameplaySettings.Global.StartHearts;
     }
     
-    private void HandleBrokenMug()
+    public void HandleBrokenMug()
     {
-        Lives--;
-        OnLivesNumberChanged?.Invoke(Lives);
+        DecrementHearts();
+    }
+    
+    public void HandleUnsatisfiedClient()
+    {
+        DecrementHearts();
+    }
 
-        if (Lives < 0)
+    private void DecrementHearts()
+    {
+        Hearts--;
+        OnLivesNumberChanged?.Invoke(Hearts);
+        
+        if (Hearts < 0)
         {
             HandleGameOver();
         }

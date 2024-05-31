@@ -3495,7 +3495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lives: 3'
+  m_text: 'Hearts: 3'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1a5a417814a52d4e9b4fea9a56f1461, type: 2}
   m_sharedMaterial: {fileID: 1139608524316652188, guid: c1a5a417814a52d4e9b4fea9a56f1461, type: 2}

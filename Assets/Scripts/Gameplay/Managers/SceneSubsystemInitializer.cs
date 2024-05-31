@@ -6,7 +6,7 @@ public class SceneSubsystemInitializer : MonoBehaviour
     private void InstantiateSubsystems(SceneSubsystemManager manager)
     {
         manager.FindOrAddSubsystem<ClientSubsystem>();
-        manager.FindOrAddSubsystem<LivesSubsystem>();
+        manager.FindOrAddSubsystem<HeartsSubsystem>();
     }
 	
     public void Awake()
