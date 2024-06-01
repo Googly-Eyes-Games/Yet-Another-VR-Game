@@ -13,13 +13,10 @@ public class BrokenMugsDetector : MonoBehaviour
         
         MugComponent mugComponent = other.GetComponent<MugComponent>();
 
-        if (!mugComponent.Destroyed)
-        {
-            mugComponent.DestroyMug();
-            OnMugBroken?.Invoke();
+        mugComponent.DestroyMug();
+        OnMugBroken?.Invoke();
 
-            HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-            heartsSubsystem.HandleBrokenMug();
-        }
+        HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
+        heartsSubsystem.HandleBrokenMug();
     }
 }

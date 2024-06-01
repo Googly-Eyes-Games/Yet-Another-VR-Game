@@ -1205,14 +1205,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4635682290095899135, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7164327320935506961, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8123364026555909822, guid: 313c48dc3f408f7709a83c9081e78d7c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5913,6 +5905,14 @@ PrefabInstance:
     - target: {fileID: 2597798018951794992, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629666433932087307, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629666433932087307, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.488
       objectReference: {fileID: 0}
     - target: {fileID: 8463103188766697538, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
       propertyPath: m_Name

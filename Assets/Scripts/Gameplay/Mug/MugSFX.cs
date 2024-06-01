@@ -5,9 +5,6 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(MugComponent))]
 public class MugSFX : MonoBehaviour
 {
-    [Foldout("Clips")]
-    [SerializeField]
-    private AudioClip dropSFX;
     
     [Foldout("Clips")]
     [SerializeField]
@@ -25,7 +22,6 @@ public class MugSFX : MonoBehaviour
     [SerializeField]
     private AudioMixerGroup SFXMixerGroup;
 
-    private AudioSource dropAC;
     private AudioSource slideAC;
     private AudioSource pickUpAC;
     private AudioSource putAC;
@@ -34,7 +30,6 @@ public class MugSFX : MonoBehaviour
 
     private void Awake()
     {
-        dropAC = CreateAudioSource(dropSFX);
         slideAC = CreateAudioSource(slideSFX);
         slideAC.loop = true;
         
@@ -42,16 +37,10 @@ public class MugSFX : MonoBehaviour
         putAC = CreateAudioSource(putSFX);
 
         mug = GetComponent<MugComponent>();
-        mug.OnDestroy += HandleMugDestroy;
         mug.OnSlidingStateChanged += HandleSlidingStateChanged;
         mug.OnPickedUpByClient += HandlePickingByClient;
     }
     
-    private void HandleMugDestroy(MugComponent mug)
-    {
-        dropAC.Play();
-    }
-
     private void HandleSlidingStateChanged(bool slidingChanged)
     {
         if (slidingChanged)

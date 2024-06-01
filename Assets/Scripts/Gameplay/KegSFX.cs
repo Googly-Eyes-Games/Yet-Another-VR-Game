@@ -15,16 +15,6 @@ public class KegSFX : MonoBehaviour
 
     private void Update()
     {
-        // TODO: Remove magic numbers
-        if (keg.NormalizedTippingSpeed < 0.1f)
-        {
-            tappingAudioSource.Stop();
-        }
-        else
-        {
-            tappingAudioSource.Play();
-        }
-
         tappingAudioSource.volume = keg.NormalizedTippingSpeed;
     }
 }

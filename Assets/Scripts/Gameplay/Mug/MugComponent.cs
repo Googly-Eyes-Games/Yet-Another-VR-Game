@@ -27,12 +27,8 @@ public class MugComponent : MonoBehaviour
         }
     }
 
-    public bool Destroyed { get; private set; }
-
     public void Awake()
     {
-        Destroyed = false;
-
         XRGrabInteractable interactable = GetComponent<XRGrabInteractable>();
         interactable.selectEntered.AddListener(HandleMugGrabbed);
         
@@ -48,7 +44,6 @@ public class MugComponent : MonoBehaviour
     public void DestroyMug()
     {
         // TODO: object pooling
-        Destroyed = true;
         OnDestroy?.Invoke(this);
         Destroy(gameObject);
     }
