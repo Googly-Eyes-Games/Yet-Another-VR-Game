@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 [RequireComponent(typeof(Client))]
-public class ClientSFX : MonoBehaviour
+public class ClientSFX : SFXComponentBase
 {
     [Foldout("Clips")]
     [SerializeField]
@@ -18,6 +18,10 @@ public class ClientSFX : MonoBehaviour
     [Foldout("Clips")]
     [SerializeField]
     private AudioClip satisfiedSFX;
+    
+    [Foldout("Clips")]
+    [SerializeField]
+    private AudioClip pickUpMugSFX;
 
     [Foldout("General")]
     [SerializeField]
@@ -28,6 +32,7 @@ public class ClientSFX : MonoBehaviour
     private AudioSource spawnAS;
     private AudioSource unsatisfiedAS;
     private AudioSource satisfiedAS;
+    private AudioSource pickUpMugAS;
 
     private void Awake()
     {
@@ -37,17 +42,7 @@ public class ClientSFX : MonoBehaviour
         spawnAS = CreateAudioSource(spawnSFX);
         unsatisfiedAS = CreateAudioSource(unsatisfiedSFX);
         satisfiedAS = CreateAudioSource(satisfiedSFX);
-    }
-
-    private AudioSource CreateAudioSource(AudioClip clip)
-    {
-        AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
-        newAudioSource.playOnAwake = false;
-        newAudioSource.outputAudioMixerGroup = SFXMixerGroup;
-        newAudioSource.clip = clip;
-        newAudioSource.spatialBlend = 1f;
-
-        return newAudioSource;
+        pickUpMugAS = CreateAudioSource(pickUpMugSFX);
     }
 
     private void OnEnable()
@@ -64,6 +59,8 @@ public class ClientSFX : MonoBehaviour
         else if (newState == ClientState.DrinkingBeer)
         {
             satisfiedAS.Play();
+            pickUpMugAS.Play();
         }
     }
 }
+

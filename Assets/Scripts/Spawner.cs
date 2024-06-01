@@ -8,6 +8,9 @@ public class MugSpawner : MonoBehaviour
     [SerializeField]
     private GameObject mugPrefab;
 
+    [SerializeField]
+    private AudioSource ringAudioSource;
+
     public HashSet<MugComponent> SpawnedMugs { get; private set; } = new();
 
     private int targetMugsAmount = 1;
@@ -30,6 +33,8 @@ public class MugSpawner : MonoBehaviour
         MugComponent mug = spawnedGameObject.GetComponent<MugComponent>();
         SpawnedMugs.Add(mug);
         mug.OnDestroy += HandleMugDestroyed;
+        
+        ringAudioSource.Play();
 
         return spawnedGameObject;
     }

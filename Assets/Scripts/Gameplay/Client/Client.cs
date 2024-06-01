@@ -34,7 +34,6 @@ public class Client : MonoBehaviour
     public void SetState(ClientState newState)
     {
         state = newState;
-        Debug.Log($"New State: {newState.ToString()}");
         OnClientStateChanged?.Invoke(state);
     }
     
