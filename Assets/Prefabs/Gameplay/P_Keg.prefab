@@ -189,7 +189,7 @@ MonoBehaviour:
   tapSocket: {fileID: 5900823657041854207}
   tapRaycastLength: 1
   sphereCastRadius: 0.03
-  tippingBaseSpeed: 0.5
+  tippingBaseSpeed: 0.75
   neckRadius: 0.015
   fluidParticleSystem: {fileID: 4974239891137731355}
 --- !u!114 &8129889907118538
@@ -216,13 +216,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5163718501207386356, guid: 836016a114275324088669bd344a42cf, type: 2}
   m_audioClip: {fileID: 8300000, guid: ff30425bca33886409d72925981bf755, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.4
   m_Pitch: 0.8
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

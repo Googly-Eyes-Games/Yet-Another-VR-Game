@@ -9,6 +9,7 @@ public class SceneSubsystemInitializer : MonoBehaviour
         manager.FindOrAddSubsystem<ClientSubsystem>();
         manager.FindOrAddSubsystem<HeartsSubsystem>();
         manager.FindOrAddSubsystem<ScoreSubsystem>();
+        manager.FindOrAddSubsystem<LevelSubsystem>();
     }
 	
     public void Awake()

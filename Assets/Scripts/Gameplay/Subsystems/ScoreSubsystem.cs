@@ -6,7 +6,6 @@ public class ScoreSubsystem : SceneSubsystem
     public Action<int> OnScoreChanged;
 
     public int CurrentScore { get; private set; } = 0;
-    public int CurrentScoreMultiplier { get; set; } = 25;
     
     public override void Initialize()
     {
@@ -14,7 +13,9 @@ public class ScoreSubsystem : SceneSubsystem
 
     public void AddPoint()
     {
-        CurrentScore += CurrentScoreMultiplier;
+        LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
+        
+        CurrentScore += levelSubsystem.CurrentLevelConfig.ScoreMultiplier;
         OnScoreChanged?.Invoke(CurrentScore);
     }
 

@@ -8,15 +8,29 @@ public class GameplaySFX : SFXComponentBase
     [Foldout("Clips")]
     [SerializeField]
     private AudioClip heartLoseSFX;
+    
+    [Foldout("Clips")]
+    [SerializeField]
+    private AudioClip newLevelSFX;
 
     private AudioSource heartLoseAS;
+    private AudioSource newLevelAS;
 
     private void Awake()
     {
         heartLoseAS = CreateAudioSource(heartLoseSFX);
+        newLevelAS = CreateAudioSource(newLevelSFX);
         
         HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
         heartsSubsystem.OnLivesNumberChanged += PlayHeartLose;
+
+        LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
+        levelSubsystem.OnNextLevel += PlayNewLevelSound;
+    }
+
+    private void PlayNewLevelSound(int levelNumber)
+    {
+        newLevelAS.Play();
     }
 
     private void PlayHeartLose(int newHearts)

@@ -1,11 +1,16 @@
+using System;
 using erulathra;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityTimer;
+using Random = UnityEngine.Random;
 
 public class ClientSubsystem : SceneSubsystem
 {
+    public Action<int> OnSatisfiedClientExit;
+    
     public float CurrentClientSpeed => GameplaySettings.Global.ClientBaseSpeed * accumulatedAcceleration;
+    public int SatisfiedClients { get; private set; } = 0;
     
     private ClientQueue[] clientQueues;
     private MugSpawner mugSpawner;
@@ -18,7 +23,6 @@ public class ClientSubsystem : SceneSubsystem
     private Timer autoSpawnTimer;
 
     private int spawnedClients = 0;
-    private int maxAliveClients = 1;
     
     private float accumulatedAcceleration = 1f;
 
@@ -75,6 +79,12 @@ public class ClientSubsystem : SceneSubsystem
     
     private void HandleClientExitedBar(Client client)
     {
+        if (client.State == ClientState.DrinkingBeer)
+        {
+            SatisfiedClients++;
+            OnSatisfiedClientExit?.Invoke(SatisfiedClients);
+        }
+        
         if (client.IsRightClient)
             rightClientPool.Release(client);
         else
@@ -88,10 +98,13 @@ public class ClientSubsystem : SceneSubsystem
     
     private void DoAutoSpawnLogic()
     {
-        if (ActiveClients >= maxAliveClients)
+        LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
+        LevelConfig currentLevelConfig = levelSubsystem.CurrentLevelConfig;
+        
+        if (ActiveClients >= currentLevelConfig.MaxClients)
             return;
 
-        int maxClientsNumToSpawn = maxAliveClients - ActiveClients;
+        int maxClientsNumToSpawn = currentLevelConfig.MaxClients - ActiveClients;
         int clientsNumToSpawn = Random.Range(1, maxClientsNumToSpawn);
 
         for (int clientID = 0; clientID < clientsNumToSpawn; clientID++)
@@ -101,19 +114,8 @@ public class ClientSubsystem : SceneSubsystem
 
         autoSpawnTimer?.Cancel();
 
-        Vector2 autoSpawnDurationRange = GameplaySettings.Global.TimeRangeToSpawnNewClient;
+        Vector2 autoSpawnDurationRange = currentLevelConfig.TimeRangeToSpawnNewClient;
         float autoSpawnDuration = Random.Range(autoSpawnDurationRange.x, autoSpawnDurationRange.y);
         autoSpawnTimer = Timer.Register(autoSpawnDuration, DoAutoSpawnLogic, autoDestroyOwner: this);
-        
-        if (spawnedClients % GameplaySettings.Global.ClientsToIncreaseDifficulty == 0)
-        {
-            maxAliveClients++;
-            mugSpawner.SetTargetMugsAmount(maxAliveClients);
-        }
-        
-        if (spawnedClients % GameplaySettings.Global.ClientsToIncreaseSpeed == 0)
-        {
-            accumulatedAcceleration *= GameplaySettings.Global.ClientsAcceleration;
-        }
     }
 }

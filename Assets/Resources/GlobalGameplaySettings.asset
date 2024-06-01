@@ -15,13 +15,79 @@ MonoBehaviour:
   <CountDownSeconds>k__BackingField: 3
   <StartHearts>k__BackingField: 3
   <MinimalMugFillAmount>k__BackingField: 0.5
-  <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
   <ClientBaseSpeed>k__BackingField: 0.25
   <ClientReturnSpeed>k__BackingField: 2
-  <ClientReturnMugSpeed>k__BackingField: 1.5
-  <ClientsToIncreaseSpeed>k__BackingField: 5
-  <ClientsAcceleration>k__BackingField: 1.1
-  <ClientsToIncreaseDifficulty>k__BackingField: 10
+  <Levels>k__BackingField:
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 0
+    <MaxClients>k__BackingField: 1
+    <ClientSpeed>k__BackingField: 0.25
+    <MugSpeed>k__BackingField: 1
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 0
+    <ScoreMultiplier>k__BackingField: 25
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 3
+    <MaxClients>k__BackingField: 2
+    <ClientSpeed>k__BackingField: 0.25
+    <MugSpeed>k__BackingField: 1
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 0
+    <ScoreMultiplier>k__BackingField: 50
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 7
+    <MaxClients>k__BackingField: 2
+    <ClientSpeed>k__BackingField: 0.5
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 75
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 10
+    <MaxClients>k__BackingField: 2
+    <ClientSpeed>k__BackingField: 0.5
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 100
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 15
+    <MaxClients>k__BackingField: 3
+    <ClientSpeed>k__BackingField: 0.5
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 125
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 20
+    <MaxClients>k__BackingField: 3
+    <ClientSpeed>k__BackingField: 1
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 150
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 25
+    <MaxClients>k__BackingField: 3
+    <ClientSpeed>k__BackingField: 1.5
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 200
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 30
+    <MaxClients>k__BackingField: 3
+    <ClientSpeed>k__BackingField: 1.75
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 250
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 40
+    <MaxClients>k__BackingField: 3
+    <ClientSpeed>k__BackingField: 2
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 300
+  - <SatisfiedClientsToUnlockLevel>k__BackingField: 50
+    <MaxClients>k__BackingField: 4
+    <ClientSpeed>k__BackingField: 2
+    <MugSpeed>k__BackingField: 1.5
+    <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
+    <AddHeart>k__BackingField: 1
+    <ScoreMultiplier>k__BackingField: 500
   <LeftClientPrefab>k__BackingField: {fileID: 8913295021259017323, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
   <RightClientPrefab>k__BackingField: {fileID: 2787567338246115013, guid: 7dea86ecda1248f4394ffc24f0aacad6, type: 3}
   <MenuScene>k__BackingField: S_MainMenu

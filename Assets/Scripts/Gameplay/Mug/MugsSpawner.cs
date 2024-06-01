@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using erulathra;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -32,9 +32,18 @@ public class MugSpawner : MonoBehaviour
     {
         mugsPool = new ObjectPool<MugComponent>(SpawnAndInitializeMug, OnGetMug, OnReleaseMug, defaultCapacity: mugsPoolCapacity);
         
-        SpawnMugsToTargetAmount();
+        LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
+        levelSubsystem.OnNextLevel += OnLevelChanged;
+        
+        OnLevelChanged(0);
     }
-    
+
+    private void OnLevelChanged(int levelIndex)
+    {
+        LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
+        SetTargetMugsAmount(levelSubsystem.CurrentLevelConfig.MaxClients + 1);
+    }
+
     private MugComponent SpawnAndInitializeMug()
     {
         GameObject spawnedGameObject = Instantiate(mugPrefab, transform.position, transform.rotation, transform);

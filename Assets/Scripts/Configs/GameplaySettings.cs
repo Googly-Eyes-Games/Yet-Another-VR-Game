@@ -18,32 +18,16 @@ public class GameplaySettings : ScriptableObject
 
     [field: Foldout("Clients")]
     [field: SerializeField]
-    public Vector2 TimeRangeToSpawnNewClient { get; private set; } = new Vector2(2f, 5f);
-    
-    [field: Foldout("Clients")]
-    [field: SerializeField]
     public float ClientBaseSpeed { get; private set; } = 1f;
 
     [field: Foldout("Clients")]
     [field: SerializeField]
     public float ClientReturnSpeed { get; private set; } = 3f;
 
-    [field: Foldout("Clients")]
+    [field: Foldout("General")]
     [field: SerializeField]
-    public float ClientReturnMugSpeed { get; private set; } = 1.5f;
+    public LevelConfig[] Levels { get; private set; }
     
-    [field: Foldout("Clients")]
-    [field: SerializeField]
-    public int ClientsToIncreaseSpeed { get; private set; } = 5;
-    
-    [field: Foldout("Clients")]
-    [field: SerializeField]
-    public float ClientsAcceleration { get; private set; } = 1.1f;
-    
-    [field: Foldout("Clients")]
-    [field: SerializeField]
-    public int ClientsToIncreaseDifficulty { get; private set; } = 10;
-
     [field: Foldout("Prefab")]
     [field: SerializeField]
     public GameObject LeftClientPrefab { get; private set; }

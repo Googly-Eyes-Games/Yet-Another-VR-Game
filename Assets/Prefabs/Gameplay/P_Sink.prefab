@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6732031712557421845}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.28, y: 0.519, z: 0.208}
+  m_LocalPosition: {x: 0.28, y: 0.519, z: 0.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mugPrefab: {fileID: 8815601257028905141, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
   ringAudioSource: {fileID: 3541940403640308070}
+  mugsPoolCapacity: 10
 --- !u!82 &3541940403640308070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -57,7 +58,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5163718501207386356, guid: 836016a114275324088669bd344a42cf, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7bb72f436d53a7746aca4a1f8dc5c0ac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b1397a30b2b84f47865625621cbeace, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
