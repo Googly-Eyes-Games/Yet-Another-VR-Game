@@ -142,6 +142,9 @@ public class Client : MonoBehaviour
         if (state == ClientState.DrinkingBeer)
         {
             ReturnMug();
+
+            ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
+            scoreSubsystem.AddPoint();
         }
 
         if (state == ClientState.Unsatisfied)
