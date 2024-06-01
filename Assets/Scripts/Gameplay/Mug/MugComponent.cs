@@ -1,12 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MugComponent : MonoBehaviour
 {
     public event Action<MugComponent> OnDestroy; 
+    public event Action<bool> OnSlidingStateChanged;
+    public event Action OnPickedUpByClient;
     
     [SerializeField]
     private MeshRenderer beerMeshRenderer;
+    
+    public bool IsSliding { get; private set; }
     
     private Material beerMaterialInstance;
     
@@ -27,9 +32,17 @@ public class MugComponent : MonoBehaviour
     public void Awake()
     {
         Destroyed = false;
+
+        XRGrabInteractable interactable = GetComponent<XRGrabInteractable>();
+        interactable.selectEntered.AddListener(HandleMugGrabbed);
         
         beerMaterialInstance = beerMeshRenderer.material;
         UpdateBeerMaterial();
+    }
+
+    private void HandleMugGrabbed(SelectEnterEventArgs selectArgs)
+    {
+        StopSliding();
     }
 
     public void DestroyMug()
@@ -38,6 +51,23 @@ public class MugComponent : MonoBehaviour
         Destroyed = true;
         OnDestroy?.Invoke(this);
         Destroy(gameObject);
+    }
+
+    public void StartSliding()
+    {
+        IsSliding = true;
+        OnSlidingStateChanged?.Invoke(true);
+    }
+    
+    public void StopSliding()
+    {
+        IsSliding = true;
+        OnSlidingStateChanged?.Invoke(false);
+    }
+
+    public void Collect(Client client)
+    {
+        OnPickedUpByClient?.Invoke();
     }
 
     private void UpdateBeerMaterial()

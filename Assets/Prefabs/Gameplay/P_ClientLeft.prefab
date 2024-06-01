@@ -359,6 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6568990055052090247}
   - component: {fileID: 2637430707185218802}
+  - component: {fileID: -4074616738871940659}
   m_Layer: 0
   m_Name: P_ClientLeft
   m_TagString: Untagged
@@ -396,3 +397,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clientHandTrigger: {fileID: 2511311639694833604}
+--- !u!114 &-4074616738871940659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913295021259017323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b16e5545e0d7fb4aa919349e67a180b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSFX: {fileID: 8300000, guid: 402b4a3800983644795fc7a7ecb6b94c, type: 3}
+  unsatisfiedSFX: {fileID: 8300000, guid: 5a180cf03fa9f21448e5f7b6a8b3f1e0, type: 3}
+  satisfiedSFX: {fileID: 8300000, guid: e8230a1b08c2e94499b16c9885d0d11b, type: 3}
+  SFXMixerGroup: {fileID: -5163718501207386356, guid: 836016a114275324088669bd344a42cf, type: 2}

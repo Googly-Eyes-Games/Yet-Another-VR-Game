@@ -119,6 +119,8 @@ public class Client : MonoBehaviour
         }
         
         mug.gameObject.SetActive(false);
+        mug.Collect(this);
+        
         clientHandTrigger.enabled = false;
         ReturnToExit();
     }
@@ -134,10 +136,7 @@ public class Client : MonoBehaviour
     {
         if (state == ClientState.DrinkingBeer)
         {
-            SetState(ClientState.MugReturned);
-            Debug.Log("Return Mug");
-            clientQueue.ReturnMug(this);
-            CollectedMug = null;
+            ReturnMug();
         }
 
         if (state == ClientState.Unsatisfied)
@@ -149,5 +148,13 @@ public class Client : MonoBehaviour
         OnClientExitedBar?.Invoke(this);
 
         Destroy(gameObject);
+    }
+
+    private void ReturnMug()
+    {
+        SetState(ClientState.MugReturned);
+        clientQueue.ReturnMug(this);
+        CollectedMug.StartSliding();
+        CollectedMug = null;
     }
 }

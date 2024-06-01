@@ -74,7 +74,7 @@ public class TableInput : MonoBehaviour
         if (Vector3.Angle(inputLineDir, mugRigidbody.velocity) > maxVelocityAngleOffset)
             return;
         
-        // mugRigidbody.useGravity = false;
+        mugComponent.StartSliding();
         
         CorrectAngularVelocity(mugRigidbody);
         CorrectVelocity(mugRigidbody, inputLineDir);

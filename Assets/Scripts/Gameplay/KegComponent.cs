@@ -22,7 +22,8 @@ public class KegComponent : MonoBehaviour
     [SerializeField]
     private ParticleSystem fluidParticleSystem;
 
-    private float currentTippingSpeed = 0f;
+    public float CurrentTippingSpeed { get; private set; } = 0f;
+    public float NormalizedTippingSpeed { get; private set; } = 0f;
 
     private void OnDrawGizmos()
     {
@@ -37,7 +38,7 @@ public class KegComponent : MonoBehaviour
 
     private void Update()
     {
-        if (currentTippingSpeed < Single.Epsilon)
+        if (CurrentTippingSpeed < Single.Epsilon)
             return;
 
         LayerMask mugLayerMask = LayerMask.GetMask("Mug");
@@ -56,12 +57,13 @@ public class KegComponent : MonoBehaviour
         Debug.DrawLine(tapSocket.position, hit.point, Color.green);
 
         MugComponent mug = hit.transform.GetComponent<MugComponent>();
-        mug.FillPercentage += currentTippingSpeed * Time.deltaTime;
+        mug.FillPercentage += CurrentTippingSpeed * Time.deltaTime;
     }
 
     public void SetTippingSpeed(float newValue)
     {
-        currentTippingSpeed = tippingBaseSpeed * newValue;
+        CurrentTippingSpeed = tippingBaseSpeed * newValue;
+        NormalizedTippingSpeed = newValue;
 
         if (!(newValue > Single.Epsilon))
             return;

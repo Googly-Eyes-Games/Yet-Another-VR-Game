@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 827394920414891985}
   - component: {fileID: 6845295775396315737}
   - component: {fileID: 2439647757041166320}
+  - component: {fileID: 927450582296655034}
   - component: {fileID: 6859034410155381643}
   - component: {fileID: 7237403840033639945}
   - component: {fileID: 3872050374596475355}
@@ -317,6 +318,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beerMeshRenderer: {fileID: 8040367936050889912}
+--- !u!114 &927450582296655034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815601257028905141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a102eeba2e0e1a4fb7f24c76c93e467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropSFX: {fileID: 8300000, guid: 16e6dc651b3b00b49bbf43adfcd702bd, type: 3}
+  slideSFX: {fileID: 8300000, guid: c96ad7710f87405479f9ef3a1853b617, type: 3}
+  pickUpSFX: {fileID: 8300000, guid: 0631a51a5fc306e4297a50c7d4533231, type: 3}
+  putSFX: {fileID: 8300000, guid: 194cd96bd87734742a04eeae518c60c2, type: 3}
+  SFXMixerGroup: {fileID: -5163718501207386356, guid: 836016a114275324088669bd344a42cf, type: 2}
 --- !u!136 &6859034410155381643
 CapsuleCollider:
   m_ObjectHideFlags: 0
