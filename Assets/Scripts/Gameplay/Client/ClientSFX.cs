@@ -23,10 +23,6 @@ public class ClientSFX : SFXComponentBase
     [SerializeField]
     private AudioClip pickUpMugSFX;
 
-    [Foldout("General")]
-    [SerializeField]
-    private AudioMixerGroup SFXMixerGroup;
-
     private Client client;
 
     private AudioSource spawnAS;

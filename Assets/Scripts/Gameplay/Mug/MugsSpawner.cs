@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Pool;
+
+public class MugSpawner : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject mugPrefab;
+
+    [SerializeField]
+    private AudioSource ringAudioSource;
+    
+    [SerializeField]
+    private int mugsPoolCapacity = 10;
+
+    private ObjectPool<MugComponent> mugsPool;
+
+    private int targetMugsAmount = 1;
+
+    public void SetTargetMugsAmount(int newValue)
+    {
+        targetMugsAmount = newValue;
+        SpawnMugsToTargetAmount();
+    }
+
+    public void SpawnMug()
+    {
+        mugsPool.Get();
+    }
+
+    private void Awake()
+    {
+        mugsPool = new ObjectPool<MugComponent>(SpawnAndInitializeMug, OnGetMug, OnReleaseMug, defaultCapacity: mugsPoolCapacity);
+        
+        SpawnMugsToTargetAmount();
+    }
+    
+    private MugComponent SpawnAndInitializeMug()
+    {
+        GameObject spawnedGameObject = Instantiate(mugPrefab, transform.position, transform.rotation, transform);
+        MugComponent mug = spawnedGameObject.GetComponent<MugComponent>();
+        mug.OnDestroy += HandleMugDestroyed;
+        
+        mug.gameObject.SetActive(false);
+
+        return mug;
+    }
+
+    private void OnGetMug(MugComponent mug)
+    {
+        mug.gameObject.SetActive(true);
+        mug.transform.position = transform.position;
+        mug.transform.rotation = transform.rotation;
+        
+        ringAudioSource.Play();
+    }
+    
+    private void OnReleaseMug(MugComponent mug)
+    {
+        mug.gameObject.SetActive(false);
+        mug.FillPercentage = 0f;
+    }
+
+    private void HandleMugDestroyed(MugComponent mug)
+    {
+        mugsPool.Release(mug);
+        SpawnMugsToTargetAmount();
+    }
+
+    private void SpawnMugsToTargetAmount()
+    {
+        int activeMugs = mugsPool.CountActive;
+        for (int mugID = activeMugs; mugID < targetMugsAmount; mugID++)
+        {
+            SpawnMug();
+        }
+    }
+}

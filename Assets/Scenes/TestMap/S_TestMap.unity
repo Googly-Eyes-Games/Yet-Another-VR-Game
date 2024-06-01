@@ -5955,6 +5955,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4006390452786763882, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
+      propertyPath: tippingBaseSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8463103188766697538, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
       propertyPath: m_Name
       value: P_Keg

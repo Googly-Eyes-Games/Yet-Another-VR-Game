@@ -6,14 +6,12 @@ public class MugComponent : MonoBehaviour
 {
     public event Action<MugComponent> OnDestroy; 
     public event Action<bool> OnSlidingStateChanged;
-    public event Action OnPickedUpByClient;
     
     [SerializeField]
     private MeshRenderer beerMeshRenderer;
+    private Material beerMaterialInstance;
     
     public bool IsSliding { get; private set; }
-    
-    private Material beerMaterialInstance;
     
     private float fillPercentageField = 0f;
     
@@ -43,11 +41,9 @@ public class MugComponent : MonoBehaviour
 
     public void DestroyMug()
     {
-        // TODO: object pooling
         OnDestroy?.Invoke(this);
-        Destroy(gameObject);
     }
-
+    
     public void StartSliding()
     {
         IsSliding = true;
@@ -58,11 +54,6 @@ public class MugComponent : MonoBehaviour
     {
         IsSliding = true;
         OnSlidingStateChanged?.Invoke(false);
-    }
-
-    public void Collect(Client client)
-    {
-        OnPickedUpByClient?.Invoke();
     }
 
     private void UpdateBeerMaterial()

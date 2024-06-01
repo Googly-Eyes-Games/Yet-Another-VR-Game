@@ -42,7 +42,6 @@ public class ClientQueue : MonoBehaviour
             client.transform.position
             );
 
-        // TODO: Probably we need to use object pooling
         MugComponent returnedMug = client.CollectedMug;
         returnedMug.gameObject.SetActive(true);
         returnedMug.FillPercentage = 0f;

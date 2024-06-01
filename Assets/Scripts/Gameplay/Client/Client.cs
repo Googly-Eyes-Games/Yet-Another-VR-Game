@@ -118,7 +118,6 @@ public class Client : MonoBehaviour
         }
         
         mug.gameObject.SetActive(false);
-        mug.Collect(this);
         
         clientHandTrigger.enabled = false;
         ReturnToExit();
