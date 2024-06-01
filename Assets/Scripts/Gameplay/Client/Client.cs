@@ -18,6 +18,9 @@ public class Client : MonoBehaviour
     [SerializeField]
     private ClientHandTrigger clientHandTrigger;
     
+    [field: SerializeField]
+    public bool IsRightClient { get; private set; }
+    
     public float WalkSpeed { get; private set; }
     public float ReturnSpeed { get; private set; }
     public float MugReturnSpeed { get; private set; }
@@ -36,15 +39,19 @@ public class Client : MonoBehaviour
         state = newState;
         OnClientStateChanged?.Invoke(state);
     }
-    
 
-    public void Initialize(ClientSubsystem subsystem, ClientQueue queue)
+    public void Initialize(ClientQueue queue)
     {
         clientQueue = queue;
         timeSpawned = Time.timeSinceLevelLoad;
-        WalkSpeed = subsystem.CurrentClientSpeed;
         ReturnSpeed = GameplaySettings.Global.ClientReturnSpeed;
         MugReturnSpeed = GameplaySettings.Global.ClientReturnMugSpeed;
+
+        state = ClientState.WantsBeer;
+        clientHandTrigger.enabled = true;
+
+        ClientSubsystem clientSubsystem = SceneSubsystemManager.GetSubsystem<ClientSubsystem>();
+        WalkSpeed = clientSubsystem.CurrentClientSpeed;
     }
 
     public void Awake()
@@ -144,8 +151,6 @@ public class Client : MonoBehaviour
         }
 
         OnClientExitedBar?.Invoke(this);
-
-        Destroy(gameObject);
     }
 
     private void ReturnMug()
