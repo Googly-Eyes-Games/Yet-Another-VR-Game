@@ -35,6 +35,13 @@
       "dependencies": {},
       "hash": "d2e48e4560202df1315314250b57b977db9ff9ac"
     },
+    "com.meta.xr.sdk.core": {
+      "version": "65.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.burst": {
       "version": "1.8.13",
       "depth": 1,
@@ -78,15 +85,6 @@
         "com.unity.performance.profile-analyzer": "1.2.2",
         "com.unity.test-framework": "1.1.33",
         "com.unity.testtools.codecoverage": "1.2.5"
-      }
-    },
-    "com.unity.feature.vr": {
-      "version": "1.0.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.xr.oculus": "4.2.0",
-        "com.unity.xr.openxr": "1.10.0"
       }
     },
     "com.unity.formats.fbx": {
@@ -336,15 +334,6 @@
         "com.unity.modules.vr": "1.0.0",
         "com.unity.modules.xr": "1.0.0",
         "com.unity.xr.legacyinputhelpers": "2.1.7"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.xr.oculus": {
-      "version": "4.2.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.xr.management": "4.4.0"
       },
       "url": "https://packages.unity.com"
     },
