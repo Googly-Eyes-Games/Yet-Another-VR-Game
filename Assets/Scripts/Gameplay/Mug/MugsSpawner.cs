@@ -25,7 +25,11 @@ public class MugSpawner : MonoBehaviour
 
     public void SpawnMug()
     {
-        mugsPool.Get();
+        MugComponent mug = mugsPool.Get();
+        mug.transform.position = transform.position;
+        mug.transform.rotation = transform.rotation;
+        
+        ringAudioSource.Play();
     }
 
     private void Awake()
@@ -58,16 +62,16 @@ public class MugSpawner : MonoBehaviour
     private void OnGetMug(MugComponent mug)
     {
         mug.gameObject.SetActive(true);
-        mug.transform.position = transform.position;
-        mug.transform.rotation = transform.rotation;
-        
-        ringAudioSource.Play();
     }
     
     private void OnReleaseMug(MugComponent mug)
     {
         mug.gameObject.SetActive(false);
         mug.FillPercentage = 0f;
+
+        Rigidbody mugRigidbody = mug.GetComponent<Rigidbody>();
+        mugRigidbody.velocity = Vector3.zero;
+        mugRigidbody.angularVelocity = Vector3.zero;
     }
 
     private void HandleMugDestroyed(MugComponent mug)

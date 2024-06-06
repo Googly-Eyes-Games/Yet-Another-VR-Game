@@ -23,10 +23,10 @@ public class QuestManager : MonoBehaviour
     
     private void ApplyDefaultSettings()
     {
+#if !UNITY_EDITOR_WIN
         OVRPlugin.systemDisplayFrequency = 90f;
         OVRPlugin.foveatedRenderingLevel = OVRPlugin.FoveatedRenderingLevel.Medium;
-
-        OVRPlugin.RecenterTrackingOrigin(OVRPlugin.RecenterFlags.Default);
+#endif
     }
     
     static class QuestSettingsApplierInitializer

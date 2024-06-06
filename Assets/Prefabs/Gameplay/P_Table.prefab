@@ -104,6 +104,7 @@ MonoBehaviour:
   maxVelocityAngleOffset: 45
   mugPositionCorrectionDuration: 0.2
   forwardSpeedMultiplier: 1.2
+  onRightSide: 0
 --- !u!1 &430695879548498417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,3 +1023,4 @@ MonoBehaviour:
   maxVelocityAngleOffset: 45
   mugPositionCorrectionDuration: 0.2
   forwardSpeedMultiplier: 1.2
+  onRightSide: 1
