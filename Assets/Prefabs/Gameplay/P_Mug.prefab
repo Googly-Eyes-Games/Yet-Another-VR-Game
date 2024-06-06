@@ -97,10 +97,10 @@ GameObject:
   - component: {fileID: 6845295775396315737}
   - component: {fileID: 2439647757041166320}
   - component: {fileID: 927450582296655034}
+  - component: {fileID: 7174934681905208278}
   - component: {fileID: 6859034410155381643}
   - component: {fileID: 7237403840033639945}
   - component: {fileID: 3872050374596475355}
-  - component: {fileID: 7174934681905208278}
   m_Layer: 8
   m_Name: P_Mug
   m_TagString: Mug
@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beerMeshRenderer: {fileID: 8040367936050889912}
+  mugMeshRenderer: {fileID: 1396368278315419029}
 --- !u!114 &927450582296655034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +335,21 @@ MonoBehaviour:
   SFXMixerGroup: {fileID: -5163718501207386356, guid: 836016a114275324088669bd344a42cf, type: 2}
   slideSFX: {fileID: 8300000, guid: c96ad7710f87405479f9ef3a1853b617, type: 3}
   putSFX: {fileID: 8300000, guid: 194cd96bd87734742a04eeae518c60c2, type: 3}
+--- !u!114 &7174934681905208278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815601257028905141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394037934b1043888cda6305ed1ef61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mugDestroyPrefab: {fileID: 5958384029920356469, guid: 167086c04d42d934d80644d9a468b14b, type: 3}
+  spawnAnimationDuration: 0.5
+  meshTransform: {fileID: 228497558669016826}
 --- !u!136 &6859034410155381643
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -403,21 +419,6 @@ CapsuleCollider:
   m_Height: 0.34
   m_Direction: 1
   m_Center: {x: 0, y: 0.12, z: 0}
---- !u!114 &7174934681905208278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815601257028905141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 394037934b1043888cda6305ed1ef61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mugDestroyPrefab: {fileID: 5958384029920356469, guid: 167086c04d42d934d80644d9a468b14b, type: 3}
-  spawnAnimationDuration: 0.5
-  meshTransform: {fileID: 228497558669016826}
 --- !u!1001 &333671185277507857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ab5a5bc579cacd246bf74308d9b99f07, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8d17a5d3ce686094e8a68a5927de08e6, type: 2}
+      objectReference: {fileID: 2100000, guid: 74ac1ea24815f7745b429d0a74a0b372, type: 2}
     - target: {fileID: 919132149155446097, guid: ab5a5bc579cacd246bf74308d9b99f07, type: 3}
       propertyPath: m_Name
       value: SM_Mug
@@ -482,6 +483,11 @@ PrefabInstance:
 --- !u!4 &228497558669016826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab5a5bc579cacd246bf74308d9b99f07, type: 3}
+  m_PrefabInstance: {fileID: 333671185277507857}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1396368278315419029 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: ab5a5bc579cacd246bf74308d9b99f07, type: 3}
   m_PrefabInstance: {fileID: 333671185277507857}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8670754916045920316

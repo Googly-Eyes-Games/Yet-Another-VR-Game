@@ -44,6 +44,7 @@ public class ClientQueue : MonoBehaviour
         MugComponent returnedMug = client.CollectedMug;
         returnedMug.gameObject.SetActive(true);
         returnedMug.FillPercentage = 0f;
+        returnedMug.IsClean = false;
         
         // TODO: Remove Hardcoded variables
         Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();

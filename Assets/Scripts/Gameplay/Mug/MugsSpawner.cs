@@ -1,6 +1,8 @@
+using System;
 using erulathra;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityTimer;
 
 public class MugSpawner : MonoBehaviour
 {
@@ -11,26 +13,27 @@ public class MugSpawner : MonoBehaviour
     private AudioSource ringAudioSource;
     
     [SerializeField]
+    private Vector3 spawnVelocity;
+    
+    [SerializeField]
+    private float timeBetweenSpawns = 1f;
+    
+    [SerializeField]
     private int mugsPoolCapacity = 10;
 
     private ObjectPool<MugComponent> mugsPool;
 
     private int targetMugsAmount = 1;
 
+    private int mugsToSpawn;
+    
+    
     public void SetTargetMugsAmount(int newValue)
     {
         targetMugsAmount = newValue;
         SpawnMugsToTargetAmount();
     }
 
-    public void SpawnMug()
-    {
-        MugComponent mug = mugsPool.Get();
-        mug.transform.position = transform.position;
-        mug.transform.rotation = transform.rotation;
-        
-        ringAudioSource.Play();
-    }
 
     private void Awake()
     {
@@ -40,6 +43,17 @@ public class MugSpawner : MonoBehaviour
         levelSubsystem.OnNextLevel += OnLevelChanged;
         
         OnLevelChanged(0);
+
+        Timer.Register(timeBetweenSpawns, SpawnTick, isLooped: true, autoDestroyOwner: this);
+    }
+
+    private void SpawnTick()
+    {
+        if (mugsToSpawn > 0)
+        {
+            SpawnMug();
+            mugsToSpawn--;
+        }
     }
 
     private void OnLevelChanged(int levelIndex)
@@ -53,6 +67,7 @@ public class MugSpawner : MonoBehaviour
         GameObject spawnedGameObject = Instantiate(mugPrefab, transform.position, transform.rotation, transform);
         MugComponent mug = spawnedGameObject.GetComponent<MugComponent>();
         mug.OnDestroy += HandleMugDestroyed;
+        mug.OnClean += HandleMugDestroyed;
         
         mug.gameObject.SetActive(false);
 
@@ -68,6 +83,7 @@ public class MugSpawner : MonoBehaviour
     {
         mug.gameObject.SetActive(false);
         mug.FillPercentage = 0f;
+        mug.IsClean = true;
 
         Rigidbody mugRigidbody = mug.GetComponent<Rigidbody>();
         mugRigidbody.velocity = Vector3.zero;
@@ -85,7 +101,32 @@ public class MugSpawner : MonoBehaviour
         int activeMugs = mugsPool.CountActive;
         for (int mugID = activeMugs; mugID < targetMugsAmount; mugID++)
         {
-            SpawnMug();
+            QueueMugSpawn();
         }
+    }
+
+    private void QueueMugSpawn()
+    {
+        mugsToSpawn++;
+    }
+    
+    private void SpawnMug()
+    {
+        MugComponent mug = mugsPool.Get();
+        
+        Rigidbody mugRigidbody = mug.GetComponent<Rigidbody>();
+        mugRigidbody.velocity = spawnVelocity;
+        
+        mugRigidbody.position = transform.position;
+        mugRigidbody.rotation = transform.rotation;
+        
+        ringAudioSource.Play();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position, 0.25f);
+        Gizmos.DrawRay(transform.position, spawnVelocity.normalized);
     }
 }

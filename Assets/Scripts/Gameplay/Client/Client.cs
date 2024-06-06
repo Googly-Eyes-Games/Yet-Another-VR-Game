@@ -116,17 +116,18 @@ public class Client : MonoBehaviour
 
     private void OnMugCollected(MugComponent mug)
     {
-        if (mug.gameObject.activeSelf &&
-            mug.FillPercentage < GameplaySettings.Global.MinimalMugFillAmount)
-        {
-            SetState(ClientState.Unsatisfied);
-        }
-        else
+        if (mug.gameObject.activeSelf
+            && mug.FillPercentage > GameplaySettings.Global.MinimalMugFillAmount
+            && mug.IsClean)
         {
             CollectedMug = mug;
             SetState(ClientState.DrinkingBeer);
         }
-        
+        else
+        {
+            SetState(ClientState.Unsatisfied);
+        }
+
         mug.gameObject.SetActive(false);
         
         clientHandTrigger.enabled = false;
