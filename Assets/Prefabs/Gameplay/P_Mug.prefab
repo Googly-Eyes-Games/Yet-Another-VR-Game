@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3660195270326296142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9217609561186799121}
+  m_Layer: 8
+  m_Name: Bottleneck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9217609561186799121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660195270326296142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.215, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 691187389614227388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3670576237092995034
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +127,7 @@ GameObject:
   - component: {fileID: 827394920414891985}
   - component: {fileID: 6845295775396315737}
   - component: {fileID: 2439647757041166320}
+  - component: {fileID: 813064917760947773}
   - component: {fileID: 927450582296655034}
   - component: {fileID: 7174934681905208278}
   - component: {fileID: 6859034410155381643}
@@ -125,6 +157,8 @@ Transform:
   - {fileID: 228497558669016826}
   - {fileID: 9213815998491066327}
   - {fileID: 4054941646157312625}
+  - {fileID: 9217609561186799121}
+  - {fileID: 6785076333226158618}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &827394920414891985
@@ -320,6 +354,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beerLiquidHandler: {fileID: 6834605724626997490}
   mugMeshRenderer: {fileID: 1396368278315419029}
+--- !u!114 &813064917760947773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815601257028905141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb562255fca9b544b4583d4e7147e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidHandler: {fileID: 6834605724626997490}
+  bottleneckRadius: 0.07
+  bottleneckSocket: {fileID: 9217609561186799121}
+  splitSpeed: 16
+  maxEdgeDrops: 4
+  particles: {fileID: 6785076333226158616}
+  mixingSpeed: 1
 --- !u!114 &927450582296655034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +543,73 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: ab5a5bc579cacd246bf74308d9b99f07, type: 3}
   m_PrefabInstance: {fileID: 333671185277507857}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1854305993295606673
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 691187389614227388}
+    m_Modifications:
+    - target: {fileID: 5157395080114985354, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_Name
+      value: P_BeerParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+--- !u!198 &6785076333226158616 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5157395080114985353, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+  m_PrefabInstance: {fileID: 1854305993295606673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6785076333226158618 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5157395080114985355, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+  m_PrefabInstance: {fileID: 1854305993295606673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8670754916045920316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,6 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <FillAmount>k__BackingField: 0
+  <ContainerVolume>k__BackingField: 1
   <LiquidColor>k__BackingField: {r: 1, g: 0.7529412, b: 0, a: 0}
   <FoamColor>k__BackingField: {r: 1, g: 0.8745098, b: 0.64705884, a: 1}
   bottomOffset: {x: 0, y: -0.03, z: 0}

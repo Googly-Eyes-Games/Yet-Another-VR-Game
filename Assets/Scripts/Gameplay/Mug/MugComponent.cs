@@ -28,15 +28,13 @@ public class MugComponent : MonoBehaviour
             UpdateMugMaterial();
         }
     }
-
-    private float fillPercentageField = 0f;
     
     public float FillPercentage
     {
-        get => fillPercentageField;
+        get => beerLiquidHandler.FillAmount;
         set
         {
-            fillPercentageField = Mathf.Clamp01(value);
+            beerLiquidHandler.FillAmount = Mathf.Clamp01(value);
             UpdateBeerMaterial();
         }
     }

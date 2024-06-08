@@ -35,7 +35,7 @@ public class ClientQueue : MonoBehaviour
 
     public void ReturnMug(Client client)
     {
-        Vector3 mugPosition = MathUtils.NearestPointOnSegment(
+        Vector3 mugPosition = LinearAlgebra.NearestPointOnSegment(
             returnMugStartPoint.position,
             returnMugEndPoint.position,
             client.transform.position
@@ -55,6 +55,6 @@ public class ClientQueue : MonoBehaviour
 
     public Vector3 NearestReturnQueuePoint(Vector3 position)
     {
-        return MathUtils.NearestPointOnSegment(returnQueueStartPoint.position, returnQueueEndPoint.position, position);
+        return LinearAlgebra.NearestPointOnSegment(returnQueueStartPoint.position, returnQueueEndPoint.position, position);
     }
 }

@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [ExecuteAlways]
 public class LiquidHandler : MonoBehaviour
@@ -8,6 +9,10 @@ public class LiquidHandler : MonoBehaviour
     [field: SerializeField]
     [field: Range(0, 1)]
     public float FillAmount { get; set; } = 0.5f;
+
+    [field: Foldout("General")]
+    [field: SerializeField]
+    public float ContainerVolume { get; set; } = 1f;
     
     [field: Foldout("General")]
     [field: SerializeField]
@@ -41,7 +46,16 @@ public class LiquidHandler : MonoBehaviour
     [SerializeField]
     private float liquidDensity = 1f;
 
-    private MeshRenderer meshRenderer;
+    public float LiquidVolume
+    {
+        get => ContainerVolume * FillAmount;
+        set => FillAmount = value / ContainerVolume;
+    }
+    
+    public Vector3 SurfacePosition { get; private set; }
+    public Vector3 SurfaceNormal { get; private set; }
+
+    public MeshRenderer MeshRenderer { get; private set; }
     private MeshFilter meshFilter;
     private Material material;
 
@@ -55,8 +69,8 @@ public class LiquidHandler : MonoBehaviour
     
     private void OnEnable()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
-        material = Application.isPlaying ? meshRenderer.material : meshRenderer.sharedMaterial;
+        MeshRenderer = GetComponent<MeshRenderer>();
+        material = Application.isPlaying ? MeshRenderer.material : MeshRenderer.sharedMaterial;
         meshFilter = GetComponent<MeshFilter>();
     }
 
@@ -97,17 +111,17 @@ public class LiquidHandler : MonoBehaviour
 
     private void CalculatePlanePosition()
     {
-        Vector3 volumeBottom = meshRenderer.bounds.center;
-        volumeBottom.y = meshRenderer.bounds.min.y;
+        Vector3 volumeBottom = MeshRenderer.bounds.center;
+        volumeBottom.y = MeshRenderer.bounds.min.y;
 
         volumeBottom += bottomOffset;
 
-        float volumeHeight = meshRenderer.bounds.max.y - meshRenderer.bounds.min.y;
+        float volumeHeight = MeshRenderer.bounds.max.y - MeshRenderer.bounds.min.y;
         
-        Vector3 planePosition = volumeBottom + Vector3.up * (FillAmount * volumeHeight);
-        Debug.DrawLine(volumeBottom,planePosition, Color.green);
+        SurfacePosition = volumeBottom + Vector3.up * (FillAmount * volumeHeight);
+        Debug.DrawLine(volumeBottom,SurfacePosition, Color.green);
         
-        material.SetVector(ShaderLookUp.PlanePosition, planePosition);
+        material.SetVector(ShaderLookUp.PlanePosition, SurfacePosition);
     }
     
     private void CalculatePlaneNormal()
@@ -127,7 +141,10 @@ public class LiquidHandler : MonoBehaviour
 
             Quaternion wobblyQuat = Quaternion.Euler(new Vector3(-wobble.y, 0, wobble.x));
 
-            material.SetVector(ShaderLookUp.PlaneNormal, wobblyQuat * Vector3.up);
+            SurfaceNormal = wobblyQuat * Vector3.up;
+            SurfaceNormal = SurfaceNormal.normalized;
+            
+            material.SetVector(ShaderLookUp.PlaneNormal, SurfaceNormal);
         }
         else
         {
