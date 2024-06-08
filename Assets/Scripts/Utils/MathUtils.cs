@@ -47,4 +47,9 @@ public static class MathUtils
 
         return angularVelocity;
     }
+
+    public static Vector2 ToXZPlane(this Vector3 x)
+    {
+        return new Vector2(x.x, x.z);
+    }
 }

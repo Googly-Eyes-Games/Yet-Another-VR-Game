@@ -587,11 +587,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e93b66bc82b72647aeaed982cc66a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FillAmount>k__BackingField: 0.407
+  <FillAmount>k__BackingField: 0
+  <LiquidColor>k__BackingField: {r: 1, g: 0.7529412, b: 0, a: 0}
+  <FoamColor>k__BackingField: {r: 1, g: 0.8745098, b: 0.64705884, a: 1}
+  bottomOffset: {x: 0, y: -0.03, z: 0}
   maxWobblyEffect: 45
-  wobblyVelocityFactor: 10
+  wobblyVelocityFactor: 1
   wobblyAngularVelocityFactor: 1
-  wobbleDamping: 1
+  wobbleDamping: 2
+  liquidDensity: 15
 --- !u!4 &9213815998491066327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}

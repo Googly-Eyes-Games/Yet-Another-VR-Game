@@ -43,6 +43,8 @@ Material:
     m_Floats:
     - _Amplitude: 0
     - _Fill: 0.54
+    - _FoamSmooth: 0.02
+    - _FoamWidith: 0.04
     - _FoamWidth: 0.067
     - _Foam_Smoothness: 0.04
     - _Frequency: 0
@@ -53,13 +55,13 @@ Material:
     - _WobbleZ: 0
     m_Colors:
     - _BottomColor: {r: 0.4061054, g: 0.509434, b: 0.44367942, a: 1}
-    - _Color: {r: 1, g: 0.7534226, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.7529412, b: 0, a: 0}
     - _FillAmount: {r: 1.9336398, g: 1.3996689, b: 0.15344296, a: 0}
     - _FillRange: {r: -5, g: 5, b: 0, a: 0}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 0.78333336, b: 0.16176471, a: 0.25}
     - _HeightRange: {r: -0.1, g: 0.08, b: 0, a: 0}
     - _PlaneNormal: {r: 0, g: 1, b: 0, a: 0}
-    - _PlanePosition: {r: 0, g: 0.11145322, b: 0, a: 0}
+    - _PlanePosition: {r: 2.2935293, g: 1.2264986, b: 0.2511415, a: 0}
     - _Rim_Color: {r: 0.693879, g: 1, b: 0.32547167, a: 1}
     - _TopColor: {r: 1, g: 0.94731724, b: 0, a: 1}
   m_BuildTextureStacks: []
