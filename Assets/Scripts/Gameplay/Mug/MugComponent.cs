@@ -7,14 +7,13 @@ public class MugComponent : MonoBehaviour
     public event Action<MugComponent> OnDestroy; 
     public event Action<MugComponent> OnClean; 
     public event Action<bool> OnSlidingStateChanged;
-    
+
     [SerializeField]
-    private MeshRenderer beerMeshRenderer;
+    private LiquidHandler beerLiquidHandler;
     
     [SerializeField]
     private MeshRenderer mugMeshRenderer;
     
-    private Material beerMaterialInstance;
     private Material mugMaterialInstance;
     
     public bool IsSliding { get; private set; }
@@ -47,7 +46,6 @@ public class MugComponent : MonoBehaviour
         XRGrabInteractable interactable = GetComponent<XRGrabInteractable>();
         interactable.selectEntered.AddListener(HandleMugGrabbed);
         
-        beerMaterialInstance = beerMeshRenderer.material;
         mugMaterialInstance = mugMeshRenderer.material;
         
         UpdateBeerMaterial();
@@ -82,7 +80,7 @@ public class MugComponent : MonoBehaviour
 
     private void UpdateBeerMaterial()
     {
-       beerMaterialInstance.SetFloat(ShaderPropertyLookUp.fill, FillPercentage);
+        beerLiquidHandler.FillAmount = FillPercentage;
     }
 
     private void UpdateMugMaterial()
@@ -92,7 +90,6 @@ public class MugComponent : MonoBehaviour
     
     readonly struct ShaderPropertyLookUp
     {
-        public static readonly int fill = Shader.PropertyToID("_Fill");
         public static readonly int isClean = Shader.PropertyToID("_IsClean");
     }
 }

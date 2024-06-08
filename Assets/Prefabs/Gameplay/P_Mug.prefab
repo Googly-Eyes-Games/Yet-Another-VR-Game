@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb27b32beac4e145a717c8765ee38fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beerMeshRenderer: {fileID: 8040367936050889912}
+  beerLiquidHandler: {fileID: 6834605724626997490}
   mugMeshRenderer: {fileID: 1396368278315419029}
 --- !u!114 &927450582296655034
 MonoBehaviour:
@@ -557,7 +557,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 42eb871396551a841979235377f6e950, type: 2}
+      objectReference: {fileID: 2100000, guid: 664526e593969cf4ca20b7d075acc42b, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}
       propertyPath: m_Name
       value: SM_Beer
@@ -565,13 +565,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6834605724626997490}
   m_SourcePrefab: {fileID: 100100000, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}
---- !u!23 &8040367936050889912 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}
+--- !u!1 &8400863096296351085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}
   m_PrefabInstance: {fileID: 8670754916045920316}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6834605724626997490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8400863096296351085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93b66bc82b72647aeaed982cc66a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <FillAmount>k__BackingField: 0.407
+  maxWobblyEffect: 45
+  wobblyVelocityFactor: 10
+  wobblyAngularVelocityFactor: 1
+  wobbleDamping: 1
 --- !u!4 &9213815998491066327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d5f708aec4202d458427be89a6c7fea, type: 3}

@@ -98,6 +98,9 @@ public class ClientSubsystem : SceneSubsystem
     
     private void DoAutoSpawnLogic()
     {
+        if (!enabled)
+            return;
+        
         LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
         LevelConfig currentLevelConfig = levelSubsystem.CurrentLevelConfig;
         
