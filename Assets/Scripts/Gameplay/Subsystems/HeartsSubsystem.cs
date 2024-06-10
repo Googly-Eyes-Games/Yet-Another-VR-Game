@@ -39,6 +39,6 @@ public class HeartsSubsystem : SceneSubsystem
     [Button(enabledMode: EButtonEnableMode.Playmode)]
     private void HandleGameOver()
     {
-        SceneManager.LoadSceneAsync(GameplaySettings.Global.GameOverScene);
+        TransitionsSceneManger.Get().LoadGameOver();
     }
 }

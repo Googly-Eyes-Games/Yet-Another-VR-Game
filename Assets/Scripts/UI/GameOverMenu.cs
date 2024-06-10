@@ -6,6 +6,6 @@ public class GameOverMenu : MonoBehaviour
 {
     public void LoadLevel()
     {
-        SceneManager.LoadSceneAsync(GameplaySettings.Global.LevelScene);
+        TransitionsSceneManger.Get().LoadLevel();
     }
 }
