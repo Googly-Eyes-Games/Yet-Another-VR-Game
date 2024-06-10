@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HeartsSubsystem : SceneSubsystem
 {
-    public event Action<int> OnLivesNumberChanged;
+    public event Action<int /** hearts */, int /** delta */> OnHeartsNumberChanged;
     
     public int Hearts { get; private set; }
     
@@ -28,7 +28,7 @@ public class HeartsSubsystem : SceneSubsystem
     private void DecrementHearts()
     {
         Hearts--;
-        OnLivesNumberChanged?.Invoke(Hearts);
+        OnHeartsNumberChanged?.Invoke(Hearts, -1);
         
         if (Hearts < 0)
         {

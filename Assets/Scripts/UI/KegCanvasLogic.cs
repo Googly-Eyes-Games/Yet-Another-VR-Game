@@ -16,7 +16,7 @@ public class KegCanvas : MonoBehaviour
     private void Awake()
     {
         HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-        heartsSubsystem.OnLivesNumberChanged += HandleLivesNumberChanged;
+        heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
 
         ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
         scoreSubsystem.OnScoreChanged += HandleScoreChanged;
@@ -35,11 +35,11 @@ public class KegCanvas : MonoBehaviour
         scoreText.text = $"Score: {newScore}";
     }
 
-    private void HandleLivesNumberChanged(int newNumberOfLives)
+    private void HandleHeartsNumberChanged(int hearts, int deltaHearts)
     {
-        if (newNumberOfLives >= 0)
+        if (hearts >= 0)
         {
-            healthText.text = $"Hearts: {newNumberOfLives}";
+            healthText.text = $"Hearts: {hearts}";
         }
         else
         {

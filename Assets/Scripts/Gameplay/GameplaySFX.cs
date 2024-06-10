@@ -22,7 +22,7 @@ public class GameplaySFX : SFXComponentBase
         newLevelAS = CreateAudioSource(newLevelSFX);
         
         HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-        heartsSubsystem.OnLivesNumberChanged += PlayHeartLose;
+        heartsSubsystem.OnHeartsNumberChanged += PlayHeartLose;
 
         LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
         levelSubsystem.OnNextLevel += PlayNewLevelSound;
@@ -33,9 +33,12 @@ public class GameplaySFX : SFXComponentBase
         newLevelAS.Play();
     }
 
-    private void PlayHeartLose(int newHearts)
+    private void PlayHeartLose(int newHearts, int deltaHearts)
     {
-        heartLoseAS.Play();
+        if (deltaHearts < 0)
+        {
+            heartLoseAS.Play();
+        }
     }
 
     protected override AudioSource CreateAudioSource(AudioClip clip)
