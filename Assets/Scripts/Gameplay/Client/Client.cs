@@ -91,6 +91,10 @@ public class Client : MonoBehaviour
         if (queueFract >= 1f - Single.Epsilon)
         {
             SetState(ClientState.Unsatisfied);
+            
+            HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
+            heartsSubsystem.HandleUnsatisfiedClient();
+            
             ReturnToExit();
         }
     }
@@ -116,16 +120,24 @@ public class Client : MonoBehaviour
 
     private void OnMugCollected(MugComponent mug)
     {
-        if (mug.gameObject.activeSelf
-            && mug.FillPercentage > GameplaySettings.Global.MinimalMugFillAmount
+        if (mug.FillPercentage > GameplaySettings.Global.MinimalMugFillAmount
             && mug.IsClean)
         {
-            CollectedMug = mug;
             SetState(ClientState.DrinkingBeer);
+            
+            CollectedMug = mug;
+            
+            ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
+            scoreSubsystem.AddPoint();
         }
         else
         {
             SetState(ClientState.Unsatisfied);
+            
+            mug.DestroyMug();
+            
+            HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
+            heartsSubsystem.HandleUnsatisfiedClient();
         }
 
         mug.gameObject.SetActive(false);
@@ -143,20 +155,9 @@ public class Client : MonoBehaviour
 
     private void ExitTavern()
     {
-        if (State == ClientState.DrinkingBeer)
-        {
+        if (CollectedMug)
             ReturnMug();
-
-            ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
-            scoreSubsystem.AddPoint();
-        }
-
-        if (State == ClientState.Unsatisfied)
-        {
-            HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-            heartsSubsystem.HandleUnsatisfiedClient();
-        }
-
+        
         OnClientExitedBar?.Invoke(this);
     }
 
