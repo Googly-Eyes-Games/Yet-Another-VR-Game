@@ -11,8 +11,8 @@ public enum ClientState
 
 public class Client : MonoBehaviour
 {
-    public event Action<ClientState> OnClientStateChanged;
-    public event Action<Client> OnClientExitedBar;
+    public event Action<ClientState /* newClientState */> OnClientStateChanged;
+    public event Action<Client /* client */ > OnClientExitedBar;
     
     [SerializeField]
     private ClientHandTrigger clientHandTrigger;
