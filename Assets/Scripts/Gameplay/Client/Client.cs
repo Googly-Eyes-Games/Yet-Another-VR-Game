@@ -13,6 +13,7 @@ public class Client : MonoBehaviour
 {
     public event Action<ClientState /* newClientState */> OnClientStateChanged;
     public event Action<Client /* client */ > OnClientExitedBar;
+    public event Action OnInitialize;
     
     [SerializeField]
     private ClientHandTrigger clientHandTrigger;
@@ -55,6 +56,8 @@ public class Client : MonoBehaviour
 
         State = ClientState.WantsBeer;
         clientHandTrigger.enabled = true;
+        
+        OnInitialize?.Invoke();
     }
 
     public void Awake()
