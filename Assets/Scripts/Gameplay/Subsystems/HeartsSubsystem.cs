@@ -44,19 +44,32 @@ public class HeartsSubsystem : SceneSubsystem
         if (entryAdded)
             return;
         
+        entryAdded = true;
         TransitionsSceneManger.Get().LoadGameOver();
 
         ScoreboardSaveData scoreboardSaveData = SaveManager.LoadScores();
+        int scoresCount = scoreboardSaveData.highScores.Count;
         
         ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
+        
         ScoreboardEntryData scoreboardEntryData = new()
         {
             entryScore = scoreSubsystem.CurrentScore,
-            entryName = "Test  "  + scoreboardSaveData.highScores.Count.ToString()
+            entryName = "Test  "  + scoresCount.ToString()
         };
         
-        scoreboardSaveData.highScores.Add(scoreboardEntryData);
-        entryAdded = true;
+        int maxScoresCount = 9;
+            
+        if (scoresCount < maxScoresCount)
+        {
+            scoreboardSaveData.highScores.Add(scoreboardEntryData);
+        }
+        else
+        {
+            scoreboardSaveData.highScores.RemoveAt(scoresCount - 1);
+            scoreboardSaveData.highScores.Add(scoreboardEntryData);
+        }
+        
         SaveManager.SaveScores(scoreboardSaveData);
     }
 }
