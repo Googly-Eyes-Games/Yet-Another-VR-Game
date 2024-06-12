@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 
 public class Scoreboard : MonoBehaviour
@@ -10,12 +9,16 @@ public class Scoreboard : MonoBehaviour
     private void Start()
     {
         ScoreboardSaveData savedScores = SaveManager.LoadScores();
+        savedScores.highScores.Sort((a, b) => b.entryScore.CompareTo(a.entryScore));
+        
         UpdateUI(savedScores);
     }
 
     public void AddEntry(ScoreboardEntryData scoreboardEntryData)
     {
         ScoreboardSaveData savedScores = SaveManager.LoadScores();
+        
+        savedScores.highScores.Sort((a, b) => b.entryScore.CompareTo(a.entryScore));
 
         if (!savedScores.highScores.Exists(entry => entry.entryName == scoreboardEntryData.entryName && entry.entryScore == scoreboardEntryData.entryScore))
         {
