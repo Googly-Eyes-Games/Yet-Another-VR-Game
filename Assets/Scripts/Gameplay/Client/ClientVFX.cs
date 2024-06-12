@@ -49,11 +49,15 @@ public class ClientVFX : MonoBehaviour
         
         [SerializeField]
         public Color spriteColor;
+        
+        [SerializeField]
+        public Vector2Int flipBookSize;
 
         public void Apply(VisualEffect feedbackVFX)
         {
             feedbackVFX.SetTexture(ShaderLookup.ParticleSprite, spriteTexture);
             feedbackVFX.SetVector4(ShaderLookup.Color, spriteColor);
+            feedbackVFX.SetVector2(ShaderLookup.FlipBookSize, flipBookSize);
         }
     }
 
@@ -61,5 +65,6 @@ public class ClientVFX : MonoBehaviour
     {
         public static readonly int ParticleSprite = Shader.PropertyToID("Particle");
         public static readonly int Color = Shader.PropertyToID("Color");
+        public static readonly int FlipBookSize = Shader.PropertyToID("FlipBookSize");
     }
 }

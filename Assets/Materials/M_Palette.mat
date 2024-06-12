@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Beer
-  m_Shader: {fileID: -6465566751694194690, guid: aabbc91b71f77a64090f7ed00d821e92, type: 3}
+  m_Name: M_Palette
+  m_Shader: {fileID: -6465566751694194690, guid: 2a8cc7ee1cb28ea42a1efa8b92168716, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -23,8 +23,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Main_Texture:
-        m_Texture: {fileID: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a61630103a8de7443b16a7e8578fb46c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,31 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 0
-    - _Fill: 0.54
-    - _FoamSmooth: 0.02
-    - _FoamWidith: 0.04
-    - _FoamWidth: 0.067
-    - _Foam_Smoothness: 0.04
-    - _Frequency: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rim_Power: 2
-    - _WobbleX: 0
-    - _WobbleZ: 0
-    m_Colors:
-    - _BottomColor: {r: 0.4061054, g: 0.509434, b: 0.44367942, a: 1}
-    - _Color: {r: 1, g: 0.7529412, b: 0, a: 0}
-    - _FillAmount: {r: 1.9336398, g: 1.3996689, b: 0.15344296, a: 0}
-    - _FillRange: {r: -5, g: 5, b: 0, a: 0}
-    - _FoamColor: {r: 1, g: 0.78333336, b: 0.16176471, a: 0.25}
-    - _HeightRange: {r: -0.1, g: 0.08, b: 0, a: 0}
-    - _PlaneNormal: {r: 0, g: 1, b: 0, a: 0}
-    - _PlanePosition: {r: 0.25761402, g: 1.043, b: -0.9308206, a: 0}
-    - _Rim_Color: {r: 0.693879, g: 1, b: 0.32547167, a: 1}
-    - _TopColor: {r: 1, g: 0.94731724, b: 0, a: 1}
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &8540262525966224017
+--- !u!114 &3224910617644152362
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
