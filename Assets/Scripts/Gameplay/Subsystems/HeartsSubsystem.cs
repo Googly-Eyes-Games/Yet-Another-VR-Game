@@ -9,6 +9,7 @@ public class HeartsSubsystem : SceneSubsystem
     
     public int Hearts { get; private set; }
     
+    private bool entryAdded;
     
     public override void Initialize()
     {
@@ -35,10 +36,40 @@ public class HeartsSubsystem : SceneSubsystem
             HandleGameOver();
         }
     }
-
+    
+    
     [Button(enabledMode: EButtonEnableMode.Playmode)]
     private void HandleGameOver()
     {
+        if (entryAdded)
+            return;
+        
+        entryAdded = true;
         TransitionsSceneManger.Get().LoadGameOver();
+
+        ScoreboardSaveData scoreboardSaveData = SaveManager.LoadScores();
+        int scoresCount = scoreboardSaveData.highScores.Count;
+        
+        ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
+        
+        ScoreboardEntryData scoreboardEntryData = new()
+        {
+            entryScore = scoreSubsystem.CurrentScore,
+            entryName = "Test  "  + scoresCount.ToString()
+        };
+        
+        int maxScoresCount = 9;
+            
+        if (scoresCount < maxScoresCount)
+        {
+            scoreboardSaveData.highScores.Add(scoreboardEntryData);
+        }
+        else
+        {
+            scoreboardSaveData.highScores.RemoveAt(scoresCount - 1);
+            scoreboardSaveData.highScores.Add(scoreboardEntryData);
+        }
+        
+        SaveManager.SaveScores(scoreboardSaveData);
     }
 }
