@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Wall
+  m_Name: M_MainTable
   m_Shader: {fileID: -6465566751694194690, guid: 2a8cc7ee1cb28ea42a1efa8b92168716, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -110,7 +110,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rim: 6.63
+    - _Rim: 5
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -120,10 +120,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.6226415, g: 0.31747007, b: 0.108668566, a: 1}
-    - _Color: {r: 0.62264144, g: 0.31747004, b: 0.10866854, a: 1}
+    - _BaseColor: {r: 0.83137256, g: 0.5294118, b: 0.3529412, a: 1}
+    - _Color: {r: 0.83137256, g: 0.5294118, b: 0.35294116, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.62352943, g: 0.31764707, b: 0.10980392, a: 0}
+    - _MainColor: {r: 0.83137256, g: 0.5294118, b: 0.3529412, a: 1}
     - _RimColor: {r: 0.25490198, g: 0.12941177, b: 0.09803922, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
