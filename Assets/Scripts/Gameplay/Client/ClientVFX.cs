@@ -11,6 +11,10 @@ public class ClientVFX : MonoBehaviour
     [SerializeField]
     private VisualEffect feedbackVFX;
     
+    [Foldout("Setup")]
+    [SerializeField]
+    private Renderer meshRenderer;
+    
     [Foldout("Config")]
     [SerializeField]
     private FeedbackVFXSettings satisfiedClient;
@@ -19,12 +23,27 @@ public class ClientVFX : MonoBehaviour
     [SerializeField]
     private FeedbackVFXSettings unSatisfiedClient;
 
+    [Foldout("Config")]
+    [SerializeField]
+    private Color[] vikingHairColors;
+    
+
     private Client client;
+    private Material material;
 
     private void Awake()
     {
         client = GetComponent<Client>();
         client.OnClientStateChanged += HandleClientStateChanged;
+        client.OnInitialize += HandleInitialization;
+
+        material = meshRenderer.material;
+    }
+
+    private void HandleInitialization()
+    {
+        Color randomColor = vikingHairColors.GetRandom();
+        material.SetColor(ShaderLookup.VikingHairColors, randomColor);
     }
 
     private void HandleClientStateChanged(ClientState newClientState)
@@ -66,5 +85,6 @@ public class ClientVFX : MonoBehaviour
         public static readonly int ParticleSprite = Shader.PropertyToID("Particle");
         public static readonly int Color = Shader.PropertyToID("Color");
         public static readonly int FlipBookSize = Shader.PropertyToID("FlipBookSize");
+        public static readonly int VikingHairColors = Shader.PropertyToID("_Hair");
     }
 }

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Client
-  m_Shader: {fileID: -6465566751694194690, guid: 2a8cc7ee1cb28ea42a1efa8b92168716, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c177065b24e7058449d51f478140c2f9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -125,8 +125,12 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Cloth: {r: 0, g: 1, b: 1, a: 0}
+    - _ClothKey: {r: 1, g: 0, b: 0.87176275, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Hair: {r: 0.20392157, g: 0.105882354, b: 0.02745098, a: 0}
+    - _HairKey: {r: 0.20392157, g: 0.105882354, b: 0.02745098, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _RimColor: {r: 0.73, g: 0.65604883, b: 0.3753302, a: 0.48235294}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

@@ -605,6 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feedbackVFX: {fileID: 2713931117904377182}
+  meshRenderer: {fileID: 5977452172791024526}
   satisfiedClient:
     spriteTexture: {fileID: 2800000, guid: f130dd34505072f4c882fe46f1833824, type: 3}
     spriteColor: {r: 1, g: 0, b: 0, a: 0}
@@ -613,6 +614,10 @@ MonoBehaviour:
     spriteTexture: {fileID: 2800000, guid: c80520c4f52e75c448c5cdeb35c8fa66, type: 3}
     spriteColor: {r: 0.95129585, g: 1, b: 0, a: 0}
     flipBookSize: {x: 3, y: 3}
+  vikingHairColors:
+  - {r: 0.20392157, g: 0.105882354, b: 0.02745098, a: 0}
+  - {r: 0.76862746, g: 0.4509804, b: 0.18431373, a: 0}
+  - {r: 0.7607843, g: 0.59607846, b: 0.2, a: 0}
 --- !u!1001 &3671721756209264728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -955,6 +960,11 @@ Transform:
 --- !u!4 &5928453665476354041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc592468819736f2290d7fe7c7183880, type: 3}
+  m_PrefabInstance: {fileID: 6182492652599638034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5977452172791024526 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 520321181051614108, guid: cc592468819736f2290d7fe7c7183880, type: 3}
   m_PrefabInstance: {fileID: 6182492652599638034}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6187944715253877122 stripped
