@@ -38,10 +38,16 @@ public class ClientAnimator : MonoBehaviour
     private void HandleClientInitialized()
     {
         if (client.IsRightClient)
+        {
             rightArm.weight = 1.0f;
+            leftArm.weight = 0.0f;
+        }
         else
+        {
+            rightArm.weight = 0.0f;
             leftArm.weight = 1.0f;
-        
+        }
+
         animator.SetFloat(AnimatorLookUp.WalkSpeed, client.WalkSpeed * walkSpeedFactor);
         mugTransform.gameObject.SetActive(false);
     }
