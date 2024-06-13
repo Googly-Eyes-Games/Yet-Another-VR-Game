@@ -19,6 +19,6 @@ public class HeartsHapticFeedback : MonoBehaviour
         if (deltaHearts > 0)
             return;
 
-        xrController.SendHapticImpulse(1f, 0.1f);
+        xrController.SendHapticImpulse(1f, 0.25f);
     }
 }

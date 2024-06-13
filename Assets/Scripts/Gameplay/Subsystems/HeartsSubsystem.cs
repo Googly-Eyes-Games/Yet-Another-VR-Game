@@ -8,6 +8,7 @@ public class HeartsSubsystem : SceneSubsystem
     public event Action<int /** hearts */, int /** delta */> OnHeartsNumberChanged;
     
     public int Hearts { get; private set; }
+    public int MaxHearts => GameplaySettings.Global.StartHearts;
     
     private bool entryAdded;
     

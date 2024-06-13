@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GlobalGameplaySettings
   m_EditorClassIdentifier: 
   <CountDownSeconds>k__BackingField: 3
-  <StartHearts>k__BackingField: 3
+  <StartHearts>k__BackingField: 5
   <MinimalMugFillAmount>k__BackingField: 0.5
   <ClientBaseSpeed>k__BackingField: 0.25
   <ClientReturnSpeed>k__BackingField: 2

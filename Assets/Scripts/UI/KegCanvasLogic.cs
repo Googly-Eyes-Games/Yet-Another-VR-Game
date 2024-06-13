@@ -5,9 +5,6 @@ using UnityEngine;
 public class KegCanvas : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text healthText;
-    
-    [SerializeField]
     private TMP_Text scoreText;
      
     [SerializeField]
@@ -15,8 +12,6 @@ public class KegCanvas : MonoBehaviour
 
     private void Awake()
     {
-        HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-        heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
 
         ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
         scoreSubsystem.OnScoreChanged += HandleScoreChanged;
@@ -32,18 +27,6 @@ public class KegCanvas : MonoBehaviour
 
     private void HandleScoreChanged(int newScore)
     {
-        scoreText.text = $"Score: {newScore}";
-    }
-
-    private void HandleHeartsNumberChanged(int hearts, int deltaHearts)
-    {
-        if (hearts >= 0)
-        {
-            healthText.text = $"Hearts: {hearts}";
-        }
-        else
-        {
-            healthText.text = $"Game Over";
-        }
+        scoreText.text = $"{newScore}";
     }
 }
