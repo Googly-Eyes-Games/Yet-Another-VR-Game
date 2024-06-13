@@ -32,7 +32,7 @@ public class HeartsSubsystem : SceneSubsystem
         Hearts--;
         OnHeartsNumberChanged?.Invoke(Hearts, -1);
         
-        if (Hearts < 0)
+        if (Hearts <= 0)
         {
             HandleGameOver();
         }
