@@ -25,8 +25,11 @@ public class ClientVFX : MonoBehaviour
 
     [Foldout("Config")]
     [SerializeField]
-    private Color[] vikingHairColors;
+    private VikingColorSetup[] vikingColors;
     
+    [Foldout("Debug")]
+    [SerializeField]
+    private int colorToApply;
 
     private Client client;
     private Material material;
@@ -42,8 +45,28 @@ public class ClientVFX : MonoBehaviour
 
     private void HandleInitialization()
     {
-        Color randomColor = vikingHairColors.GetRandom();
-        material.SetColor(ShaderLookup.VikingHairColors, randomColor);
+        UpdateColors();
+    }
+
+    [Button]
+    private void UpdateColors()
+    {
+        VikingColorSetup colorSetup;
+        if (Application.isPlaying)
+        {
+            colorSetup = vikingColors.GetRandom();
+        }
+        else
+        {
+            int indexToApply = Mathf.Clamp(colorToApply, 0, vikingColors.Length);
+            colorSetup = vikingColors[indexToApply];
+            
+            material = meshRenderer.sharedMaterial;
+        }
+        
+        material.SetColor(ShaderLookup.HairColor, colorSetup.hairColor);
+        material.SetColor(ShaderLookup.ClothPrimaryColor, colorSetup.clothPrimaryColor);
+        material.SetColor(ShaderLookup.ClothSecondaryColor, colorSetup.clothSecondaryColor);
     }
 
     private void HandleClientStateChanged(ClientState newClientState)
@@ -85,6 +108,22 @@ public class ClientVFX : MonoBehaviour
         public static readonly int ParticleSprite = Shader.PropertyToID("Particle");
         public static readonly int Color = Shader.PropertyToID("Color");
         public static readonly int FlipBookSize = Shader.PropertyToID("FlipBookSize");
-        public static readonly int VikingHairColors = Shader.PropertyToID("_Hair");
+        
+        public static readonly int HairColor = Shader.PropertyToID("_Hair");
+        public static readonly int ClothPrimaryColor = Shader.PropertyToID("_ClothPrimary");
+        public static readonly int ClothSecondaryColor = Shader.PropertyToID("_ClothSecondary");
+    }
+
+    [Serializable]
+    public struct VikingColorSetup
+    {
+        [SerializeField]
+        public Color hairColor;
+        
+        [SerializeField]
+        public Color clothPrimaryColor;
+        
+        [SerializeField]
+        public Color clothSecondaryColor;
     }
 }
