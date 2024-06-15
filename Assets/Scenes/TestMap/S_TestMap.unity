@@ -8019,6 +8019,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3629666433932087307, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4967336559291097374, guid: 5de9daef469e3f2419264cce73180e26, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647

@@ -26,6 +26,16 @@ public class Client : MonoBehaviour
     public float MugReturnSpeed { get; private set; }
     
     public ClientState State { get; private set; } = ClientState.WantsBeer;
+
+    public float GoToBarProgress
+    {
+        get
+        {
+            float queueLength = clientQueue.length;
+            float elapsedTime = Time.timeSinceLevelLoad - timeSpawned;
+            return elapsedTime * WalkSpeed / queueLength;
+        }
+    }
     
     private float timeSpawned;
     private float timeReturningStarted;
@@ -80,10 +90,7 @@ public class Client : MonoBehaviour
 
     private void HandleGoToBarLogic()
     {
-        float queueLength = clientQueue.length;
-
-        float elapsedTime = Time.timeSinceLevelLoad - timeSpawned;
-        float queueFract = elapsedTime * WalkSpeed / queueLength;
+        float queueFract = GoToBarProgress;
 
         transform.position = Vector3.Lerp(
             clientQueue.startPoint.position,

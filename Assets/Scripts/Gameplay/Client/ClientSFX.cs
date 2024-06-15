@@ -9,7 +9,7 @@ public class ClientSFX : SFXComponentBase
 {
     [Foldout("Clips")]
     [SerializeField]
-    private AudioClip spawnSFX;
+    private AudioClip wantsBeerSFX;
     
     [Foldout("Clips")]
     [SerializeField]
@@ -23,27 +23,43 @@ public class ClientSFX : SFXComponentBase
     [SerializeField]
     private AudioClip pickUpMugSFX;
 
+    [SerializeField]
+    [Range(0, 1)]
+    private float goToBarPercentageToScreamAgain = 0.75f;
+
     private Client client;
 
-    private AudioSource spawnAS;
+    private AudioSource wantsBeerAS;
     private AudioSource unsatisfiedAS;
     private AudioSource satisfiedAS;
     private AudioSource pickUpMugAS;
+
+    private bool screamedWantBeer = false;
 
     private void Awake()
     {
         client = GetComponent<Client>();
         client.OnClientStateChanged += HandleClientStateChanged;
 
-        spawnAS = CreateAudioSource(spawnSFX);
+        wantsBeerAS = CreateAudioSource(wantsBeerSFX);
         unsatisfiedAS = CreateAudioSource(unsatisfiedSFX);
         satisfiedAS = CreateAudioSource(satisfiedSFX);
         pickUpMugAS = CreateAudioSource(pickUpMugSFX);
     }
 
+    private void Update()
+    {
+        if (client.GoToBarProgress > goToBarPercentageToScreamAgain && !screamedWantBeer)
+        {
+            screamedWantBeer = true;
+            wantsBeerAS.Play();
+        }
+    }
+
     private void OnEnable()
     {
-        spawnAS.Play();
+        screamedWantBeer = false;
+        wantsBeerAS.Play();
     }
 
     private void HandleClientStateChanged(ClientState newState)
