@@ -7,6 +7,7 @@ public static class LinearAlgebra
         Vector3 direction = (end - start).normalized;
         Vector3 v = point - start;
         float d = Vector3.Dot(v, direction);
+        d = Mathf.Clamp(d, 0, (end - start).magnitude);
         return start + (direction * d);
     }
 

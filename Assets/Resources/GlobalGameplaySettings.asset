@@ -20,14 +20,14 @@ MonoBehaviour:
   <Levels>k__BackingField:
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 0
     <MaxClients>k__BackingField: 1
-    <ClientSpeed>k__BackingField: 0.25
+    <ClientSpeed>k__BackingField: 0.4
     <MugSpeed>k__BackingField: 1
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 0
     <ScoreMultiplier>k__BackingField: 25
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 3
     <MaxClients>k__BackingField: 2
-    <ClientSpeed>k__BackingField: 0.25
+    <ClientSpeed>k__BackingField: 0.4
     <MugSpeed>k__BackingField: 1
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 0
