@@ -22,9 +22,9 @@ public class LiquidHandler : MonoBehaviour
     [field: SerializeField]
     public Color FoamColor { get; set; }
 
-    [Foldout("General")]
-    [SerializeField]
-    private Vector3 bottomOffset = Vector3.zero;
+    [field: Foldout("General")]
+    [field: SerializeField]
+    public Vector3 BottomOffset { get; private set; }= Vector3.zero;
     
     [Foldout("Wobbly Effect")]
     [SerializeField]
@@ -54,6 +54,18 @@ public class LiquidHandler : MonoBehaviour
     
     public Vector3 SurfacePosition { get; private set; }
     public Vector3 SurfaceNormal { get; private set; }
+
+    public Vector3 VolumeBottom
+    {
+        get {
+            Vector3 volumeBottom = MeshRenderer.bounds.center;
+            volumeBottom.y = MeshRenderer.bounds.min.y;
+            volumeBottom += BottomOffset;
+            
+            return volumeBottom;
+        }
+    }
+    public float VolumeHeight => MeshRenderer.bounds.max.y - MeshRenderer.bounds.min.y;
 
     public MeshRenderer MeshRenderer { get; private set; }
     private MeshFilter meshFilter;
@@ -111,14 +123,9 @@ public class LiquidHandler : MonoBehaviour
 
     private void CalculatePlanePosition()
     {
-        Vector3 volumeBottom = MeshRenderer.bounds.center;
-        volumeBottom.y = MeshRenderer.bounds.min.y;
-
-        volumeBottom += bottomOffset;
-
-        float volumeHeight = MeshRenderer.bounds.max.y - MeshRenderer.bounds.min.y;
+        Vector3 volumeBottom = VolumeBottom;
         
-        SurfacePosition = volumeBottom + Vector3.up * (FillAmount * volumeHeight);
+        SurfacePosition = volumeBottom + Vector3.up * (FillAmount * VolumeHeight);
         Debug.DrawLine(volumeBottom,SurfacePosition, Color.green);
         
         material.SetVector(ShaderLookUp.PlanePosition, SurfacePosition);
@@ -148,6 +155,7 @@ public class LiquidHandler : MonoBehaviour
         }
         else
         {
+            SurfaceNormal = Vector3.up;
             material.SetVector(ShaderLookUp.PlaneNormal, Vector3.up);
         }
     }

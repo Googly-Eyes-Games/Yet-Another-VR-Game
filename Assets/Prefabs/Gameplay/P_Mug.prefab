@@ -1,5 +1,122 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2418617444565778972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3812658283580494085}
+  - component: {fileID: 1643284150778074653}
+  - component: {fileID: 8573713234503506209}
+  m_Layer: 0
+  m_Name: VFX_BeerFoam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3812658283580494085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418617444565778972}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.212, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 691187389614227388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!2083052967 &1643284150778074653
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418617444565778972}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: 58a503a9f7780bf4faa1c5825ebbce0f, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_AllowInstancing: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 0.052747197
+        m_Name: SpawnCircle_circle_radius
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array: []
+    m_Vector3f:
+      m_Array:
+      - m_Value: {x: 90, y: 0, z: 0}
+        m_Name: SpawnCircle_circle_transform_angles
+        m_Overridden: 1
+    m_Vector4f:
+      m_Array: []
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
+--- !u!73398921 &8573713234503506209
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418617444565778972}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &3660195270326296142
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +276,7 @@ Transform:
   - {fileID: 4054941646157312625}
   - {fileID: 9217609561186799121}
   - {fileID: 6785076333226158618}
+  - {fileID: 3812658283580494085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &827394920414891985
@@ -369,7 +487,7 @@ MonoBehaviour:
   liquidHandler: {fileID: 6834605724626997490}
   bottleneckRadius: 0.07
   bottleneckSocket: {fileID: 9217609561186799121}
-  splitSpeed: 16
+  splitSpeed: 8
   maxEdgeDrops: 4
   particles: {fileID: 6785076333226158616}
   mixingSpeed: 1
@@ -402,6 +520,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mugDestroyPrefab: {fileID: 5958384029920356469, guid: 167086c04d42d934d80644d9a468b14b, type: 3}
   spawnAnimationDuration: 0.5
+  foamVFX: {fileID: 1643284150778074653}
+  foamFillRange: {x: 0.8, y: 0.9}
+  foamBottomOffset: 0.11
+  liquidHandler: {fileID: 6834605724626997490}
+  mug: {fileID: 2439647757041166320}
   meshTransform: {fileID: 228497558669016826}
 --- !u!136 &6859034410155381643
 CapsuleCollider:
@@ -711,8 +834,8 @@ MonoBehaviour:
   <ContainerVolume>k__BackingField: 1
   <LiquidColor>k__BackingField: {r: 1, g: 0.7529412, b: 0, a: 0}
   <FoamColor>k__BackingField: {r: 1, g: 0.8745098, b: 0.64705884, a: 1}
-  bottomOffset: {x: 0, y: -0.03, z: 0}
-  maxWobblyEffect: 45
+  <BottomOffset>k__BackingField: {x: 0, y: 0, z: 0}
+  maxWobblyEffect: 30
   wobblyVelocityFactor: 1
   wobblyAngularVelocityFactor: 1
   wobbleDamping: 2

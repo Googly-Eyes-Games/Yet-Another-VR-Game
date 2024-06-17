@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(MugComponent))]
 public class MugVFX : MonoBehaviour
@@ -10,6 +11,21 @@ public class MugVFX : MonoBehaviour
 
     [SerializeField]
     private float spawnAnimationDuration = 0.5f;
+    
+    [SerializeField]
+    private VisualEffect foamVFX;
+    
+    [SerializeField]
+    private Vector2 foamFillRange = new Vector2(0.9f, 1.0f);
+
+    [SerializeField]
+    private float foamBottomOffset = 0.03f;
+    
+    [SerializeField]
+    private LiquidHandler liquidHandler;
+    
+    [SerializeField]
+    private MugComponent mug;
 
     [SerializeField]
     private Transform meshTransform;
@@ -28,12 +44,23 @@ public class MugVFX : MonoBehaviour
 
     private void Awake()
     {
-        MugComponent mug = GetComponent<MugComponent>();
         mug.OnDestroy += HandleMugDestroy;
     }
 
     private void HandleMugDestroy(MugComponent brokenMug)
     {
         Instantiate(mugDestroyPrefab, brokenMug.transform.position, brokenMug.transform.rotation);
+    }
+
+    private void Update()
+    {
+        float fillPercentage = mug.FillPercentage;
+        float targetFoamSize = Mathf.InverseLerp(foamFillRange.x, foamFillRange.y, fillPercentage);
+        foamVFX.SetFloat(ShaderLookUp.FoamSize, targetFoamSize);
+    }
+
+    private static class ShaderLookUp
+    {
+        public static readonly int FoamSize = Shader.PropertyToID("FoamSize");
     }
 }
