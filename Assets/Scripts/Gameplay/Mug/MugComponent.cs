@@ -14,6 +14,9 @@ public class MugComponent : MonoBehaviour
     [SerializeField]
     private MeshRenderer mugMeshRenderer;
     
+    [SerializeField]
+    private MeshRenderer foamRenderer;
+    
     private Material mugMaterialInstance;
     
     public bool IsSliding { get; private set; }
@@ -26,9 +29,10 @@ public class MugComponent : MonoBehaviour
         {
             isClean = value;
             UpdateMugMaterial();
+            UpdateFoamVisibility();
         }
     }
-    
+
     public float FillPercentage
     {
         get => beerLiquidHandler.FillAmount;
@@ -85,6 +89,12 @@ public class MugComponent : MonoBehaviour
     {
         mugMaterialInstance.SetFloat(ShaderPropertyLookUp.isClean, isClean ? 1f : 0f);
     }
+    
+    private void UpdateFoamVisibility()
+    {
+        foamRenderer.enabled = !isClean;
+    }
+
     
     readonly struct ShaderPropertyLookUp
     {

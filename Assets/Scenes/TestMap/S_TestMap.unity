@@ -2266,18 +2266,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 813064917760947773, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: splitSpeed
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7174934681905208278, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: foamFillRange.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7174934681905208278, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
-      propertyPath: foamFillRange.y
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 8573713234503506209, guid: 1f57c4d96b2029f40a30bf0726a29dbd, type: 3}
       propertyPath: m_Enabled
       value: 0
