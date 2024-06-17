@@ -57,4 +57,5 @@ public class ClientQueue : MonoBehaviour
     {
         return LinearAlgebra.NearestPointOnSegment(returnQueueStartPoint.position, returnQueueEndPoint.position, position);
     }
+
 }

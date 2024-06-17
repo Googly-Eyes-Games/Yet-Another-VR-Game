@@ -31,7 +31,7 @@ public class Client : MonoBehaviour
     {
         get
         {
-            float queueLength = clientQueue.length;
+            float queueLength = ClientQueue.length;
             float elapsedTime = Time.timeSinceLevelLoad - timeSpawned;
             return elapsedTime * WalkSpeed / queueLength;
         }
@@ -41,7 +41,7 @@ public class Client : MonoBehaviour
     private float timeReturningStarted;
     private Vector3 startReturnPosition;
 
-    private ClientQueue clientQueue;
+    public ClientQueue ClientQueue { get; private set; }
     public MugComponent CollectedMug { get; private set; }
 
     
@@ -59,7 +59,7 @@ public class Client : MonoBehaviour
         LevelSubsystem levelSubsystem = SceneSubsystemManager.GetSubsystem<LevelSubsystem>();
         LevelConfig currentLevelConfig = levelSubsystem.CurrentLevelConfig;
         
-        clientQueue = queue;
+        ClientQueue = queue;
         timeSpawned = Time.timeSinceLevelLoad;
         ReturnSpeed = GameplaySettings.Global.ClientReturnSpeed;
         MugReturnSpeed = currentLevelConfig.MugSpeed;
@@ -93,8 +93,8 @@ public class Client : MonoBehaviour
         float queueFract = GoToBarProgress;
 
         transform.position = Vector3.Lerp(
-            clientQueue.startPoint.position,
-            clientQueue.endPoint.position,
+            ClientQueue.startPoint.position,
+            ClientQueue.endPoint.position,
             queueFract
         );
 
@@ -111,14 +111,14 @@ public class Client : MonoBehaviour
 
     private void HandleReturnLogic()
     {
-        float queueLength = Vector3.Distance(startReturnPosition, clientQueue.returnQueueEndPoint.position);
+        float queueLength = Vector3.Distance(startReturnPosition, ClientQueue.returnQueueEndPoint.position);
 
         float elapsedTime = Time.timeSinceLevelLoad - timeReturningStarted;
         float queueFract = elapsedTime * ReturnSpeed / queueLength;
 
         transform.position = Vector3.Lerp(
             startReturnPosition,
-            clientQueue.returnQueueEndPoint.position,
+            ClientQueue.returnQueueEndPoint.position,
             queueFract
         );
 
@@ -159,8 +159,8 @@ public class Client : MonoBehaviour
     private void ReturnToExit()
     {
         timeReturningStarted = Time.timeSinceLevelLoad;
-        startReturnPosition = clientQueue.NearestReturnQueuePoint(transform.position);
-        transform.rotation = clientQueue.returnQueueStartPoint.rotation;
+        startReturnPosition = ClientQueue.NearestReturnQueuePoint(transform.position);
+        transform.rotation = ClientQueue.returnQueueStartPoint.rotation;
     }
 
     private void ExitTavern()
@@ -173,7 +173,7 @@ public class Client : MonoBehaviour
 
     private void ReturnMug()
     {
-        clientQueue.ReturnMug(this);
+        ClientQueue.ReturnMug(this);
         CollectedMug.StartSliding();
         CollectedMug = null;
     }

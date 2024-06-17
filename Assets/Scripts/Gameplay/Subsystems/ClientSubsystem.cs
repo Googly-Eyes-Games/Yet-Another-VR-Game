@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using erulathra;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -17,6 +18,8 @@ public class ClientSubsystem : SceneSubsystem
 
     private ObjectPool<Client> leftClientPool;
     private ObjectPool<Client> rightClientPool;
+
+    private HashSet<Client> activeClients = new HashSet<Client>();
 
     private int ActiveClients => leftClientPool.CountActive + rightClientPool.CountActive;
 
@@ -57,17 +60,23 @@ public class ClientSubsystem : SceneSubsystem
     private void OnGetClient(Client client)
     {
         client.gameObject.SetActive(true);
+        activeClients.Add(client);
     }
 
     private void OnReleaseClient(Client client)
     {
         client.gameObject.SetActive(false);
+        activeClients.Remove(client);
     }
-    
     
     public Client SpawnClient()
     {
-        ClientQueue targetQueue = clientQueues.GetRandom();
+        int targetQueueID = Random.Range(0, clientQueues.Length);
+        ClientQueue targetQueue = clientQueues[targetQueueID];
+        if (!IsQueueFree(targetQueue))
+        {
+            targetQueue = clientQueues[(targetQueueID + 1) % clientQueues.Length];
+        }
 
         Client newClient = targetQueue.isRightQueue ? rightClientPool.Get() : leftClientPool.Get();
 
@@ -75,6 +84,19 @@ public class ClientSubsystem : SceneSubsystem
         spawnedClients++;
 
         return newClient;
+    }
+
+    private bool IsQueueFree(ClientQueue queue)
+    {
+        foreach (Client client in activeClients)
+        {
+            if (client.GoToBarProgress < 0.25f && client.ClientQueue == queue)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
     
     private void HandleClientExitedBar(Client client)
