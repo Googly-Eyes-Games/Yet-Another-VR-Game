@@ -25,7 +25,7 @@ public static class SaveManager
         {
             saveData.highScores.Add(scoreboardEntry);
         }
-        else
+        else if (found.entryScore < scoreboardEntry.entryScore)
         {
             found.entryScore = scoreboardEntry.entryScore;
         }
