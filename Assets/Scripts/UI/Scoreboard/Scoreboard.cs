@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Scoreboard : MonoBehaviour
@@ -8,31 +10,17 @@ public class Scoreboard : MonoBehaviour
 
     private void Start()
     {
+        ScoreboardEntry scoreboardEntry = new ScoreboardEntry(
+            $"test{Random.Range(0, 32)}",
+            TransitionsSceneManger.Get().LastSceneScore
+        );
+        
+        SaveManager.AddEntry(scoreboardEntry);
+        
         ScoreboardSaveData savedScores = SaveManager.LoadScores();
         savedScores.highScores.Sort((a, b) => b.entryScore.CompareTo(a.entryScore));
         
         UpdateUI(savedScores);
-    }
-
-    public void AddEntry(ScoreboardEntryData scoreboardEntryData)
-    {
-        ScoreboardSaveData savedScores = SaveManager.LoadScores();
-        
-        savedScores.highScores.Sort((a, b) => b.entryScore.CompareTo(a.entryScore));
-
-        if (!savedScores.highScores.Exists(entry => entry.entryName == scoreboardEntryData.entryName && entry.entryScore == scoreboardEntryData.entryScore))
-        {
-            savedScores.highScores.Add(scoreboardEntryData);
-            savedScores.highScores.Sort((a, b) => b.entryScore.CompareTo(a.entryScore));
-
-            if (savedScores.highScores.Count > maxScoreboardEntries)
-            {
-                savedScores.highScores.RemoveAt(savedScores.highScores.Count - 1);
-            }
-
-            SaveManager.SaveScores(savedScores);
-            UpdateUI(savedScores);
-        }
     }
 
     private void UpdateUI(ScoreboardSaveData saveData)
@@ -45,7 +33,12 @@ public class Scoreboard : MonoBehaviour
         if (saveData == null)
             return;
 
-        foreach (ScoreboardEntryData highScore in saveData.highScores)
+        List<ScoreboardEntry> entriesToShow =
+            saveData.highScores
+                .OrderBy(x => x.entryScore)
+                .Take(maxScoreboardEntries).ToList();
+
+        foreach (ScoreboardEntry highScore in entriesToShow)
         {
             Instantiate(scoreboardEntryObject, scoreboardHolderTransform).GetComponent<ScoreboardEntryUI>().Initialize(highScore);
         }

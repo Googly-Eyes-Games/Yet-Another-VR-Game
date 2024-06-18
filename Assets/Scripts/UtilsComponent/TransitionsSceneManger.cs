@@ -15,6 +15,8 @@ public class TransitionsSceneManger : ScriptableObject
 	[SerializeField]
 	private float transitionTime;
 
+	public int LastSceneScore { get; private set; } = -1;
+
 	public SceneManagerState State { get; private set; }
 
 	private SceneTransition sceneTransitionInternal;
@@ -47,16 +49,19 @@ public class TransitionsSceneManger : ScriptableObject
 	
 	public void LoadLevel()
 	{
+		LastSceneScore = -1;
 		LoadScene(GameplaySettings.Global.LevelScene);
 	}
 	
 	public void LoadMenu()
 	{
+		LastSceneScore = -1;
 		LoadScene(GameplaySettings.Global.MenuScene);
 	}
 
-	public void LoadGameOver()
+	public void LoadGameOver(int playerScore)
 	{
+		LastSceneScore = playerScore;
 		LoadScene(GameplaySettings.Global.GameOverScene);
 	}
 

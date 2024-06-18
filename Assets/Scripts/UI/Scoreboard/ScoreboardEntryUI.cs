@@ -8,10 +8,10 @@ public class ScoreboardEntryUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI entryNameText;
     [SerializeField] private TextMeshProUGUI entryScoreText;
 
-    public void Initialize(ScoreboardEntryData scoreboardEntryData)
+    public void Initialize(ScoreboardEntry scoreboardEntry)
     {
-        entryNameText.text = scoreboardEntryData.entryName;
-        entryScoreText.text = scoreboardEntryData.entryScore.ToString();
+        entryNameText.text = scoreboardEntry.entryName;
+        entryScoreText.text = scoreboardEntry.entryScore.ToString();
     }
     
 }

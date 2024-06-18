@@ -4,5 +4,5 @@ using System.Collections.Generic;
 [Serializable]
 public class ScoreboardSaveData
 {
-    public List<ScoreboardEntryData> highScores = new();
+    public List<ScoreboardEntry> highScores = new();
 }
