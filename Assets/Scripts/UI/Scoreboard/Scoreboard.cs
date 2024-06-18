@@ -10,9 +10,14 @@ public class Scoreboard : MonoBehaviour
 
     private void Start()
     {
+        int score = TransitionsSceneManger.Get().LastSceneScore;
+        
+        if (score < 0)
+            return;
+        
         ScoreboardEntry scoreboardEntry = new ScoreboardEntry(
             $"test{Random.Range(0, 32)}",
-            TransitionsSceneManger.Get().LastSceneScore
+            score
         );
         
         SaveManager.AddEntry(scoreboardEntry);
@@ -38,9 +43,12 @@ public class Scoreboard : MonoBehaviour
                 .OrderBy(x => x.entryScore)
                 .Take(maxScoreboardEntries).ToList();
 
-        foreach (ScoreboardEntry highScore in entriesToShow)
+        foreach (ScoreboardEntry entry in entriesToShow)
         {
-            Instantiate(scoreboardEntryObject, scoreboardHolderTransform).GetComponent<ScoreboardEntryUI>().Initialize(highScore);
+            if (entry.entryScore > 0)
+            {
+                Instantiate(scoreboardEntryObject, scoreboardHolderTransform).GetComponent<ScoreboardEntryUI>().Initialize(entry);
+            }
         }
     }
 }
