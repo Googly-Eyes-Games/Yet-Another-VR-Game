@@ -15,9 +15,11 @@ public class HealthBarHandler : MonoBehaviour
         healthBarMaterial = meshRenderer.material;
         
         HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-        maxHearts = heartsSubsystem.MaxHearts;
-
-        heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
+        if (heartsSubsystem)
+        {
+            maxHearts = heartsSubsystem.MaxHearts;
+            heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
+        }
     }
 
     private void HandleHeartsNumberChanged(int hearts, int delta)

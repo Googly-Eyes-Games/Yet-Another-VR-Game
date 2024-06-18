@@ -10,7 +10,10 @@ public class MusicPlayer : MonoBehaviour
         musicAudioSource = GetComponent<AudioSource>();
 
         GameplayTimeSubsystem gameplayTimeSubsystem = SceneSubsystemManager.GetSubsystem<GameplayTimeSubsystem>();
-        gameplayTimeSubsystem.OnCountDownEnd += HandleCountDownEnd;
+        if (gameplayTimeSubsystem)
+        {
+            gameplayTimeSubsystem.OnCountDownEnd += HandleCountDownEnd;
+        }
     }
 
     private void HandleCountDownEnd()

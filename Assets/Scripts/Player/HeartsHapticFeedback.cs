@@ -11,7 +11,10 @@ public class HeartsHapticFeedback : MonoBehaviour
         xrController = GetComponent<XRBaseController>();
         
         HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-        heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
+        if (heartsSubsystem)
+        {
+            heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
+        }
     }
 
     private void HandleHeartsNumberChanged(int hearts, int deltaHearts)

@@ -1,10 +1,14 @@
 using UnityEngine;
 using erulathra;
+using UnityEngine.SceneManagement;
 
 public class SceneSubsystemInitializer : MonoBehaviour
 {
     private void InstantiateSubsystems(SceneSubsystemManager manager)
     {
+        if (SceneManager.GetActiveScene().name != GameplaySettings.Global.LevelScene)
+            return;
+        
         manager.FindOrAddSubsystem<GameplayTimeSubsystem>();
         manager.FindOrAddSubsystem<ClientSubsystem>();
         manager.FindOrAddSubsystem<HeartsSubsystem>();

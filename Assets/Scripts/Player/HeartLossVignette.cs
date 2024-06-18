@@ -25,14 +25,17 @@ public class HeartLossVignette : MonoBehaviour
     private void Awake()
     {
         HeartsSubsystem heartsSubsystem = SceneSubsystemManager.GetSubsystem<HeartsSubsystem>();
-        heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
+        if (heartsSubsystem)
+        {
+            heartsSubsystem.OnHeartsNumberChanged += HandleHeartsNumberChanged;
 
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        material = meshRenderer.material;
-        material.SetFloat(ShaderLookUp.ApertureSize, 1f);
-        material.SetFloat(ShaderLookUp.FeatheringEffect, featheringEffect);
-        material.SetColor(ShaderLookUp.VignetteColor, vignetteColor);
-        material.SetColor(ShaderLookUp.VignetteColorBlend, vignetteColorBlend);
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            material = meshRenderer.material;
+            material.SetFloat(ShaderLookUp.ApertureSize, 1f);
+            material.SetFloat(ShaderLookUp.FeatheringEffect, featheringEffect);
+            material.SetColor(ShaderLookUp.VignetteColor, vignetteColor);
+            material.SetColor(ShaderLookUp.VignetteColorBlend, vignetteColorBlend);
+        }
     }
 
     private void HandleHeartsNumberChanged(int heartsNumber, int deltaHearts)

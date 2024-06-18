@@ -10,8 +10,11 @@ public class PlayerHud : MonoBehaviour
     private void Awake()
     {
         GameplayTimeSubsystem gameplayTimeSubsystem = SceneSubsystemManager.GetSubsystem<GameplayTimeSubsystem>();
-        gameplayTimeSubsystem.OnCountDownTick += UpdateCountDown;
-        gameplayTimeSubsystem.OnCountDownEnd += HandleCountDownEnd;
+        if (gameplayTimeSubsystem)
+        {
+            gameplayTimeSubsystem.OnCountDownTick += UpdateCountDown;
+            gameplayTimeSubsystem.OnCountDownEnd += HandleCountDownEnd;
+        }
     }
 
     private void UpdateCountDown(int wholeSecondsRemain)
