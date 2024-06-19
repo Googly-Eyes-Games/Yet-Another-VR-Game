@@ -1,14 +1,24 @@
+using System;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameOverEntryInput : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TMP_InputField inputField;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+
+    [SerializeField]
+    private TMP_InputField inputField;
+
+    [SerializeField]
+    private int maxCharacters = 16;
     
     private int score;
     private string nick;
+    
+    private TouchScreenKeyboard overlayKeyboard;
     
     void Start()
     {
@@ -19,17 +29,27 @@ public class GameOverEntryInput : MonoBehaviour
 
         scoreText.text = score.ToString();
         
-        inputField.ActivateInputField();
-        inputField.onEndEdit.AddListener(OnEndEdit);
+        overlayKeyboard = TouchScreenKeyboard.Open("GUEST",  TouchScreenKeyboardType.Default);
+        overlayKeyboard.characterLimit = maxCharacters;
     }
 
-    void OnEndEdit(string inputNick)
+    private void Update()
     {
-        nick = inputNick;
+        if (overlayKeyboard != null)
+        {
+            // Sanitize input
+            Regex rgx = new Regex("[^a-zA-Z0-9 -]");
+            overlayKeyboard.text = rgx.Replace(overlayKeyboard.text, "");
+            
+            inputField.text = overlayKeyboard.text;
+            nick = overlayKeyboard.text;
+        }
     }
     
     public void Next()
     {
+        nick = nick.ToUpperInvariant();
+        
         ScoreboardEntry scoreboardEntry = new ScoreboardEntry(
             nick,
             score
