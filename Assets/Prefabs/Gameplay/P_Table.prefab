@@ -86,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &268956531196864763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   <returnMugStartPoint>k__BackingField: {fileID: 2192014961783781111}
   <returnMugEndPoint>k__BackingField: {fileID: 4384420976379518919}
   <isRightQueue>k__BackingField: 0
+  tableAxis: 1
 --- !u!1 &1132551454156749771
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 2308356329898448786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000004172325}
-  m_LocalPosition: {x: 0, y: 0.946, z: 5.894}
+  m_LocalPosition: {x: 0, y: 0.946, z: 5.845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -571,6 +572,7 @@ MonoBehaviour:
   <returnMugStartPoint>k__BackingField: {fileID: 2192014961783781111}
   <returnMugEndPoint>k__BackingField: {fileID: 4384420976379518919}
   <isRightQueue>k__BackingField: 1
+  tableAxis: 1
 --- !u!1 &2856345880569507566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,8 +1257,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &3008599796946108571
 MonoBehaviour:
   m_ObjectHideFlags: 0

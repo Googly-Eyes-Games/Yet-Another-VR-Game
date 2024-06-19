@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ClientQueue : MonoBehaviour
@@ -23,6 +24,9 @@ public class ClientQueue : MonoBehaviour
     [field: SerializeField]
     public bool isRightQueue { get; private set; }
 
+    [field: SerializeField]
+    public TableAxis tableAxis = TableAxis.Z;
+
     public float length => Vector3.Distance(startPoint.position, endPoint.position);
 
     public void InitializeClient(Client client)
@@ -46,16 +50,23 @@ public class ClientQueue : MonoBehaviour
         returnedMug.FillPercentage = 0f;
         returnedMug.IsClean = false;
         
-        // TODO: Remove Hardcoded variables
         Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
-        mugRigidbody.position = mugPosition;
-        mugRigidbody.velocity = client.MugReturnSpeed * returnMugStartPoint.forward;
+        mugRigidbody.MovePosition(mugPosition);
+
+        Vector3 mugReturnDirection = (returnMugEndPoint.position - returnMugStartPoint.position).normalized;
+        mugRigidbody.velocity = client.MugReturnSpeed * mugReturnDirection;
         mugRigidbody.angularVelocity = Vector3.up * 45f;
+        mugRigidbody.AddForce(-mugRigidbody.GetAccumulatedForce());
     }
 
     public Vector3 NearestReturnQueuePoint(Vector3 position)
     {
         return LinearAlgebra.NearestPointOnSegment(returnQueueStartPoint.position, returnQueueEndPoint.position, position);
     }
-
+    
+    public enum TableAxis
+    {
+        X,
+        Z
+    }
 }

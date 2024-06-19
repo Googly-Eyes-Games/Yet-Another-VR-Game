@@ -137,6 +137,9 @@ public class Client : MonoBehaviour
             
             CollectedMug = mug;
             
+            Rigidbody mugRigidbody = mug.GetComponent<Rigidbody>();
+            mugRigidbody.velocity = Vector3.zero;
+            
             ScoreSubsystem scoreSubsystem = SceneSubsystemManager.GetSubsystem<ScoreSubsystem>();
             scoreSubsystem.AddPoint();
         }

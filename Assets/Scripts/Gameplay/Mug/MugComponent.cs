@@ -76,7 +76,7 @@ public class MugComponent : MonoBehaviour
     
     public void StopSliding()
     {
-        IsSliding = true;
+        IsSliding = false;
         OnSlidingStateChanged?.Invoke(false);
     }
 
