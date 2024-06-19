@@ -8,4 +8,9 @@ public class GameOverMenu : MonoBehaviour
     {
         TransitionsSceneManger.Get().LoadLevel();
     }
+
+    public void LoadMenu()
+    {
+        TransitionsSceneManger.Get().LoadMenu();
+    }
 }
