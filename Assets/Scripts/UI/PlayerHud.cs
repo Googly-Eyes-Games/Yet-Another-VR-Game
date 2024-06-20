@@ -1,3 +1,4 @@
+using System;
 using erulathra;
 using TMPro;
 using UnityEngine;
@@ -9,12 +10,20 @@ public class PlayerHud : MonoBehaviour
 
     private void Awake()
     {
+        if (!enabled)
+            return;
+        
         GameplayTimeSubsystem gameplayTimeSubsystem = SceneSubsystemManager.GetSubsystem<GameplayTimeSubsystem>();
         if (gameplayTimeSubsystem)
         {
             gameplayTimeSubsystem.OnCountDownTick += UpdateCountDown;
             gameplayTimeSubsystem.OnCountDownEnd += HandleCountDownEnd;
         }
+    }
+
+    private void Update()
+    {
+        // I just want to enable checkbox
     }
 
     private void UpdateCountDown(int wholeSecondsRemain)

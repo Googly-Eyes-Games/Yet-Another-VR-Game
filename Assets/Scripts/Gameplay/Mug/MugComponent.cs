@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MugComponent : MonoBehaviour
 {
     public event Action<MugComponent> OnDestroy; 
+    public event Action<MugComponent> OnFill; 
     public event Action<MugComponent> OnClean; 
     public event Action<bool> OnSlidingStateChanged;
 
@@ -40,6 +41,11 @@ public class MugComponent : MonoBehaviour
         {
             beerLiquidHandler.FillAmount = Mathf.Clamp01(value);
             UpdateBeerMaterial();
+
+            if (value > GameplaySettings.Global.MinimalMugFillAmount)
+            {
+                OnFill?.Invoke(this);
+            }
         }
     }
 

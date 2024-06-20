@@ -7,13 +7,19 @@ public class SceneSubsystemInitializer : MonoBehaviour
     private void InstantiateSubsystems(SceneSubsystemManager manager)
     {
         if (SceneManager.GetActiveScene().name != GameplaySettings.Global.LevelScene)
-            return;
-        
-        manager.FindOrAddSubsystem<GameplayTimeSubsystem>();
-        manager.FindOrAddSubsystem<ClientSubsystem>();
-        manager.FindOrAddSubsystem<HeartsSubsystem>();
-        manager.FindOrAddSubsystem<ScoreSubsystem>();
-        manager.FindOrAddSubsystem<LevelSubsystem>();
+        {
+            manager.FindOrAddSubsystem<GameplayTimeSubsystem>();
+            manager.FindOrAddSubsystem<HeartsSubsystem>();
+            manager.FindOrAddSubsystem<ScoreSubsystem>();
+        }
+        else
+        {
+            manager.FindOrAddSubsystem<GameplayTimeSubsystem>();
+            manager.FindOrAddSubsystem<ClientSubsystem>();
+            manager.FindOrAddSubsystem<HeartsSubsystem>();
+            manager.FindOrAddSubsystem<ScoreSubsystem>();
+            manager.FindOrAddSubsystem<LevelSubsystem>();
+        }
     }
 	
     public void Awake()
