@@ -54,11 +54,14 @@ public class ClientAnimator : MonoBehaviour
 
     private void HandleClientStateChanged(ClientState state)
     {
-        if (state == ClientState.WantsBeer) return;
+        if (state == ClientState.WantsBeer)
+            return;
+
+        bool hasMug = client.CollectedMug;
 
         animator.SetFloat(AnimatorLookUp.WalkSpeed, client.ReturnSpeed * walkSpeedFactor);
-        mugTransform.gameObject.SetActive(true);
-        rightArm.weight = 1.0f;
+        mugTransform.gameObject.SetActive(hasMug);
+        rightArm.weight = state == ClientState.DrinkingBeer ? 1.0f : 0.0f ;
         leftArm.weight = 0.0f;
     }
 
