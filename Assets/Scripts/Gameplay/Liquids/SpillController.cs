@@ -73,8 +73,8 @@ public class SpillController : MonoBehaviour
 
     #region Bottleneck
 
-    public Plane bottleneckPlane { get; private set; }
-    public Plane surfacePlane { get; private set; }
+    public Plane BottleneckPlane { get; private set; }
+    public Plane SurfacePlane { get; private set; }
     public Vector3 BottleneckPos { get; private set; }
     public Vector3 OverflowPoint { get; private set; }
 
@@ -95,7 +95,7 @@ public class SpillController : MonoBehaviour
 
         // Calculate the direction vector of the bottlenecks slope
 
-        Vector3 bottleneckSlope = GetSlopeDirection(Vector3.up, bottleneckPlane.normal);
+        Vector3 bottleneckSlope = GetSlopeDirection(Vector3.up, BottleneckPlane.normal);
 
         // Find a position along the slope the side of the bottleneck radius
         Vector3 min = BottleneckPos + bottleneckSlope * bottleneckRadius;
@@ -134,7 +134,7 @@ public class SpillController : MonoBehaviour
 
     #region Split Logic
 
-    private const float splashSize = 0.025f;
+    private const float SplashSize = 0.025f;
 
     public bool IsSpilling { get; private set; }
 
@@ -152,12 +152,8 @@ public class SpillController : MonoBehaviour
         // Check if liquid is overflows
         bool overflows = LinearAlgebra.PlanePlaneIntersection(
             out Vector3 tempOverflowPoint, out Vector3 _,
-             bottleneckPlane.normal,BottleneckPos,
+             BottleneckPlane.normal,BottleneckPos,
              liquidHandler.SurfaceNormal, liquidHandler.SurfacePosition); 
-        
-        Debug.DrawRay(liquidHandler.SurfacePosition, liquidHandler.SurfaceNormal, Color.red);
-        Debug.DrawRay(BottleneckPos, bottleneckPlane.normal, Color.blue);
-        // Debug.DrawRay(overflowPoint, bottleneckPlane.normal, Color.green);
         
         // Translate to contrainers world position
         // overflowsPoint += liquidHandler.transform.position;
@@ -181,7 +177,7 @@ public class SpillController : MonoBehaviour
         if (BottleneckPos.y < OverflowPoint.y)
         {
             // Oh, looks like container is upside down - let's check it
-            float dot = Vector3.Dot(bottleneckPlane.normal, surfacePlane.normal);
+            float dot = Vector3.Dot(BottleneckPlane.normal, SurfacePlane.normal);
             if (dot < 0f)
             {
                 // Yep, let's split from the bottleneck center
@@ -225,12 +221,20 @@ public class SpillController : MonoBehaviour
         // Transfer liquid to other container (if possible)
         liquidHandler.FillAmount = newLiquidAmount;
 
-        RaycastHit containerHit = FindLiquidContainer(splitPos, this.gameObject);
-
-        //RaycastHit is a struct which gives us everything we need
-        if (containerHit.collider)
+        LiquidHole liquidHole = FindLiquidHoles(splitPos);
+        if (liquidHole)
         {
-            TransferLiquid(containerHit, liquidStep, flowScale);
+            liquidHole.AddLiquid(liquidStep * liquidHandler.LiquidVolume);
+        }
+        else
+        {
+            RaycastHit containerHit = FindLiquidContainer(splitPos, this.gameObject);
+
+            //RaycastHit is a struct which gives us everything we need
+            if (containerHit.collider)
+            {
+                TransferLiquid(containerHit, liquidStep, flowScale);
+            }
         }
 
         // Start particles effect
@@ -252,11 +256,11 @@ public class SpillController : MonoBehaviour
         Vector3 hitPoint = hit.point;
 
         // Do we touched bottleneck?
-        bool insideRadius = Vector3.Distance(hitPoint, otherBottleneck) < radius + splashSize * scale;
+        bool insideRadius = Vector3.Distance(hitPoint, otherBottleneck) < radius + SplashSize * scale;
         if (insideRadius)
         {
-            other.liquidHandler.LiquidVolume += lostPercentAmount * liquidHandler.LiquidVolume;
-
+            other.AddLiquid(lostPercentAmount * liquidHandler.LiquidVolume);
+            
             //color change in capacity
             SendLiquidContainer(other.liquidHandler);
         }
@@ -267,13 +271,13 @@ public class SpillController : MonoBehaviour
         var ray = new Ray(splitPos, Vector3.down);
 
         // Check all colliders under ours
-        var hits = Physics.SphereCastAll(ray, splashSize);
+        var hits = Physics.SphereCastAll(ray, SplashSize);
         hits = hits.OrderBy((h) => h.distance).ToArray();
 
         foreach (var hit in hits)
         {
             //Ignore ourself
-            if (!GameObject.ReferenceEquals(hit.collider.gameObject, ignoreCollision) && !hit.collider.isTrigger)
+            if (!GameObject.ReferenceEquals(hit.collider.gameObject, ignoreCollision))
             {
                 // does it even a split controller
                 var liquid = hit.collider.GetComponent<SpillController>();
@@ -286,7 +290,7 @@ public class SpillController : MonoBehaviour
                 //Something other than a liquid splitter is in the way
                 if (!liquid)
                 {
-                    //If we have already dropped down off too many objects, break
+                    //If we have already dropped off too many objects, break
 
                     if (currentDrop >= maxEdgeDrops)
                     {
@@ -319,6 +323,19 @@ public class SpillController : MonoBehaviour
         return new RaycastHit();
     }
 
+    LiquidHole FindLiquidHoles(Vector3 splitPos)
+    {
+        Collider[] colliders = Physics.OverlapSphere(splitPos, 0.05f);
+        foreach (Collider hitCollider in colliders)
+        {
+            LiquidHole liquidHole = hitCollider.GetComponent<LiquidHole>();
+            if (liquidHole)
+                return liquidHole;
+        }
+        
+        return null;
+    }
+
     #endregion
 
     #region ChangeColor
@@ -337,6 +354,12 @@ public class SpillController : MonoBehaviour
         float volume = other.LiquidVolume;
         float koof = splitSpeed / (volume * 1000);
         other.LiquidColor = Color.Lerp(other.LiquidColor, newColor, koof * mixingSpeed);
+    }
+
+    public virtual void AddLiquid(float amount)
+    {
+        if (liquidHandler)
+            liquidHandler.LiquidVolume += amount;
     }
 
     #endregion
@@ -385,7 +408,7 @@ public class SpillController : MonoBehaviour
         {
             // https://answers.unity.com/questions/752382/how-to-compare-if-two-gameobjects-are-the-same-1.html
             //We only want to get this position on the original object we hit off of
-            if (GameObject.ReferenceEquals(revHit.collider.gameObject, hit.collider.gameObject))
+            if (ReferenceEquals(revHit.collider.gameObject, hit.collider.gameObject))
             {
                 //We hit the object the liquid is running down!
                 raycasthit = edgePosition = revHit.point;
@@ -398,12 +421,16 @@ public class SpillController : MonoBehaviour
 
     #endregion
 
-    private void Update()
+    protected virtual void Update()
     {
         // Update bottleneck and surface from last update
-        bottleneckPlane = CalculateBottleneckPlane();
+        BottleneckPlane = CalculateBottleneckPlane();
         BottleneckPos = CalculateBottleneckPos();
-        surfacePlane = new Plane(liquidHandler.SurfacePosition, liquidHandler.SurfaceNormal);
+        
+        if (!liquidHandler)
+            return;
+        
+        SurfacePlane = new Plane(liquidHandler.SurfacePosition, liquidHandler.SurfaceNormal);
 
         // Now check spliting, starting from the top
         currentDrop = 0;
