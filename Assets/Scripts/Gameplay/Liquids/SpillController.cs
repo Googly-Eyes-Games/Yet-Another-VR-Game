@@ -56,13 +56,16 @@ public class SpillController : MonoBehaviour
     [SerializeField]
     private ParticleSystem particles;
 
+    [SerializeField]
+    private Vector3 localSpillOffset;
+
     private void StartEffect(Vector3 splitPos, float scale)
     {
         if (!particles)
             return;
 
         particles.transform.localScale = Vector3.one * (bottleneckRadius * scale);
-        particles.transform.position = splitPos;
+        particles.transform.position = splitPos + transform.TransformDirection(localSpillOffset);
         particles.Play();
     }
 

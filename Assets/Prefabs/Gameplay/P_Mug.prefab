@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 3660195270326296142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2405, z: 0}
+  m_LocalPosition: {x: 0, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -495,6 +495,7 @@ MonoBehaviour:
   splitSpeed: 16
   maxEdgeDrops: 4
   particles: {fileID: 6785076333226158616}
+  localSpillOffset: {x: 0, y: -0.03, z: 0}
   mixingSpeed: 1
 --- !u!114 &927450582296655034
 MonoBehaviour:
@@ -740,6 +741,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 85f636ac1ff19854181efb851873886c, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 85f636ac1ff19854181efb851873886c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ccfcc866ef4d2004abdb2898d056ccae, type: 2}
@@ -774,6 +779,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 691187389614227388}
     m_Modifications:
+    - target: {fileID: 5157395080114985352, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_VelocityScale
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157395080114985352, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5157395080114985354, guid: 19d4da919fb68fa43b52a9b57b005116, type: 3}
       propertyPath: m_Name
       value: P_BeerParticles
@@ -935,7 +948,7 @@ MonoBehaviour:
   <LiquidColor>k__BackingField: {r: 1, g: 0.7529412, b: 0, a: 0}
   <FoamColor>k__BackingField: {r: 1, g: 0.8745098, b: 0.64705884, a: 1}
   <BottomOffset>k__BackingField: {x: 0, y: 0, z: 0}
-  maxWobblyEffect: 30
+  maxWobblyEffect: 20
   wobblyVelocityFactor: 1
   wobblyAngularVelocityFactor: 1
   wobbleDamping: 2
