@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,8 @@ public class MugChangeScene : MonoBehaviour
     {
         if (other.CompareTag("Mug"))
         {
-            SceneManager.LoadScene("S_TestMap");
+            TransitionsSceneManger tsm = TransitionsSceneManger.Get();
+            tsm.LoadScene("S_TestMap");
         }
     }
 }
