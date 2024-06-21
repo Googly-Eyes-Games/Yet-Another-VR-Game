@@ -1106,6 +1106,7 @@ GameObject:
   - component: {fileID: 387811239}
   - component: {fileID: 387811238}
   - component: {fileID: 387811237}
+  - component: {fileID: 387811240}
   m_Layer: 5
   m_Name: Barrell
   m_TagString: Untagged
@@ -1196,6 +1197,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &387811240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387811234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490a6a84f98542a4908c2e330781eda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  amplitude: 0.01
 --- !u!1 &410318771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1357,7 @@ GameObject:
   - component: {fileID: 452754811}
   - component: {fileID: 452754810}
   - component: {fileID: 452754809}
+  - component: {fileID: 452754812}
   m_Layer: 5
   m_Name: Mug UI
   m_TagString: Untagged
@@ -1432,6 +1448,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &452754812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452754807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490a6a84f98542a4908c2e330781eda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  amplitude: 0.01
 --- !u!1 &474194026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +2008,7 @@ GameObject:
   - component: {fileID: 668759756}
   - component: {fileID: 668759755}
   - component: {fileID: 668759754}
+  - component: {fileID: 668759757}
   m_Layer: 5
   m_Name: Table UI
   m_TagString: Untagged
@@ -2069,6 +2100,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &668759757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668759751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490a6a84f98542a4908c2e330781eda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  amplitude: 0.01
 --- !u!1001 &669706059
 PrefabInstance:
   m_ObjectHideFlags: 0
