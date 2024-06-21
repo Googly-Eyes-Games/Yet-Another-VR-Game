@@ -9,6 +9,8 @@ public class GameplayTimeSubsystem : SceneSubsystem
     public Action OnCountDownEnd;
     
     private Timer countdownTimer;
+
+    private int lastWholeSeconds = Int32.MaxValue;
     
     public override void Initialize()
     {
@@ -29,7 +31,12 @@ public class GameplayTimeSubsystem : SceneSubsystem
     {
         float countDownSeconds = GameplaySettings.Global.CountDownSeconds;
         int wholeSecondsRemain = Mathf.CeilToInt(countDownSeconds - seconds);
-        
-        OnCountDownTick?.Invoke(wholeSecondsRemain);
+
+        if (lastWholeSeconds != wholeSecondsRemain)
+        {
+            OnCountDownTick?.Invoke(wholeSecondsRemain);
+        }
+
+        lastWholeSeconds = wholeSecondsRemain;
     }
 }
