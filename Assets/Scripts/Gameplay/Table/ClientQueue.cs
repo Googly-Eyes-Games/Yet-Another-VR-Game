@@ -39,8 +39,6 @@ public class ClientQueue : MonoBehaviour
 
     public void ReturnMug(Client client)
     {
-        Vector3 mugPosition = returnMugStartPoint.position;
-
         MugComponent returnedMug = client.CollectedMug;
         returnedMug.gameObject.SetActive(true);
         returnedMug.FillPercentage = 0f;
@@ -48,9 +46,10 @@ public class ClientQueue : MonoBehaviour
         returnedMug.StartSliding();
         
         Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
-        mugRigidbody.MovePosition(mugPosition);
+        mugRigidbody.MovePosition(returnMugStartPoint.position);
+        mugRigidbody.rotation = Quaternion.identity;
 
-        Vector3 mugReturnDirection = (returnMugEndPoint.position - returnMugStartPoint.position).normalized;
+        Vector3 mugReturnDirection = returnMugStartPoint.forward;
         mugRigidbody.velocity = client.MugReturnSpeed * mugReturnDirection;
         mugRigidbody.angularVelocity = Vector3.up * 45f;
         mugRigidbody.AddForce(-mugRigidbody.GetAccumulatedForce());

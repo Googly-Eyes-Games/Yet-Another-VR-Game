@@ -28,8 +28,7 @@ public class Scoreboard : MonoBehaviour
 
         List<ScoreboardEntry> entriesToShow =
             saveData.highScores
-                .OrderBy(x => x.entryScore)
-                .Reverse()
+                .OrderByDescending(x => x.entryScore)
                 .Take(maxScoreboardEntries).ToList();
 
         foreach (ScoreboardEntry entry in entriesToShow)
