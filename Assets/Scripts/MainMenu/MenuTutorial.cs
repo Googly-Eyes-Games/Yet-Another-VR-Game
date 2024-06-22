@@ -33,7 +33,7 @@ public class MenuTutorial : MonoBehaviour
         grabInteractable.selectEntered.AddListener(HandleMugGrabbed);
 
         mug.OnFill += HandleMugFilled;
-        mugSpawn.OnSpawn += HandleMugSpawn;
+        mugSpawn.OnSpawn.AddListener(HandleMugSpawn);
         
         mugDetector.onMugDetected.AddListener(HandleMugDetected);
 

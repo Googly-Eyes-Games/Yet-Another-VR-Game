@@ -17,9 +17,6 @@ public class MugVFX : MonoBehaviour
     
     [SerializeField]
     private Vector2 foamFillRange = new Vector2(0.9f, 1.0f);
-
-    [SerializeField]
-    private float foamBottomOffset = 0.03f;
     
     [SerializeField]
     private LiquidHandler liquidHandler;
