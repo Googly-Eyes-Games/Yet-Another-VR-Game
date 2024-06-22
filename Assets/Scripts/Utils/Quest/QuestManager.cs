@@ -26,6 +26,7 @@ public class QuestManager : MonoBehaviour
 #if !UNITY_EDITOR_WIN
         OVRPlugin.systemDisplayFrequency = 90f;
         OVRPlugin.foveatedRenderingLevel = OVRPlugin.FoveatedRenderingLevel.Medium;
+        OVRPlugin.useDynamicFoveatedRendering = true;
 #endif
     }
     

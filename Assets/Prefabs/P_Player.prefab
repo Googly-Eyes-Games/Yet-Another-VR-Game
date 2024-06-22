@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bigMessageText: {fileID: 4635682290095899135}
+  audioSource: {fileID: 0}
 --- !u!1 &2705855611330327064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,7 +2449,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 1
   m_StopNaN: 0
