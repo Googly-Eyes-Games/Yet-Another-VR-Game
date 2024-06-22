@@ -48,13 +48,16 @@ public class GameOverEntryInput : MonoBehaviour
     
     public void Next()
     {
-        nick = nick.ToUpperInvariant();
+        if (nick != null)
+        {
+            nick = nick.ToUpperInvariant();
         
-        ScoreboardEntry scoreboardEntry = new ScoreboardEntry(
-            nick,
-            score
-        );
-        
-        SaveManager.AddEntry(scoreboardEntry);
+            ScoreboardEntry scoreboardEntry = new ScoreboardEntry(
+                nick,
+                score
+            );
+            
+            SaveManager.AddEntry(scoreboardEntry);
+        }
     }
 }
