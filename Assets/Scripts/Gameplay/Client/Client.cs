@@ -177,7 +177,6 @@ public class Client : MonoBehaviour
     private void ReturnMug()
     {
         ClientQueue.ReturnMug(this);
-        CollectedMug.StartSliding();
         CollectedMug = null;
     }
 }

@@ -23,9 +23,16 @@ public class ClientAnimator : MonoBehaviour
     
     [Foldout("Setup")]
     [SerializeField]
+    private Transform meshRoot;
+    
+    [Foldout("Setup")]
+    [SerializeField]
     private Transform mugTransform;
 
     private Client client;
+
+    private Vector3 defaultMeshRootPosition;
+    private Quaternion defaultMeshRootRotation;
 
     private void Awake()
     {
@@ -33,6 +40,12 @@ public class ClientAnimator : MonoBehaviour
 
         client.OnInitialize += HandleClientInitialized;
         client.OnClientStateChanged += HandleClientStateChanged;
+    }
+
+    private void Start()
+    {
+        defaultMeshRootPosition = meshRoot.localPosition;
+        defaultMeshRootRotation = meshRoot.localRotation;
     }
 
     private void HandleClientInitialized()
@@ -63,6 +76,12 @@ public class ClientAnimator : MonoBehaviour
         mugTransform.gameObject.SetActive(hasMug);
         rightArm.weight = state == ClientState.DrinkingBeer ? 1.0f : 0.0f ;
         leftArm.weight = 0.0f;
+    }
+
+    public void ResetRootMotion()
+    {
+        meshRoot.localPosition = defaultMeshRootPosition;
+        meshRoot.localRotation = defaultMeshRootRotation;
     }
 
     private static class AnimatorLookUp

@@ -734,6 +734,7 @@ MonoBehaviour:
   leftArm: {fileID: 960408032678074988}
   rightArm: {fileID: 7019349415780200793}
   animator: {fileID: 1309530469455649232}
+  meshRoot: {fileID: 4957425055656674218}
   mugTransform: {fileID: 5679663070186127805}
 --- !u!114 &-4074616738871940659
 MonoBehaviour:
@@ -752,6 +753,7 @@ MonoBehaviour:
   unsatisfiedSFX: {fileID: 8300000, guid: 5a180cf03fa9f21448e5f7b6a8b3f1e0, type: 3}
   satisfiedSFX: {fileID: 8300000, guid: e8230a1b08c2e94499b16c9885d0d11b, type: 3}
   pickUpMugSFX: {fileID: 8300000, guid: 0631a51a5fc306e4297a50c7d4533231, type: 3}
+  goToBarPercentageToScreamAgain: 0.75
 --- !u!114 &6815942002053164694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +871,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c766eafa9316e3c729d410b19278e43b, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 961b6cc2c24bd794c89217e6fe87baa8, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

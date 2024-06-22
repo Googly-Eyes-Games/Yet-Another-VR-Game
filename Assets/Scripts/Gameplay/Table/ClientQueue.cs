@@ -39,16 +39,13 @@ public class ClientQueue : MonoBehaviour
 
     public void ReturnMug(Client client)
     {
-        Vector3 mugPosition = LinearAlgebra.NearestPointOnSegment(
-            returnMugStartPoint.position,
-            returnMugEndPoint.position,
-            client.transform.position
-            );
+        Vector3 mugPosition = returnMugStartPoint.position;
 
         MugComponent returnedMug = client.CollectedMug;
         returnedMug.gameObject.SetActive(true);
         returnedMug.FillPercentage = 0f;
         returnedMug.IsClean = false;
+        returnedMug.StartSliding();
         
         Rigidbody mugRigidbody = returnedMug.GetComponent<Rigidbody>();
         mugRigidbody.MovePosition(mugPosition);

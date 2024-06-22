@@ -60,12 +60,16 @@ public class ClientSubsystem : SceneSubsystem
     private void OnGetClient(Client client)
     {
         client.gameObject.SetActive(true);
+        
         activeClients.Add(client);
     }
 
     private void OnReleaseClient(Client client)
     {
         client.gameObject.SetActive(false);
+        ClientAnimator animator = client.GetComponent<ClientAnimator>();
+        animator.ResetRootMotion();
+            
         activeClients.Remove(client);
     }
     
