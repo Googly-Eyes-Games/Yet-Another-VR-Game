@@ -41,6 +41,8 @@ Material:
     - _NoiseOneSpeed: -1
     - _NoiseTwoScale: 15
     - _NoiseTwoSpeed: -2
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - _ColorOne: {r: 0.98039216, g: 0.37317038, b: 0.003921577, a: 0}
     - _ColorTwo: {r: 0.8679245, g: 0.7335809, b: 0.02046992, a: 0}

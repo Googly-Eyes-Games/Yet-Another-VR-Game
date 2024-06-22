@@ -15,7 +15,7 @@ Material:
   - _ENABLERIM
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -50,6 +50,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rim: 6.8
+    - _RimStrenght: 1
     - _Smoothness: 0.25
     m_Colors:
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}

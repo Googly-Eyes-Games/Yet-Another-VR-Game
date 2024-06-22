@@ -32,6 +32,8 @@ public class MenuMugSpawn : MonoBehaviour
 
         MugComponent mugComponent = mug.GetComponent<MugComponent>();
         mugComponent.FillPercentage = 0f;
+        
+        OnSpawn?.Invoke();
 
         mug.transform.localScale = Vector3.zero;
         mug.transform.DOScale(1f, spawnAnimationDuration);

@@ -52,7 +52,7 @@ public class MenuTutorial : MonoBehaviour
         throwTutorialText.enabled = true;
     }
     
-    private void HandleMugSpawn()
+    public void HandleMugSpawn()
     {
         foreach (TMP_Text text in allText)
         {

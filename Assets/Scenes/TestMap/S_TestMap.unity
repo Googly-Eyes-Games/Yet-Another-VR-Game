@@ -6457,6 +6457,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_LongWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4706726794929241547, guid: 0a7c7b07b0575754a90f66efa18183c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7046083
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706726794929241547, guid: 0a7c7b07b0575754a90f66efa18183c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.059388373
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706726794929241547, guid: 0a7c7b07b0575754a90f66efa18183c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.059388362
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706726794929241547, guid: 0a7c7b07b0575754a90f66efa18183c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70460856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4706726794929241547, guid: 0a7c7b07b0575754a90f66efa18183c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 9.636
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 115987069424148913, guid: 0a7c7b07b0575754a90f66efa18183c1, type: 3}
