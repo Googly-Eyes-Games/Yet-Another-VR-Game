@@ -16,7 +16,7 @@ public class FollowCameraYawRotationComponent : MonoBehaviour
         transform.rotation = Quaternion.Lerp(
             transform.rotation,
             Quaternion.Euler(targetRotation),
-            Time.deltaTime * lerpSpeed
+            Time.unscaledDeltaTime * lerpSpeed
         );
     }
 }

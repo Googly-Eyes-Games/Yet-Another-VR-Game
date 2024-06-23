@@ -1,58 +1,65 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private Button resumeButton;
-    [SerializeField] private Button restartButton;
-    [SerializeField] private Button leaveButton;
-    [SerializeField] private GameObject canvas;
+    [SerializeField]
+    private Button resumeButton;
+
+    [SerializeField]
+    private Button leaveButton;
+
+    [SerializeField]
+    private GameObject canvas;
+    
+    [SerializeField]
+    private InputActionReference pauseInputAction;
+
+    private bool isPaused = false;
 
     void OnEnable()
     {
+        pauseInputAction.action.performed += HandlePauseInput;
+        
         resumeButton.onClick.AddListener(OnResume);
-        restartButton.onClick.AddListener(OnRestart);
         leaveButton.onClick.AddListener(OnLeave);
-
-        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("XRI Default Input Actions");
-        inputActionAsset.FindAction("PauseMenu").performed += OnPause;
     }
 
     void OnDisable() 
     {
+        pauseInputAction.action.performed -= HandlePauseInput;
+        
         resumeButton.onClick.RemoveAllListeners();
-        restartButton.onClick.RemoveAllListeners();
         leaveButton.onClick.RemoveAllListeners();
-
-        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("XRI Default Input Actions");
-        inputActionAsset.FindAction("PauseMenu").performed -= OnPause;    
     }
 
-    void OnPause(InputAction.CallbackContext context)
+    void HandlePauseInput(InputAction.CallbackContext context)
     {
-        Time.timeScale = 0.0f;
-        canvas.SetActive(true);
+        if (!isPaused)
+        {
+            canvas.SetActive(true);
+            Time.timeScale = 0.0f;
+            isPaused = true;
+        }
+        else
+        {
+            OnResume();
+        }
     }
 
     void OnResume()
     {
-        Time.timeScale = 1.0f;
         canvas.SetActive(false);
-    }
-
-    void OnRestart()
-    {
         Time.timeScale = 1.0f;
-        TransitionsSceneManger.Get().LoadScene("S_TestMap");
+        isPaused = false;
     }
 
     void OnLeave()
     {
         Time.timeScale = 1.0f;
-        TransitionsSceneManger.Get().LoadScene("S_MainMenu");
+        TransitionsSceneManger.Get().LoadMenu();
     }
 }
