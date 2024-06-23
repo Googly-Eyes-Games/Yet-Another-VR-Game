@@ -528,7 +528,6 @@ MonoBehaviour:
   spawnAnimationDuration: 0.5
   foamVFX: {fileID: 1643284150778074653}
   foamFillRange: {x: 0.7, y: 0.8}
-  foamBottomOffset: 0.11
   liquidHandler: {fileID: 6834605724626997490}
   mug: {fileID: 2439647757041166320}
   meshTransform: {fileID: 228497558669016826}
@@ -947,7 +946,7 @@ MonoBehaviour:
   <ContainerVolume>k__BackingField: 1
   <LiquidColor>k__BackingField: {r: 1, g: 0.7529412, b: 0, a: 0}
   <FoamColor>k__BackingField: {r: 1, g: 0.8745098, b: 0.64705884, a: 1}
-  <BottomOffset>k__BackingField: {x: 0, y: 0, z: 0}
+  <BottomOffset>k__BackingField: {x: 0, y: -0.001, z: 0}
   maxWobblyEffect: 20
   wobblyVelocityFactor: 1
   wobblyAngularVelocityFactor: 1
