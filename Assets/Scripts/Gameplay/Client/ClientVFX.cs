@@ -13,7 +13,11 @@ public class ClientVFX : MonoBehaviour
     
     [Foldout("Setup")]
     [SerializeField]
-    private Renderer meshRenderer;
+    private SkinnedMeshRenderer meshRenderer;
+    
+    [Foldout("Setup")]
+    [SerializeField]
+    private ClientAnimator animator;
     
     [Foldout("Config")]
     [SerializeField]
@@ -27,9 +31,17 @@ public class ClientVFX : MonoBehaviour
     [SerializeField]
     private VikingColorSetup[] vikingColors;
     
+    [Foldout("Config")]
+    [SerializeField]
+    private VikingMeshSetup[] vikingMeshes;
+    
     [Foldout("Debug")]
     [SerializeField]
     private int colorToApply;
+    
+    [Foldout("Debug")]
+    [SerializeField]
+    private int meshToApply;
 
     private Client client;
     private Material material;
@@ -46,6 +58,16 @@ public class ClientVFX : MonoBehaviour
     private void HandleInitialization()
     {
         UpdateColors();
+        UpdateMesh();
+    }
+
+    [Button]
+    private void UpdateMesh()
+    {
+        VikingMeshSetup setup = vikingMeshes.GetRandom();
+
+        meshRenderer.sharedMesh = setup.mesh;
+        animator.IsWoman = setup.isWoman;
     }
 
     [Button]
@@ -115,7 +137,7 @@ public class ClientVFX : MonoBehaviour
     }
 
     [Serializable]
-    public struct VikingColorSetup
+    public class VikingColorSetup
     {
         [SerializeField]
         public Color hairColor;
@@ -125,5 +147,15 @@ public class ClientVFX : MonoBehaviour
         
         [SerializeField]
         public Color clothSecondaryColor;
+    }
+    
+    [Serializable]
+    public class VikingMeshSetup
+    {
+        [SerializeField]
+        public Mesh mesh;
+
+        [SerializeField]
+        public bool isWoman;
     }
 }

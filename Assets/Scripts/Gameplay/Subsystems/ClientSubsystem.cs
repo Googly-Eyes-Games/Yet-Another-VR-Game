@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using erulathra;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityTimer;
@@ -73,6 +74,7 @@ public class ClientSubsystem : SceneSubsystem
         activeClients.Remove(client);
     }
     
+    [Button]
     public Client SpawnClient()
     {
         int targetQueueID = Random.Range(0, clientQueues.Length);

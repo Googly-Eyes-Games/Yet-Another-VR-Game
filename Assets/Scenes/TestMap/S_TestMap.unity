@@ -6429,6 +6429,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6809341316160363508, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:LeftForeArm'\n\tTransform 'mixamorig:LeftArm'\n\tTransform
+        'mixamorig:RightHand'\n\tTransform 'mixamorig:RightForeArm'\n\tTransform
+        'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftHand'\n\tTransform 'mixamorig:LeftForeArm'\n\tTransform
+        'mixamorig:LeftArm'\n\tTransform 'mixamorig:RightHand'\n\tTransform 'mixamorig:RightForeArm'\n\tand
+        more ..."
+      objectReference: {fileID: 0}
     - target: {fileID: 8913295021259017323, guid: ea6f66c174b3830429f74674a7a80214, type: 3}
       propertyPath: m_Name
       value: P_ClientLeft

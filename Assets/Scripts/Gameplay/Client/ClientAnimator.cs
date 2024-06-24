@@ -34,6 +34,18 @@ public class ClientAnimator : MonoBehaviour
     private Vector3 defaultMeshRootPosition;
     private Quaternion defaultMeshRootRotation;
 
+    private bool isWoman = false;
+
+    public bool IsWoman
+    {
+        get => isWoman;
+        set
+        {
+            isWoman = value;
+            animator.SetBool(AnimatorLookUp.IsWoman, value);
+        }
+    }
+
     private void Awake()
     {
         client = GetComponent<Client>();
@@ -87,5 +99,6 @@ public class ClientAnimator : MonoBehaviour
     private static class AnimatorLookUp
     {
         public static readonly int WalkSpeed = Animator.StringToHash("WalkSpeed");
+        public static readonly int IsWoman = Animator.StringToHash("IsWoman");
     }
 }
