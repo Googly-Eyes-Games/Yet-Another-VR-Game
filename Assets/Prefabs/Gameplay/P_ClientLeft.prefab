@@ -1046,7 +1046,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 2661635580400137458, guid: ecf4a1b76fc21b443b826c7bcd19c8d9, type: 3}
+  m_Mesh: {fileID: 3511078190529691338, guid: 471cbcc54f35e4c498a18405beb17992, type: 3}
   m_Bones:
   - {fileID: 3669766531820313373}
   - {fileID: 2041575280526911475}
@@ -2224,7 +2224,12 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:LeftForeArm'\n\tTransform 'mixamorig:LeftArm'\n\tTransform
+    'mixamorig:RightHand'\n\tTransform 'mixamorig:RightForeArm'\n\tTransform 'mixamorig:RightArm'\n\tTransform
+    'mixamorig:LeftHand'\n\tTransform 'mixamorig:LeftForeArm'\n\tTransform 'mixamorig:LeftArm'\n\tTransform
+    'mixamorig:RightHand'\n\tTransform 'mixamorig:RightForeArm'\n\tand more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -2550,7 +2555,7 @@ MonoBehaviour:
   leftArm: {fileID: 960408032678074988}
   rightArm: {fileID: 7019349415780200793}
   animator: {fileID: 6809341316160363508}
-  meshRoot: {fileID: 3669766531820313373}
+  meshRoot: {fileID: 9016336638847488045}
   mugTransform: {fileID: 8276021915158227096}
 --- !u!114 &-4074616738871940659
 MonoBehaviour:

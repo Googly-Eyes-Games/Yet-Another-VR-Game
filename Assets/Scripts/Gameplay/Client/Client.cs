@@ -133,9 +133,9 @@ public class Client : MonoBehaviour
         if (mug.FillPercentage > GameplaySettings.Global.MinimalMugFillAmount
             && mug.IsClean)
         {
-            SetState(ClientState.DrinkingBeer);
-            
             CollectedMug = mug;
+            
+            SetState(ClientState.DrinkingBeer);
             
             Rigidbody mugRigidbody = mug.GetComponent<Rigidbody>();
             mugRigidbody.velocity = Vector3.zero;
