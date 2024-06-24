@@ -123,6 +123,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Rim: 0
+    - _RimStrenght: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -138,5 +139,5 @@ Material:
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tiling: {r: 25, g: 20, b: 0, a: 0}
+    - _Tiling: {r: 12, g: 6, b: 0, a: 0}
   m_BuildTextureStacks: []
