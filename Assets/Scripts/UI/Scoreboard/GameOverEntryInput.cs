@@ -16,7 +16,7 @@ public class GameOverEntryInput : MonoBehaviour
     private int maxCharacters = 16;
     
     private int score;
-    private string nick;
+    private string nick = "GUEST";
     
     private TouchScreenKeyboard overlayKeyboard;
     
@@ -29,8 +29,7 @@ public class GameOverEntryInput : MonoBehaviour
 
         scoreText.text = score.ToString();
         
-        overlayKeyboard = TouchScreenKeyboard.Open("GUEST",  TouchScreenKeyboardType.Default);
-        overlayKeyboard.characterLimit = maxCharacters;
+        ShowKeyboard();
     }
 
     private void Update()
@@ -44,6 +43,12 @@ public class GameOverEntryInput : MonoBehaviour
             inputField.text = overlayKeyboard.text;
             nick = overlayKeyboard.text;
         }
+    }
+
+    public void ShowKeyboard()
+    {
+        overlayKeyboard = TouchScreenKeyboard.Open(nick,  TouchScreenKeyboardType.Default);
+        overlayKeyboard.characterLimit = maxCharacters;
     }
     
     public void Next()

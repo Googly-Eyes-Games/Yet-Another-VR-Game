@@ -61,7 +61,7 @@ Material:
     - _FoamColor: {r: 1, g: 0.78333336, b: 0.16176471, a: 0.25}
     - _HeightRange: {r: -0.1, g: 0.08, b: 0, a: 0}
     - _PlaneNormal: {r: 0, g: 1, b: 0, a: 0}
-    - _PlanePosition: {r: 0, g: 0.018999996, b: -0.0000000070780515, a: 0}
+    - _PlanePosition: {r: 0.378, g: 0.863, b: 0.691, a: 0}
     - _Rim_Color: {r: 0.693879, g: 1, b: 0.32547167, a: 1}
     - _TopColor: {r: 1, g: 0.94731724, b: 0, a: 1}
   m_BuildTextureStacks: []

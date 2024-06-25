@@ -550,6 +550,9 @@ Transform:
   - {fileID: 854082894}
   - {fileID: 530361890}
   - {fileID: 1395753264}
+  - {fileID: 1428070380}
+  - {fileID: 1806681201}
+  - {fileID: 584842823}
   - {fileID: 647779311}
   - {fileID: 749861504}
   m_Father: {fileID: 0}
@@ -2076,6 +2079,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 855892314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &584842822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584842823}
+  - component: {fileID: 584842825}
+  - component: {fileID: 584842824}
+  m_Layer: 0
+  m_Name: DespawnMug (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &584842823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584842822}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.50000006, y: -0.49999997, z: -0.49999997, w: 0.5000001}
+  m_LocalPosition: {x: 1.74, y: -0, z: 2.049}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 212703156}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!114 &584842824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584842822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8596db10b354c41b3aaab42da767fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMugDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 530361889}
+        m_TargetAssemblyTypeName: MenuMugSpawn, Assembly-CSharp
+        m_MethodName: SpawnMug
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &584842825
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584842822}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 0.19, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &598090690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4470,7 +4554,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 100, y: 0.19, z: 100}
+  m_Size: {x: 10, y: 0.19, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1395753264
 Transform:
@@ -4628,6 +4712,87 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &1428070379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428070380}
+  - component: {fileID: 1428070382}
+  - component: {fileID: 1428070381}
+  m_Layer: 0
+  m_Name: DespawnMug (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1428070380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428070379}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 2.023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 212703156}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1428070381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428070379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8596db10b354c41b3aaab42da767fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMugDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 530361889}
+        m_TargetAssemblyTypeName: MenuMugSpawn, Assembly-CSharp
+        m_MethodName: SpawnMug
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1428070382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428070379}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.19, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1494454538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5226,6 +5391,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1311449853268252968, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311449853268252968, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.021
       objectReference: {fileID: 0}
@@ -5270,15 +5439,16 @@ PrefabInstance:
       value: P_BattleAxe (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1835467665359668114, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835467665359668114, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1311449853268252968, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1790245781}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1835467665359668114, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
       insertIndex: -1
@@ -5713,7 +5883,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5190474746963920967, guid: fbde2d1b77202654b8625fed1da3689e, type: 3}
   m_PrefabInstance: {fileID: 1769991943}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1790245780
+--- !u!1 &1806681200
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5721,29 +5891,79 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1790245781}
+  - component: {fileID: 1806681201}
+  - component: {fileID: 1806681203}
+  - component: {fileID: 1806681202}
   m_Layer: 0
-  m_Name: AttachPoint
+  m_Name: DespawnMug (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1790245781
+--- !u!4 &1806681201
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790245780}
+  m_GameObject: {fileID: 1806681200}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96, y: 0, z: -0}
+  m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -1.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1660466474}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 212703156}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1806681202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806681200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8596db10b354c41b3aaab42da767fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMugDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 530361889}
+        m_TargetAssemblyTypeName: MenuMugSpawn, Assembly-CSharp
+        m_MethodName: SpawnMug
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1806681203
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806681200}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.19, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1896778593
 GameObject:
   m_ObjectHideFlags: 0
