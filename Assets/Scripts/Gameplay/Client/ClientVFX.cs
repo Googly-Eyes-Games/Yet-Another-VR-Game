@@ -65,6 +65,7 @@ public class ClientVFX : MonoBehaviour
     private void UpdateMesh()
     {
         VikingMeshSetup setup = vikingMeshes.GetRandom();
+        // VikingMeshSetup setup = vikingMeshes[2];
 
         meshRenderer.sharedMesh = setup.mesh;
         animator.IsWoman = setup.isWoman;
