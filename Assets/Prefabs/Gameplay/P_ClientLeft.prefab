@@ -2632,8 +2632,6 @@ MonoBehaviour:
   vikingMeshes:
   - mesh: {fileID: 3511078190529691338, guid: 471cbcc54f35e4c498a18405beb17992, type: 3}
     isWoman: 0
-  - mesh: {fileID: 3682793918608212362, guid: fa386ed403b9e654e95a405ec809302e, type: 3}
-    isWoman: 1
   - mesh: {fileID: 2661635580400137458, guid: ecf4a1b76fc21b443b826c7bcd19c8d9, type: 3}
     isWoman: 0
   colorToApply: 6
