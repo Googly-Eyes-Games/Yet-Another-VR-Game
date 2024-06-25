@@ -5221,6 +5221,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 177919045349483079, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1311449853268252968, guid: ce00926f777c1ce4db2dae8c0d26f539, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.021

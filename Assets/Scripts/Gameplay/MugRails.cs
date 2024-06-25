@@ -103,7 +103,7 @@ public class MugRails : MonoBehaviour
         mugRotation.x = 0f;
         mugRotation.z = 0f;
         mugRigidbody.rotation = Quaternion.Euler(mugRotation);
-        
+
         Timer.Register(
             mugPositionCorrectionDuration,
             () => { },

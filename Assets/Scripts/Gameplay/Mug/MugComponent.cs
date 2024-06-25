@@ -17,6 +17,9 @@ public class MugComponent : MonoBehaviour
     
     [SerializeField]
     private MeshRenderer foamRenderer;
+
+    [SerializeField]
+    private Collider[] colliders;
     
     private Material mugMaterialInstance;
     
@@ -53,6 +56,7 @@ public class MugComponent : MonoBehaviour
     {
         XRGrabInteractable interactable = GetComponent<XRGrabInteractable>();
         interactable.selectEntered.AddListener(HandleMugGrabbed);
+        interactable.selectExited.AddListener(HandleMugDropped);
         
         mugMaterialInstance = mugMeshRenderer.material;
         
@@ -62,6 +66,20 @@ public class MugComponent : MonoBehaviour
     private void HandleMugGrabbed(SelectEnterEventArgs selectArgs)
     {
         StopSliding();
+        SetColliders(false);
+    }
+    
+    private void HandleMugDropped(SelectExitEventArgs arg0)
+    {
+        SetColliders(true);
+    }
+
+    private void SetColliders(bool newEnabled)
+    {
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = newEnabled;
+        }
     }
 
     public void DestroyMug()
@@ -82,6 +100,8 @@ public class MugComponent : MonoBehaviour
     
     public void StopSliding()
     {
+        Rigidbody mugRigidbody = GetComponent<Rigidbody>();
+        
         IsSliding = false;
         OnSlidingStateChanged?.Invoke(false);
     }
