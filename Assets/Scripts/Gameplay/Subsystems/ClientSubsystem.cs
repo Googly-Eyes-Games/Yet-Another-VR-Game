@@ -79,9 +79,12 @@ public class ClientSubsystem : SceneSubsystem
     {
         int targetQueueID = Random.Range(0, clientQueues.Length);
         ClientQueue targetQueue = clientQueues[targetQueueID];
-        if (!IsQueueFree(targetQueue))
+
+        int queueSelectAttempt = 1;
+        while (!IsQueueFree(targetQueue) && queueSelectAttempt < 3)
         {
-            targetQueue = clientQueues[(targetQueueID + 1) % clientQueues.Length];
+            targetQueue = clientQueues[(targetQueueID + queueSelectAttempt) % clientQueues.Length];
+            queueSelectAttempt++;
         }
 
         Client newClient = targetQueue.isRightQueue ? rightClientPool.Get() : leftClientPool.Get();
@@ -96,7 +99,7 @@ public class ClientSubsystem : SceneSubsystem
     {
         foreach (Client client in activeClients)
         {
-            if (client.GoToBarProgress < 0.25f && client.ClientQueue == queue)
+            if (client.GoToBarProgress < 0.1f && client.ClientQueue == queue)
             {
                 return false;
             }

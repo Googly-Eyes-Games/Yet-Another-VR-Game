@@ -40,49 +40,49 @@ MonoBehaviour:
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 75
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 10
-    <MaxClients>k__BackingField: 2
+    <MaxClients>k__BackingField: 3
     <ClientSpeed>k__BackingField: 1
     <MugSpeed>k__BackingField: 2
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 100
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 15
-    <MaxClients>k__BackingField: 3
+    <MaxClients>k__BackingField: 4
     <ClientSpeed>k__BackingField: 1
     <MugSpeed>k__BackingField: 2
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 125
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 20
-    <MaxClients>k__BackingField: 3
+    <MaxClients>k__BackingField: 4
     <ClientSpeed>k__BackingField: 1.5
     <MugSpeed>k__BackingField: 2
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 150
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 25
-    <MaxClients>k__BackingField: 3
+    <MaxClients>k__BackingField: 4
     <ClientSpeed>k__BackingField: 1.8
     <MugSpeed>k__BackingField: 2
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 200
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 30
-    <MaxClients>k__BackingField: 3
+    <MaxClients>k__BackingField: 5
     <ClientSpeed>k__BackingField: 2
     <MugSpeed>k__BackingField: 1.5
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 250
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 40
-    <MaxClients>k__BackingField: 3
+    <MaxClients>k__BackingField: 5
     <ClientSpeed>k__BackingField: 2.5
     <MugSpeed>k__BackingField: 1.5
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
     <AddHeart>k__BackingField: 1
     <ScoreMultiplier>k__BackingField: 300
   - <SatisfiedClientsToUnlockLevel>k__BackingField: 50
-    <MaxClients>k__BackingField: 4
+    <MaxClients>k__BackingField: 6
     <ClientSpeed>k__BackingField: 2.5
     <MugSpeed>k__BackingField: 1.5
     <TimeRangeToSpawnNewClient>k__BackingField: {x: 2, y: 5}
